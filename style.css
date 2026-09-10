@@ -1,0 +1,1092 @@
+/* ==========================================================================
+   PORTFOLIO — EDITORIAL BOOK DESIGN SYSTEM
+   Color tokens, type tokens and layout rules are centralised here so the
+   site can be restyled later without touching structure.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Ruqah Wind Longo';
+  src: url('assets/fonts/RuqahWindLongo.woff2') format('woff2'),
+       url('assets/fonts/RuqahWindLongo.ttf') format('truetype');
+  font-display: swap;
+  /* If this file is missing, the poem falls back to 'Aref Ruqaa' below.
+     Drop the real font file at assets/fonts/RuqahWindLongo.woff2 to activate it. */
+}
+
+:root {
+  /* ---- Color system ---- */
+  --snow: #FCFCFC;
+  --pink: #F7567C;
+  --cornsilk: #FFFAE3;
+  --aqua: #99E1D9;
+  --taupe: #5D576B;
+
+  --ink: var(--taupe);
+  --bg: var(--snow);
+  --accent: var(--pink);
+
+  /* ---- Type ---- */
+  --font-ar: 'Tajawal', sans-serif;
+  --font-poem: 'Ruqah Wind Longo', 'Aref Ruqaa', serif;
+  --font-display: 'Love Ya Like A Sister', cursive;
+  --font-body: 'PT Serif', serif;
+
+  /* ---- Rhythm ---- */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --chapter-pad: clamp(4rem, 12vh, 8rem);
+  --max-line: 62ch;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ar);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[lang="en"] body { font-family: var(--font-body); }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.site-nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem var(--gutter);
+  background: rgba(252, 252, 252, 0.82);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(93, 87, 107, 0.12);
+}
+
+.nav-mark {
+  font-family: var(--font-poem);
+  font-size: 1.15rem;
+  color: var(--pink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(0.85rem, 1.8vw, 1.75rem);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 1080px) {
+  .nav-links { gap: 0.7rem; font-size: 0.82rem; }
+}
+
+.nav-links a {
+  text-decoration: none;
+  position: relative;
+  padding-block: 2px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--pink);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after { width: 100%; }
+
+.nav-controls { display: flex; align-items: center; gap: 1rem; }
+
+.lang-switch {
+  font-family: var(--font-ar);
+  background: none;
+  border: 1px solid var(--taupe);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  color: var(--taupe);
+  display: flex;
+  gap: 0.35rem;
+}
+
+.lang-switch [data-active] { color: var(--pink); font-weight: 700; }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle span { width: 20px; height: 2px; background: var(--taupe); }
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    inset-inline: 0;
+    top: 60px;
+    background: var(--snow);
+    flex-direction: column;
+    padding: 1.5rem var(--gutter) 2rem;
+    gap: 1.1rem;
+    font-size: 1rem;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    border-bottom: 1px solid rgba(93,87,107,0.12);
+  }
+  .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+}
+
+/* ==========================================================================
+   SHARED CHAPTER RHYTHM
+   ========================================================================== */
+
+.chapter {
+  padding: var(--chapter-pad) var(--gutter);
+  position: relative;
+}
+
+.chapter-tag {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--pink);
+  margin-block-end: 0.75rem;
+  font-weight: 700;
+}
+
+.chapter-title {
+  font-family: var(--font-ar);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 2rem;
+  max-width: 20ch;
+}
+html[lang="en"] .chapter-title { font-family: var(--font-display); font-weight: 400; }
+
+/* ==========================================================================
+   01 HERO
+   ========================================================================== */
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  background: var(--snow);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-ar);
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  color: var(--pink);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding-bottom: 0.6rem;
+  max-width: fit-content;
+}
+.hero-eyebrow::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: var(--pink);
+  animation: draw-line 1.1s 0.3s ease-out forwards;
+}
+@keyframes draw-line { to { width: 100%; } }
+
+.hero-title-wrap {
+  position: relative;
+  display: block;
+  margin: 0 auto clamp(2.5rem, 8vh, 5rem);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.title-deco {
+  position: absolute;
+  inset: -20% -12%;
+  width: 124%;
+  height: 140%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.title-deco path,
+.title-deco circle { opacity: 0.85; }
+.deco-curve { stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw-curve 1.6s 0.6s ease-out forwards; }
+@keyframes draw-curve { to { stroke-dashoffset: 0; } }
+.deco-star { animation: twinkle 3.4s ease-in-out 1.8s infinite; transform-origin: 600px 33px; }
+.deco-dot:nth-of-type(1) { animation: drift-dot 6s ease-in-out infinite; }
+.deco-dot:nth-of-type(2) { animation: drift-dot 7s ease-in-out infinite 0.4s; }
+@keyframes twinkle { 0%, 100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+@keyframes drift-dot { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(3px, -4px); } }
+
+.hero-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-ar);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 9vw, 6.5rem);
+  line-height: 1.02;
+  color: var(--taupe);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise 0.8s 0.5s ease-out forwards;
+}
+html[lang="en"] .hero-title { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; }
+
+.hero-period { color: var(--pink); }
+
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .deco-curve { stroke-dashoffset: 0; animation: none; }
+  .deco-star, .deco-dot { animation: none; }
+}
+
+/* ---- Poem: three explicit staircase steps, each a two-line block ----
+   Positions are physical (translateX/Y), not logical, so the staircase
+   reads identically — right-to-left, descending — in both AR and EN. */
+.poem-stair {
+  font-family: var(--font-poem);
+  color: var(--taupe);
+  font-size: clamp(1rem, 1.7vw, 1.4rem);
+  line-height: 1.85;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.poem-step {
+  text-align: center;
+  opacity: 0;
+  animation: rise 0.8s ease-out forwards;
+}
+.poem-step p { margin: 0; }
+
+/* Staggered internally, centered externally: each line steps an equal
+   distance to either side of the container's own center, so the whole
+   two-line bounding box sits in the middle of the hero rather than
+   drifting toward one edge. */
+.step-1 { transform: translate(calc(var(--stair-x1, 150px) / 2), 0); animation-delay: 1.0s; }
+.step-2 { transform: translate(calc(-1 * var(--stair-x1, 150px) / 2), var(--stair-y2, 32px)); animation-delay: 1.55s; }
+
+/* keep the final resting position (animation fill is 'forwards', so
+   translateY(0) inside @keyframes rise would fight the step transform —
+   rise only animates opacity+a small lift, layered on top) */
+.poem-step { --lift: 10px; }
+@keyframes rise { from { opacity: 0; } to { opacity: 1; } }
+.step-1, .step-2 { transform-origin: center; }
+
+:root { --stair-x1: 160px; --stair-y2: 34px; }
+
+@media (max-width: 900px) {
+  :root { --stair-x1: 96px; --stair-y2: 24px; }
+}
+@media (max-width: 560px) {
+  :root { --stair-x1: 48px; --stair-y2: 18px; }
+  .poem-stair { font-size: 0.95rem; }
+}
+
+.motif-wrap {
+  position: relative;
+  display: inline-block;
+}
+.motif { color: var(--taupe); }
+
+/* ---- Orbiting star with a soft comet tail ----
+   One main star plus three fading, shrinking duplicates trailing behind
+   it on the same path — an elegant trail, not a glow/blur effect. */
+.orbit-wrap {
+  position: absolute;
+  inset-inline-start: 50%;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+}
+
+.orbit-star {
+  position: absolute;
+  top: 0; left: 0;
+  width: 15px;
+  height: 15px;
+  fill: var(--pink);
+  offset-path: ellipse(72px 27px at 0px 0px);
+  opacity: 0;
+}
+
+.orbit-main { animation: orbit 10s linear 2.6s infinite, spin 4s linear infinite, fade-in 0.4s 2.6s forwards; }
+.orbit-trail { fill: var(--pink); }
+.orbit-trail.t1 { width: 11px; height: 11px; animation: orbit 10s linear 2.72s infinite, fade-trail 0.4s 2.72s forwards; opacity: 0; }
+.orbit-trail.t2 { width: 8px; height: 8px; animation: orbit 10s linear 2.84s infinite, fade-trail 0.4s 2.84s forwards; opacity: 0; }
+.orbit-trail.t3 { width: 5px; height: 5px; animation: orbit 10s linear 2.96s infinite, fade-trail 0.4s 2.96s forwards; opacity: 0; }
+.orbit-trail.t1 { --trail-o: 0.55; }
+.orbit-trail.t2 { --trail-o: 0.3; }
+.orbit-trail.t3 { --trail-o: 0.12; }
+
+@keyframes orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fade-in { to { opacity: 1; } }
+@keyframes fade-trail { to { opacity: var(--trail-o); } }
+
+@supports not (offset-path: ellipse(1px 1px)) {
+  .orbit-wrap { position: static; display: inline-flex; margin-inline-start: 4px; }
+  .orbit-star { position: static; animation: spin 4s linear infinite !important; opacity: 1 !important; }
+  .orbit-trail { display: none; }
+}
+
+.hero-scroll-cue {
+  margin: clamp(2.5rem, 6vh, 4rem) auto 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(93,87,107,0.3);
+  position: relative;
+}
+.hero-scroll-cue span {
+  position: absolute;
+  top: 0; inset-inline-start: -3px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--pink);
+  animation: cue 1.8s ease-in-out infinite;
+}
+@keyframes cue { 0%,100% { top: 0; opacity: 1; } 100% { top: 34px; opacity: 0; } }
+
+/* ==========================================================================
+   02 ABOUT
+   ========================================================================== */
+
+.about-title-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.about-title-wrap > .chapter-tag {
+  position: relative;
+  z-index: 1;
+}
+
+.about-star {
+  position: absolute;
+  width: clamp(180px, 22vw, 260px);
+  height: clamp(180px, 22vw, 260px);
+  top: 60%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  fill: var(--aqua);
+  fill-opacity: 0.14;
+  z-index: 0;
+  pointer-events: none;
+  animation: about-star-spin 34s linear infinite;
+}
+@keyframes about-star-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.about-heading {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-family: var(--font-ar);
+  font-weight: 800;
+  color: var(--taupe);
+  margin: 0.2rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+html[lang="en"] .about-heading { font-family: var(--font-display); font-weight: 400; }
+
+/* The emphasised word ("عني" / "Me") gets one small, clearly-visible
+   accent star of its own — distinct from the large transparent one. */
+.about-emphasis {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.about-accent-star {
+  position: absolute;
+  width: 0.6em;
+  height: 0.6em;
+  top: -0.35em;
+  inset-inline-end: -0.55em;
+  fill: var(--aqua);
+  animation: accent-star-pulse 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes accent-star-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  50% { transform: scale(1.18) rotate(14deg); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-star,
+  .about-accent-star { animation: none; }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+}
+@media (min-width: 860px) {
+  .about-grid { grid-template-columns: 1.1fr 1fr; align-items: start; }
+}
+
+.about-lead {
+  font-family: var(--font-ar);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 18ch;
+}
+html[lang="en"] .about-lead { font-family: var(--font-display); font-weight: 400; text-transform: none; max-width: 22ch; }
+
+.about-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: var(--max-line);
+}
+html[lang="ar"] .about-body p { font-family: var(--font-ar); font-weight: 400; }
+
+/* Justified body copy: balanced edges without ballooning word-gaps. */
+.about-body p.justified {
+  text-align: justify;
+  text-align-last: start;
+  hyphens: auto;
+  max-width: 58ch;
+}
+
+.about-annot {
+  color: var(--pink);
+  font-style: italic;
+  border-inline-start: 2px solid var(--pink);
+  padding-inline-start: 1rem;
+}
+
+/* Editorial Education block, folded into About — typography and a thin
+   rule instead of a card container. */
+.about-education {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(93, 87, 107, 0.2);
+  max-width: 42ch;
+}
+.edu-heading {
+  color: var(--aqua);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  font-family: var(--font-ar);
+  font-weight: 800;
+  margin: 0 0 0.6rem;
+}
+html[lang="en"] .edu-heading { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; color: var(--aqua); }
+.edu-major {
+  font-family: var(--font-ar);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+  color: var(--taupe);
+}
+html[lang="ar"] .edu-uni { font-family: var(--font-ar); }
+.edu-uni { font-family: var(--font-body); margin: 0 0 0.7rem; color: var(--taupe); opacity: 0.85; }
+.edu-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--taupe);
+  font-family: var(--font-body);
+}
+html[lang="ar"] .edu-meta { font-family: var(--font-ar); }
+
+@media (max-width: 640px) {
+  .about-star { width: 150px; height: 150px; opacity: 0.9; }
+}
+
+/* ==========================================================================
+   03 CAREER INTERESTS — floating paper cards
+   ========================================================================== */
+
+.interests {
+  background: var(--cornsilk);
+  padding-top: clamp(2rem, 5vh, 3.5rem);
+}
+
+.interests-grid {
+  position: relative;
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding-block: 1rem 2rem;
+}
+
+/* One shared card body: white, portrait, rounded, soft shadow. A single
+   colour blob sits in one corner at rest and expands to fill the card
+   on hover — no wave divider anymore. */
+.interest-card {
+  --card-color: var(--aqua);
+  --card-text: var(--taupe);
+  position: relative;
+  overflow: hidden;
+  width: 230px;
+  height: 330px;
+  border-radius: 26px;
+  border: 1px solid rgba(93, 87, 107, 0.12);
+  background: var(--snow);
+  box-shadow: 0 14px 28px -10px rgba(93, 87, 107, 0.28), 0 4px 10px rgba(93, 87, 107, 0.12);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.interest-card:focus-visible { outline-offset: 4px; }
+
+/* The corner blob: small at rest, clipped by the card's rounded
+   corners, expanding from its own corner on hover. */
+.card-corner {
+  position: absolute;
+  top: -18%;
+  inset-inline-end: -18%;
+  width: 60%;
+  height: 45%;
+  border-radius: 50%;
+  background: var(--card-color);
+  transform: scale(1);
+  transform-origin: top right;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+html[dir="rtl"] .card-corner { transform-origin: top left; }
+
+.interest-card:hover .card-corner { transform: scale(4.2); }
+
+/* Very low-contrast line-art, purely decorative, sitting behind content. */
+.card-bg-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 2rem 1.5rem 1.75rem;
+  color: var(--taupe);
+  transition: color 0.4s ease;
+}
+.interest-card:hover .card-content { color: var(--card-text); }
+
+.card-illus { width: 50px; height: 50px; color: currentColor; margin-bottom: 0.2rem; transition: transform 0.3s ease, color 0.4s ease; }
+.interest-card:hover .card-illus { transform: translateY(-3px) scale(1.08); }
+
+.card-code {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: currentColor;
+}
+html[lang="ar"] .card-code { font-family: var(--font-ar); font-weight: 800; }
+
+.card-content h3 { font-family: var(--font-ar); margin: 0.2rem 0 0.35rem; font-size: 1.15rem; line-height: 1.25; color: currentColor; }
+html[lang="en"] .card-content h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; line-height: 1.15; }
+.card-content p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.5; margin: 0; color: currentColor; opacity: 0.85; }
+html[lang="ar"] .card-content p { font-family: var(--font-ar); }
+
+/* The longest label (Creative Design & Digital Marketing) gets smaller
+   type instead of a taller card — every card stays exactly 330px. */
+.card-cdm .card-content h3 { font-size: 1rem; }
+html[lang="en"] .card-cdm .card-content h3 { font-size: 1.05rem; }
+.card-cdm .card-content p { font-size: 0.78rem; line-height: 1.42; }
+
+.card-arrow {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.interest-card:hover .card-arrow { transform: translate(3px, -3px); opacity: 1; }
+
+/* Per-card accent colour. Text colour flips to whichever reads best
+   once that colour fills the whole card. */
+.card-ux { --card-color: var(--aqua); --card-text: var(--taupe); }
+.card-ba { --card-color: var(--pink); --card-text: var(--snow); }
+.card-cdm { --card-color: var(--taupe); --card-text: var(--snow); }
+
+.interest-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 34px -10px rgba(93, 87, 107, 0.4), 0 8px 14px rgba(93, 87, 107, 0.18);
+}
+
+@media (max-width: 860px) {
+  .interests-grid { max-width: 560px; }
+}
+
+@media (max-width: 560px) {
+  .interests-grid { flex-direction: column; align-items: center; gap: 1.5rem; }
+  .interest-card { width: min(280px, 84vw); }
+}
+
+/* ==========================================================================
+   04 SELECTED WORK
+   ========================================================================== */
+
+.project-num {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--aqua);
+  line-height: 1;
+  display: block;
+}
+
+.project-lead {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(93,87,107,0.15);
+}
+.project-body { grid-column: 2; }
+.project-frame {
+  grid-column: 1 / -1;
+  order: 3;
+  aspect-ratio: 16/9;
+  background: var(--aqua);
+  border: 1.5px solid var(--taupe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  color: var(--taupe);
+}
+.project-cat { font-size: 0.9rem; color: var(--pink); font-weight: 600; margin: 0 0 0.4rem; }
+.project-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 0 0 0.75rem; }
+html[lang="ar"] .project-title { font-family: var(--font-ar); font-weight: 800; }
+.project-desc { font-family: var(--font-body); max-width: var(--max-line); line-height: 1.8; }
+html[lang="ar"] .project-desc { font-family: var(--font-ar); }
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--pink);
+  font-weight: 700;
+  padding-bottom: 2px;
+}
+.project-link.muted { border-color: var(--taupe); opacity: 0.65; }
+
+.project-row {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) { .project-row { grid-template-columns: 1fr 1fr; } }
+.project-side .project-frame.small { aspect-ratio: 4/3; margin-bottom: 1rem; background: var(--cornsilk); }
+
+/* ==========================================================================
+   04 EXPERIENCE — horizontal milestone timeline
+   ========================================================================== */
+
+.milestones {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 980px;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+.milestones::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  inset-inline: 6%;
+  height: 0;
+  border-top: 2px dashed var(--taupe);
+  opacity: 0.4;
+}
+
+.milestone {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding-top: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.milestone:hover { transform: translateY(-4px); }
+
+.milestone-node {
+  position: absolute;
+  top: 1.5rem;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--snow);
+}
+.milestone-node.node-pink { background: var(--pink); }
+.milestone-node.node-aqua { background: var(--aqua); }
+
+/* Upcoming milestone: nothing to fabricate yet, so the node stays open
+   (dashed outline, no fill) and gently pulses instead of sitting solid. */
+.milestone-node.node-upcoming {
+  background: var(--snow);
+  border: 2px dashed var(--pink);
+  animation: node-pulse 2.4s ease-in-out infinite;
+}
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px var(--snow); opacity: 0.75; }
+  50% { box-shadow: 0 0 0 4px var(--snow), 0 0 0 8px rgba(247, 86, 124, 0.12); opacity: 1; }
+}
+.milestone.upcoming h3 { opacity: 0.55; }
+.milestone.upcoming p { opacity: 0.55; }
+.milestone-soon {
+  color: var(--pink) !important;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestone-node.node-upcoming { animation: none; }
+}
+
+.milestone-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--pink);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.milestone h3 { font-family: var(--font-ar); margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--taupe); }
+html[lang="en"] .milestone h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }
+.milestone p { font-family: var(--font-body); margin: 0; line-height: 1.65; color: rgba(93,87,107,0.8); max-width: 24ch; margin-inline: auto; }
+html[lang="ar"] .milestone p { font-family: var(--font-ar); }
+
+@media (max-width: 760px) {
+  .milestones {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding-top: 0;
+  }
+  .milestones::before {
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 6px;
+    inset-inline-end: auto;
+    width: 0;
+    height: auto;
+    border-top: none;
+    border-inline-start: 2px dashed var(--taupe);
+  }
+  .milestone {
+    text-align: start;
+    padding-top: 0;
+    padding-inline-start: 2rem;
+    width: 100%;
+  }
+  .milestone-node {
+    top: 0.35rem;
+    inset-inline-start: 6px;
+    transform: translate(-50%, 0);
+  }
+  html[dir="rtl"] .milestone-node { transform: translate(50%, 0); }
+  .milestone p { margin-inline: 0; }
+}
+
+/* ==========================================================================
+   06 HIGHLIGHTS / مختارات — scrapbook-style placeholders
+   ========================================================================== */
+
+.highlights { background: var(--cornsilk); }
+
+.highlights-note {
+  font-family: var(--font-body);
+  color: var(--taupe);
+  opacity: 0.85;
+  max-width: var(--max-line);
+  margin: 0 0 2.5rem;
+}
+html[lang="ar"] .highlights-note { font-family: var(--font-ar); }
+
+.highlights-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.highlight-ticket {
+  position: relative;
+  width: 240px;
+  padding: 1.5rem 1.25rem;
+  background: var(--snow);
+  border: 1.5px dashed var(--taupe);
+  border-radius: 4px;
+}
+.highlight-ticket:nth-child(2) { transform: rotate(-1deg); }
+.highlight-ticket:nth-child(3) { transform: rotate(1.2deg); }
+
+.ticket-stamp {
+  position: absolute;
+  top: -10px;
+  inset-inline-end: 16px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--pink);
+  background: var(--cornsilk);
+}
+
+.highlight-ticket h3 { font-family: var(--font-ar); font-size: 1.05rem; margin: 0.4rem 0 0.5rem; color: var(--taupe); }
+html[lang="en"] .highlight-ticket h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; }
+.ticket-meta { font-family: var(--font-body); font-size: 0.82rem; color: var(--pink); margin: 0 0 0.6rem; }
+html[lang="ar"] .ticket-meta { font-family: var(--font-ar); }
+.ticket-note { font-family: var(--font-body); font-size: 0.9rem; color: rgba(93,87,107,0.75); margin: 0; }
+html[lang="ar"] .ticket-note { font-family: var(--font-ar); }
+
+@media (max-width: 640px) {
+  .highlights-row { flex-direction: column; align-items: center; }
+  .highlight-ticket { width: min(300px, 86vw); transform: none !important; }
+}
+
+/* ==========================================================================
+   10 SKILLS
+   ========================================================================== */
+
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+/* Large decorative index number behind each category, with a Tiffany
+   five-point star sitting behind the digits — the number stays readable
+   on top. */
+.skill-num {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.6rem;
+}
+.skill-star {
+  position: absolute;
+  inset: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  fill: var(--aqua);
+  z-index: 0;
+}
+.skill-num-text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--taupe);
+}
+
+.skills-group {
+  position: relative;
+}
+.skills-group h3 {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+  color: var(--pink);
+}
+html[lang="ar"] .skills-group h3 { font-family: var(--font-ar); font-weight: 800; }
+/* Thin beige "highlighter tape" strip behind the label — not a box
+   around the whole group, just a narrow strip behind the text itself. */
+.skills-group h3::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0.15em -0.35em;
+  background: var(--cornsilk);
+  transform: rotate(-1deg);
+}
+.skills-group p { margin: 0; font-family: var(--font-body); line-height: 1.8; }
+html[lang="ar"] .skills-group p { font-family: var(--font-ar); }
+
+/* ==========================================================================
+   12 CONTACT
+   ========================================================================== */
+
+.contact {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--taupe);
+  color: var(--snow);
+  position: relative;
+  overflow: hidden;
+}
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 0 0 2rem;
+}
+html[lang="ar"] .contact-title { font-family: var(--font-ar); font-weight: 900; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: center; }
+.contact-links a { text-decoration: none; border-bottom: 2px solid var(--pink); font-size: 1.1rem; padding-bottom: 2px; }
+.contact-star {
+  position: absolute;
+  width: 60px; height: 60px;
+  fill: var(--pink);
+  opacity: 0.9;
+  bottom: 8%;
+  animation: spin 12s linear infinite;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-poem);
+  color: var(--pink);
+  background: var(--taupe);
+}
+
+/* ==========================================================================
+   REVEAL-ON-SCROLL UTILITY (applied via JS IntersectionObserver)
+   ========================================================================== */
+
+[data-reveal] { opacity: 1; }
+.chapter:not(.hero) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.chapter.in-view { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter:not(.hero) { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   PAGE TRANSITIONS (cross-page navigation fade)
+   ========================================================================== */
+body.page-fade {
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+body.page-fade.page-ready { opacity: 1; }
+body.page-fade.page-leaving { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-fade { opacity: 1; transition: none; }
+}
+
+/* ==========================================================================
+   STANDALONE FIELD PAGES (ux.html, business-analysis.html, etc.)
+   ========================================================================== */
+.field-page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--chapter-pad) + 3rem) var(--gutter) var(--chapter-pad);
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: var(--pink);
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  width: fit-content;
+  transition: border-color 0.2s ease;
+}
+.back-link:hover { border-color: var(--pink); }
+.field-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--taupe);
+  margin: 0 0 2rem;
+  max-width: 16ch;
+}
+html[lang="ar"] .field-title { font-family: var(--font-ar); font-weight: 900; }
+.field-placeholder {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: rgba(93, 87, 107, 0.75);
+  border-inline-start: 2px dashed var(--aqua);
+  padding-inline-start: 1.25rem;
+  max-width: var(--max-line);
+}
+html[lang="ar"] .field-placeholder { font-family: var(--font-ar); }
