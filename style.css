@@ -14,24 +14,23 @@
 }
 
 :root {
-  /* ---- Color system — PALETTE EXPERIMENT ----------------------------------
-     Test palette: French Blue #2947A0 · Pink Carnation #F894C8 ·
-     Wisteria #C7A7DB · Snow #F1EDF0 · Slate Grey #79889C
-     The original palette is backed up in _backup-original-palette/.
+  /* ---- Color system -------------------------------------------------------
+     Palette: French Blue #2947A0 · Purple #916EB4 · Pink #EBA0C4 ·
+     Background #F6F5F6 · Slate Grey #79889C
+     The pre-palette original is backed up in _backup-original-palette/.
      Token names are kept as-is so nothing else in the file had to move.  */
-  --snow: #F1EDF0;     /* Snow — main light surface        (was #FCFCFC) */
-  --pink: #F894C8;     /* Pink Carnation — playful accent  (was #F7567C) */
-  --cornsilk: #E5D9EA; /* Snow washed with Wisteria — the second light
-                          surface; the palette has only one light tone, so
-                          this tint keeps the two-surface hierarchy intact */
-  --aqua: #C7A7DB;     /* Wisteria — soft secondary accent (was #99E1D9) */
-  --taupe: #2947A0;    /* French Blue — ink & strong accent(was #5D576B) */
-  --slate: #79889C;    /* Slate Grey — muted text, borders, neutral UI     */
+  --snow: #F6F5F6;     /* main page / light surface background            */
+  --pink: #EBA0C4;     /* main pink — playful accent                      */
+  --cornsilk: #DACFE4; /* background washed with the purple — the second
+                          light surface that keeps the two-tone rhythm    */
+  --aqua: #916EB4;     /* main purple — secondary accent                  */
+  --taupe: #2947A0;    /* French Blue — ink & strong accent               */
+  --slate: #79889C;    /* Slate Grey — muted text, borders, neutral UI    */
 
-  /* Deepened shades of the two light accents, used ONLY where the accent
-     carries small text — the pure tints fail contrast on Snow. */
-  --pink-ink: #B8467F;
-  --wisteria-ink: #6E5090;
+  /* Darker shades of the pink and purple, used ONLY where the accent
+     carries small text — the pure tones fail contrast on the background. */
+  --pink-ink: #9C4A73;
+  --wisteria-ink: #5E4875;
 
   --ink: var(--taupe);
   --bg: var(--snow);
@@ -93,7 +92,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem var(--gutter);
-  background: rgba(241, 237, 240, 0.82);
+  background: rgba(246, 245, 246, 0.82);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(121, 136, 156, 0.12);
 }
@@ -721,7 +720,9 @@ html[dir="rtl"] .interest-card:focus-visible .card-arrow { transform: scaleX(-1)
 
 /* Per-card accent colour. Text colour flips to whichever reads best
    once that colour fills the whole card. */
-.card-ux { --card-color: var(--aqua); --card-text: var(--taupe); }
+/* The purple is deep enough that blue text on it is unreadable once the
+   corner fills the card on hover — this card flips to the light tone. */
+.card-ux { --card-color: var(--aqua); --card-text: var(--snow); }
 .card-ba { --card-color: var(--pink); --card-text: var(--snow); }
 .card-cdm { --card-color: var(--taupe); --card-text: var(--snow); }
 
@@ -852,7 +853,7 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
 }
 @keyframes node-pulse {
   0%, 100% { box-shadow: 0 0 0 4px var(--snow); opacity: 0.75; }
-  50% { box-shadow: 0 0 0 4px var(--snow), 0 0 0 8px rgba(248, 148, 200, 0.12); opacity: 1; }
+  50% { box-shadow: 0 0 0 4px var(--snow), 0 0 0 8px rgba(235, 160, 196, 0.12); opacity: 1; }
 }
 .milestone.upcoming h3 { opacity: 0.55; }
 .milestone.upcoming p { opacity: 0.55; }
@@ -1279,12 +1280,12 @@ body.wip-open { overflow: hidden; }
   text-align: center;
   background: var(--snow);
   border: 1.5px solid var(--taupe);
-  border-radius: 4px;
+  border-radius: 20px;
   transform: rotate(-0.6deg);
-  box-shadow: 4px 5px 0 var(--aqua), 8px 12px 22px -12px rgba(14, 20, 44, 0.35);
+  /* flat by design — no shadow */
   animation: wip-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-html[dir="rtl"] .wip-note { transform: rotate(0.6deg); box-shadow: -4px 5px 0 var(--aqua), -8px 12px 22px -12px rgba(14, 20, 44, 0.35); }
+html[dir="rtl"] .wip-note { transform: rotate(0.6deg); }
 @keyframes wip-in { from { opacity: 0; transform: translateY(12px) rotate(-2deg); } }
 @media (prefers-reduced-motion: reduce) { .wip-note { animation: none; } }
 
@@ -1317,28 +1318,35 @@ html[lang="en"] .wip-line-2 { font-family: var(--font-body); }
   border: 1.5px solid var(--taupe);
   border-radius: 3px;
   white-space: nowrap;
-  box-shadow: 2px 2px 0 rgba(41, 71, 160, 0.2);
 }
+/* Top-right corner, straddling the modal edge. */
 .sticker-ar {
-  bottom: 18%;
-  inset-inline-end: -32px;
+  top: -20px;
+  /* physical, not logical: this sticker stays in the top-right corner in
+     both directions, so it must not flip with the writing mode */
+  left: auto;
+  right: -26px;
   background: var(--aqua);
-  color: var(--taupe);
+  color: var(--snow);
   transform: rotate(4deg);
+  z-index: 2;
 }
 
 .wip-deco { position: absolute; color: var(--taupe); }
-.deco-star-a { width: 26px; height: 26px; fill: var(--aqua); top: -13px; inset-inline-end: 34px; transform: rotate(8deg); }
+/* Star stays along the top edge, clear of the corner sticker. */
+.deco-star-a { width: 26px; height: 26px; fill: var(--aqua); top: -13px; right: auto; left: 44px; transform: rotate(8deg); }
 
-/* Small construction cone, half off the lower outer corner */
+/* Construction cone, half off the bottom-left corner. */
 .wip-cone {
   position: absolute;
   width: 40px;
   height: 40px;
-  bottom: -20px;
-  inset-inline-start: -18px;
+  bottom: -18px;
+  right: auto;
+  left: -16px;
   color: var(--taupe);
   transform: rotate(-6deg);
+  z-index: 2;
 }
 .wip-cone svg { width: 100%; height: 100%; }
 
@@ -1366,8 +1374,9 @@ html[lang="en"] .wip-line-2 { font-family: var(--font-body); }
   .wip-note { width: min(300px, 100%); padding: 2.25rem 1.1rem 2rem; }
   .wip-line-1 { font-size: 1.05rem; }
   .wip-line-2 { font-size: 0.92rem; }
-  .sticker-ar { inset-inline-end: -24px; font-size: 0.7rem; padding: 0.3rem 0.55rem; }
-  .wip-cone { inset-inline-start: -14px; width: 34px; height: 34px; }
+  .sticker-ar { right: -18px; font-size: 0.7rem; padding: 0.3rem 0.55rem; }
+  .wip-cone { left: -12px; width: 34px; height: 34px; }
+  .deco-star-a { left: 34px; }
 }
 
 /* ---------- Selected Projects: one shared type scale ---------- */
@@ -1568,9 +1577,9 @@ html[lang="ar"] .field-placeholder { font-family: var(--font-ar); }
 
 .ba-page {
   overflow-x: hidden;
-  --ba-accent: #F894C8;       /* Pink Carnation — same as the homepage BA card */
-  --ba-accent-dark: #B8467F;  /* deepened carnation, for text/hover/active states */
-  --ba-accent-light: #FBE9F3; /* light tint of the same carnation, for subtle backgrounds */
+  --ba-accent: #EBA0C4;       /* Pink Carnation — same as the homepage BA card */
+  --ba-accent-dark: #9C4A73;  /* deepened carnation, for text/hover/active states */
+  --ba-accent-light: #F4E8EF; /* light tint of the same carnation, for subtle backgrounds */
 }
 
 /* ---- Hero ---- */
@@ -1687,7 +1696,7 @@ html[lang="ar"] .ba-section-note { font-family: var(--font-ar); }
   font-size: 0.9rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.ba-tool-slot:hover { border-color: var(--ba-accent); box-shadow: 0 14px 24px -12px rgba(184, 70, 127, 0.3); transform: translateY(-3px); }
+.ba-tool-slot:hover { border-color: var(--ba-accent); box-shadow: 0 14px 24px -12px rgba(156, 74, 115, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
 .ba-tool-icon { width: 36px; height: 36px; color: var(--ba-accent-dark); }
 .ba-tool-icon svg { width: 100%; height: 100%; }
@@ -1717,12 +1726,22 @@ html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
 html[lang="ar"] .ba-skills-list li { font-family: var(--font-ar); }
 
 /* ---- Projects ---- */
+/* Three equal cards side by side on desktop, stepping down to two and
+   then one as the screen narrows. No card is weighted above another. */
 .ba-projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
   gap: 1.75rem;
   max-width: 1100px;
 }
+@media (max-width: 900px) { .ba-projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .ba-projects-grid { grid-template-columns: 1fr; } }
+/* Every card fills its cell, so the row stays level whatever the text length. */
+.ba-projects-grid .ba-project-card { height: 100%; }
+.ba-projects-grid .ba-card-open { height: 100%; }
+.ba-projects-grid .ba-project-body { flex: 1; }
+.ba-projects-grid .ba-project-link { margin-top: auto; }
 .ba-project-card {
   border: 1px solid rgba(121, 136, 156, 0.15);
   border-radius: 20px;
@@ -1787,7 +1806,7 @@ html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
   width: 100%;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.ba-mini-item:hover, .ba-mini-item:focus-visible { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(184, 70, 127, 0.35); }
+.ba-mini-item:hover, .ba-mini-item:focus-visible { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(156, 74, 115, 0.35); }
 .ba-mini-preview {
   aspect-ratio: 4/3;
   background: var(--ba-accent-light);
@@ -1921,11 +1940,176 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   padding: 0.5rem;
 }
 
-.ba-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 0.6rem;
+/* ---------- Modal image gallery: one simple carousel ----------
+   Slides keep their own proportions (contain), so diagrams and dashboards
+   are never cropped. Arrows + dots + swipe. */
+.ba-gallery { position: relative; }
+.ba-gal-viewport {
+  overflow: hidden;
+  border: 1px solid rgba(121, 136, 156, 0.2);
+  border-radius: 12px;
+  background: var(--ba-accent-light);
 }
+.ba-gal-track {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) { .ba-gal-track { transition: none; } }
+.ba-gal-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.75rem 0.75rem 0;
+  box-sizing: border-box;
+}
+.ba-gal-slide img {
+  display: block;
+  width: 100%;
+  max-height: 46vh;
+  height: auto;
+  /* `auto` first: the real image uses its own proportions; the 16/9 is only a
+     placeholder box for a file that hasn't been added yet. */
+  aspect-ratio: auto 16 / 9;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--snow);
+}
+.ba-gal-slide figcaption {
+  font-family: var(--font-ar);
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--ba-accent-dark);
+  padding: 0.6rem 0.25rem 0.75rem;
+}
+html[lang="en"] .ba-gal-slide figcaption { font-family: var(--font-body); }
+
+.ba-gal-arrow {
+  position: absolute;
+  top: 40%;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  border: 1px solid rgba(121, 136, 156, 0.3);
+  border-radius: 50%;
+  background: var(--snow);
+  color: var(--ba-accent-dark);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.ba-gal-arrow svg { width: 100%; height: 100%; }
+.ba-gal-arrow:hover { background: var(--ba-accent); color: var(--snow); }
+.ba-gal-arrow.is-prev { inset-inline-start: -6px; }
+.ba-gal-arrow.is-next { inset-inline-end: -6px; }
+/* The chevrons point along the reading direction. */
+html[dir="rtl"] .ba-gal-arrow svg { transform: scaleX(-1); }
+
+.ba-gal-dots { display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.75rem; }
+.ba-gal-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1px solid var(--ba-accent-dark);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.ba-gal-dot.is-active { background: var(--ba-accent-dark); }
+
+/* ---------- Cards: whole card opens its modal ---------- */
+.ba-card-open {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.ba-project-cover img,
+.ba-mini-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-card-title {
+  display: block;
+  font-family: var(--font-ar);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--taupe);
+  margin-bottom: 0.5rem;
+}
+html[lang="en"] .ba-card-title { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; }
+.ba-card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: var(--font-ar);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(41, 71, 160, 0.82);
+  margin-bottom: 1rem;
+}
+html[lang="en"] .ba-card-desc { font-family: var(--font-body); }
+.ba-mini-item .ba-card-title,
+.ba-mini-item .ba-card-desc { padding-inline: 1rem; }
+.ba-mini-item .ba-card-title { margin-top: 0.9rem; }
+
+/* ---------- Modal extras ---------- */
+.ba-modal-notice {
+  font-family: var(--font-ar);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ba-accent-dark);
+  background: var(--ba-accent-light);
+  border-inline-start: 3px solid var(--ba-accent);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  margin: 0 0 1.5rem;
+}
+html[lang="en"] .ba-modal-notice { font-family: var(--font-body); }
+
+.ba-method-list { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.ba-method-list div { display: flex; flex-wrap: wrap; gap: 0.2rem 0.6rem; align-items: baseline; }
+.ba-method-list dt {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ba-accent-dark);
+  flex: none;
+}
+.ba-method-list dd {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--taupe);
+}
+
+.ba-modal-cta {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--ba-accent);
+  color: var(--taupe);
+  font-family: var(--font-ar);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+html[lang="en"] .ba-modal-cta { font-family: var(--font-body); font-weight: 700; }
+.ba-modal-cta:hover { background: var(--ba-accent-dark); color: var(--snow); transform: translateY(-2px); }
 .ba-gallery-thumb {
   appearance: none;
   aspect-ratio: 1;
@@ -1972,7 +2156,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   height: 38px;
   border-radius: 50%;
   border: none;
-  background: rgba(241, 237, 240, 0.15);
+  background: rgba(246, 245, 246, 0.15);
   color: var(--snow);
   cursor: pointer;
   display: flex;
@@ -1980,7 +2164,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   justify-content: center;
 }
 .ba-lightbox-close svg { width: 18px; height: 18px; }
-.ba-lightbox-close:hover { background: rgba(241, 237, 240, 0.3); }
+.ba-lightbox-close:hover { background: rgba(246, 245, 246, 0.3); }
 
 @media (max-width: 640px) {
   .ba-modal { padding: 1.75rem 1.35rem; border-radius: 16px; }
@@ -2018,11 +2202,31 @@ html[lang="ar"] .ba-cert-meta { font-family: var(--font-ar); }
    is used for text/borders since raw aqua is too pale for contrast.
    ========================================================================== */
 
+/* ==========================================================================
+   ONE ACCENT PER SPECIALIZATION PAGE
+   The shared chrome (nav underline, language switch, focus rings, back link)
+   reads the global --pink / --aqua tokens. Re-pointing those tokens at the
+   page's own accent keeps each field page on a single colour family, without
+   touching the homepage or any shared rule.
+   ========================================================================== */
+body.page-ux {
+  --pink: #916EB4;        /* the UX purple, matching its homepage card */
+  --pink-ink: #5E4875;
+  --aqua: #916EB4;
+  --wisteria-ink: #5E4875;
+}
+body.page-cdm {
+  --pink: #2947A0;        /* the CDM French Blue, matching its homepage card */
+  --pink-ink: #1C3273;
+  --aqua: #2947A0;
+  --wisteria-ink: #1C3273;
+}
+
 .ux-page {
   overflow-x: hidden;
-  --ux-accent: #C7A7DB;       /* Wisteria — same as the homepage UX card */
-  --ux-accent-dark: #6E5090;  /* deep wisteria derived from it, for text/borders/hover */
-  --ux-accent-light: #EFE8F5; /* light tint of the same wisteria, for subtle backgrounds */
+  --ux-accent: #916EB4;       /* Wisteria — same as the homepage UX card */
+  --ux-accent-dark: #5E4875;  /* deep wisteria derived from it, for text/borders/hover */
+  --ux-accent-light: #E7E1EC; /* light tint of the same wisteria, for subtle backgrounds */
 }
 
 .ux-hero {
@@ -2139,7 +2343,7 @@ html[lang="ar"] .ux-section-note { font-family: var(--font-ar); }
   font-size: 0.9rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.ux-tool-slot:hover { border-color: var(--ux-accent-dark); box-shadow: 0 14px 24px -12px rgba(110, 80, 144, 0.3); transform: translateY(-3px); }
+.ux-tool-slot:hover { border-color: var(--ux-accent-dark); box-shadow: 0 14px 24px -12px rgba(94, 72, 117, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ux-tool-slot { font-family: var(--font-ar); }
 .ux-tool-icon { width: 36px; height: 36px; color: var(--ux-accent-dark); }
 .ux-tool-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -2193,7 +2397,7 @@ html[lang="ar"] .ux-skills-list li { font-family: var(--font-ar); }
   border-radius: 999px;
   padding: 0.2rem 0.7rem;
 }
-.ux-project-body h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 0.5rem; color: var(--taupe); }
+.ux-project-body h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 0.5rem; color: var(--ux-accent-dark); }
 html[lang="ar"] .ux-project-body h3 { font-family: var(--font-ar); font-weight: 800; }
 .ux-project-body p { font-family: var(--font-body); line-height: 1.7; color: var(--taupe); margin: 0 0 1.25rem; }
 html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
@@ -2228,7 +2432,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.ux-mini-item:hover { border-color: var(--ux-accent-dark); box-shadow: 0 10px 20px -12px rgba(110, 80, 144, 0.35); }
+.ux-mini-item:hover { border-color: var(--ux-accent-dark); box-shadow: 0 10px 20px -12px rgba(94, 72, 117, 0.35); }
 .ux-mini-preview {
   aspect-ratio: 4/3;
   background: var(--ux-accent-light);
@@ -2237,7 +2441,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
   font-family: var(--font-body);
   font-size: 0.85rem;
 }
-.ux-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--taupe); }
+.ux-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--ux-accent-dark); }
 html[lang="en"] .ux-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
 .ux-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.75); margin: 0 1rem 1rem; }
 html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
@@ -2255,7 +2459,7 @@ html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
 .ux-cert-item:hover { border-color: var(--ux-accent-dark); }
 .ux-cert-badge { width: 34px; height: 34px; flex-shrink: 0; fill: var(--ux-accent-dark); color: var(--ux-accent-dark); }
 .ux-cert-badge svg { width: 100%; height: 100%; }
-.ux-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--taupe); }
+.ux-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--ux-accent-dark); }
 html[lang="en"] .ux-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
 .ux-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); margin: 0; }
 html[lang="ar"] .ux-cert-meta { font-family: var(--font-ar); }
@@ -2513,6 +2717,8 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
+
+
 
 
 
