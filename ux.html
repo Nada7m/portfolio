@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="card_ux_title">Field</title>
-<meta name="description" content="Portfolio — Business Analysis × UX × Digital Transformation">
+<title data-i18n="card_ux_title">تجربة المستخدم</title>
+<meta name="description" content="Portfolio — User Experience field page">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +14,26 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-star" viewBox="0 0 40 40">
+      <path d="M20 0 C21 13 27 19 40 20 C27 21 21 27 20 40 C19 27 13 21 0 20 C13 19 19 13 20 0 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="site-nav">
   <a class="nav-mark" href="index.html" aria-label="Home">
     <span data-i18n="nav_mark">حالم متوهج</span>
   </a>
 
   <nav class="nav-links" id="navLinks" aria-label="Primary">
-    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#about" data-i18n="nav_about">عني</a>
+    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
     <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
     <a href="index.html#skills" data-i18n="nav_skills">المهارات</a>
+    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
+    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
   </nav>
 
@@ -39,12 +49,135 @@
   </div>
 </header>
 
-<main>
-  <section class="chapter field-page">
+<main class="ux-page">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter ux-hero">
     <a class="back-link" href="index.html#interests" data-i18n="back_link">→ العودة</a>
-    <h1 class="field-title" data-i18n="card_ux_title">Field</h1>
-    <p class="field-placeholder" data-i18n="field_placeholder">سيتم إضافة أبرز المشاريع في هذا المجال هنا.</p>
+    <span class="ux-hero-blob b1" aria-hidden="true"></span>
+    <span class="ux-hero-blob b2" aria-hidden="true"></span>
+    <svg class="ux-hero-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <p class="ux-eyebrow" data-i18n="ux_eyebrow">مجال العمل</p>
+    <h1 class="ux-title" data-i18n="card_ux_title">تجربة المستخدم</h1>
+    <span class="ux-underline" aria-hidden="true"></span>
+    <p class="ux-intro" data-i18n="ux_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتجربة المستخدم — نص قابل للتعديل لاحقًا ]</p>
   </section>
+
+  <!-- ===================== TOOLS — الأدوات ===================== -->
+  <section class="chapter ux-section" id="ux-tools">
+    <span class="chapter-tag" data-i18n="ux_tools_tag">الأدوات</span>
+    <h2 class="chapter-title" data-i18n="ux_tools_title">الأدوات</h2>
+    <p class="ux-section-note" data-i18n="ux_tools_note">أدوات التصميم والبحث التي أستخدمها فعليًا.</p>
+
+    <div class="ux-tools-grid">
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/framer/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Framer</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18 h28 M18 6 v28" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <span>Google Stitch</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/miro/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Miro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS — المهارات ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-skills">
+    <span class="chapter-tag" data-i18n="ux_skills_tag">المهارات</span>
+    <h2 class="chapter-title" data-i18n="ux_skills_title">المهارات</h2>
+    <p class="ux-section-note" data-i18n="ux_skills_note">قدرات البحث والتصميم التي أعمل بها.</p>
+
+    <ul class="ux-skills-list">
+      <li data-i18n="ux_skill_1">تدفق المستخدم</li>
+      <li data-i18n="ux_skill_2">هيكلة المعلومات</li>
+      <li data-i18n="ux_skill_3">تصميم الإطارات الأولية</li>
+      <li data-i18n="ux_skill_4">النماذج التفاعلية</li>
+      <li data-i18n="ux_skill_5">تحليل قابلية الاستخدام</li>
+      <li data-i18n="ux_skill_6">تحديد مشكلات تجربة المستخدم</li>
+      <li data-i18n="ux_skill_7">تصميم واجهات المستخدم</li>
+      <li data-i18n="ux_skill_8">توثيق تجربة المستخدم</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS — المشاريع ===================== -->
+  <section class="chapter ux-section" id="ux-projects">
+    <span class="chapter-tag" data-i18n="ux_projects_tag">المشاريع</span>
+    <h2 class="chapter-title" data-i18n="ux_projects_title">المشاريع</h2>
+    <p class="ux-section-note" data-i18n="ux_projects_note">دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.</p>
+
+    <div class="ux-project-card">
+      <div class="ux-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+      <div class="ux-project-body">
+        <div class="ux-project-tags">
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+        </div>
+        <h3 data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</h3>
+        <p data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</p>
+        <div class="ux-project-footer">
+          <span class="ux-project-year" data-i18n="ux_project_year_placeholder">[ السنة ]</span>
+          <span class="ux-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-miniwork">
+    <span class="chapter-tag" data-i18n="ux_mini_tag">أعمال مصغرة</span>
+    <h2 class="chapter-title" data-i18n="ux_mini_title">أعمال مصغرة</h2>
+    <p class="ux-section-note" data-i18n="ux_mini_note">نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.</p>
+
+    <div class="ux-mini-grid">
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
+  <section class="chapter ux-section" id="ux-certs">
+    <span class="chapter-tag" data-i18n="ux_certs_tag">الشهادات</span>
+    <h2 class="chapter-title" data-i18n="ux_certs_title">الشهادات</h2>
+    <p class="ux-section-note" data-i18n="ux_certs_note">شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.</p>
+
+    <div class="ux-cert-item">
+      <span class="ux-cert-badge" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+      </span>
+      <div class="ux-cert-info">
+        <h4 data-i18n="ux_cert_name_placeholder">[ اسم الشهادة ]</h4>
+        <p class="ux-cert-meta">
+          <span data-i18n="ux_cert_issuer_placeholder">[ الجهة المانحة ]</span>
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="ux_cert_date_placeholder">[ السنة ]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">

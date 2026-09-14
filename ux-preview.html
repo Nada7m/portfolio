@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="card_ux_title">تجربة المستخدم</title>
+<meta name="description" content="Portfolio — User Experience field page">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Love+Ya+Like+A+Sister&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
 /* ==========================================================================
    PORTFOLIO — EDITORIAL BOOK DESIGN SYSTEM
    Color tokens, type tokens and layout rules are centralised here so the
@@ -1250,20 +1263,13 @@ html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
 html[lang="ar"] .ba-skills-list li { font-family: var(--font-ar); }
 
 /* ---- Projects ---- */
-.ba-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
-  max-width: 1100px;
-}
 .ba-project-card {
+  max-width: 760px;
   border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 20px;
   overflow: hidden;
   background: var(--snow);
   box-shadow: 0 14px 28px -14px rgba(93, 87, 107, 0.3);
-  display: flex;
-  flex-direction: column;
 }
 .ba-project-cover {
   aspect-ratio: 16/9;
@@ -1274,22 +1280,30 @@ html[lang="ar"] .ba-skills-list li { font-family: var(--font-ar); }
   color: var(--ba-accent-dark);
   font-family: var(--font-body);
 }
-.ba-project-body { padding: 1.5rem 1.75rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
+.ba-project-body { padding: 1.5rem 1.75rem 1.75rem; }
+.ba-project-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.ba-project-tags span {
+  font-size: 0.75rem;
+  color: var(--ba-accent);
+  border: 1px solid var(--ba-accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
 .ba-project-body h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 0.5rem; color: var(--taupe); }
 html[lang="ar"] .ba-project-body h3 { font-family: var(--font-ar); font-weight: 800; }
 .ba-project-body p { font-family: var(--font-body); line-height: 1.7; color: var(--taupe); margin: 0 0 1.25rem; }
 html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
+.ba-project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.ba-project-year { font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); }
 .ba-project-link {
   text-decoration: none;
   color: var(--ba-accent);
   font-weight: 700;
   border-bottom: 2px solid var(--ba-accent);
   padding-bottom: 2px;
-  margin-top: auto;
-  width: fit-content;
 }
 .ba-project-link:hover { color: var(--ba-accent-dark); border-color: var(--ba-accent-dark); }
-/* No dedicated case-study page yet: shown as an inert label, never a dead "#" link. */
+/* No real case study yet: shown as an inert label, never a dead "#" link. */
 .ba-project-link.is-disabled {
   color: rgba(93, 87, 107, 0.55);
   border-bottom-style: dashed;
@@ -1301,26 +1315,18 @@ html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
 /* ---- Mini work ---- */
 .ba-mini-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   max-width: 900px;
 }
 .ba-mini-item {
-  /* button reset */
-  appearance: none;
-  font: inherit;
-  text-align: start;
-  cursor: pointer;
-
   background: var(--snow);
   border: 1px solid rgba(93, 87, 107, 0.12);
   border-radius: 14px;
   overflow: hidden;
-  padding: 0;
-  width: 100%;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.ba-mini-item:hover, .ba-mini-item:focus-visible { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(196, 63, 96, 0.35); }
+.ba-mini-item:hover { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(196, 63, 96, 0.35); }
 .ba-mini-preview {
   aspect-ratio: 4/3;
   background: var(--ba-accent-light);
@@ -1331,193 +1337,10 @@ html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
   font-family: var(--font-body);
   font-size: 0.85rem;
 }
-.ba-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.2rem; color: var(--taupe); }
+.ba-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--taupe); }
 html[lang="en"] .ba-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ba-mini-view {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--ba-accent);
-  margin: 0 1rem 1rem;
-  font-weight: 600;
-}
-html[lang="ar"] .ba-mini-view { font-family: var(--font-ar); }
-
-/* ---- Mini Work modal ---- */
-body.ba-modal-open { overflow: hidden; }
-
-.ba-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(59, 55, 69, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4vh 1.25rem;
-}
-.ba-modal-backdrop[hidden] { display: none; }
-
-.ba-modal {
-  position: relative;
-  background: var(--snow);
-  border-radius: 22px;
-  max-width: 640px;
-  width: 100%;
-  max-height: 92vh;
-  overflow-y: auto;
-  padding: 2.25rem 2rem;
-  box-shadow: 0 30px 60px -20px rgba(59, 55, 69, 0.45);
-}
-.ba-modal[hidden] { display: none; }
-
-.ba-modal-close {
-  position: absolute;
-  top: 1.1rem;
-  inset-inline-end: 1.1rem;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(93, 87, 107, 0.2);
-  background: var(--snow);
-  color: var(--ba-accent);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-.ba-modal-close svg { width: 16px; height: 16px; }
-.ba-modal-close:hover { background: var(--ba-accent-light); color: var(--ba-accent-dark); }
-
-.ba-modal-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--taupe);
-  margin: 0 2.5rem 1.5rem 0;
-}
-html[lang="ar"] .ba-modal-title { font-family: var(--font-ar); font-weight: 800; margin: 0 0 1.5rem 2.5rem; }
-
-.ba-modal-section { margin-bottom: 1.5rem; }
-.ba-modal-section:last-child { margin-bottom: 0; }
-.ba-modal-section h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ba-accent);
-  font-family: var(--font-body);
-  margin: 0 0 0.6rem;
-}
-html[lang="ar"] .ba-modal-section h4 { font-family: var(--font-ar); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: 0.9rem; }
-.ba-modal-section p {
-  font-family: var(--font-body);
-  color: var(--taupe);
-  line-height: 1.7;
-  margin: 0;
-}
-html[lang="ar"] .ba-modal-section p { font-family: var(--font-ar); }
-.ba-modal-empty { color: rgba(93, 87, 107, 0.55); }
-
-.ba-modal-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.ba-modal-list li {
-  font-family: var(--font-body);
-  color: var(--taupe);
-  padding-inline-start: 1rem;
-  position: relative;
-}
-html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
-.ba-modal-list li::before {
-  content: '';
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0.55em;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--ba-accent);
-}
-
-.ba-deliverables-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.75rem;
-}
-.ba-deliverable-slot {
-  aspect-ratio: 4/3;
-  border: 1.5px dashed rgba(93, 87, 107, 0.3);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(93, 87, 107, 0.55);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-.ba-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 0.6rem;
-}
-.ba-gallery-thumb {
-  appearance: none;
-  aspect-ratio: 1;
-  border: 1px solid rgba(93, 87, 107, 0.18);
-  border-radius: 10px;
-  background: var(--ba-accent-light);
-  color: var(--ba-accent-dark);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.ba-gallery-thumb:hover, .ba-gallery-thumb:focus-visible { border-color: var(--ba-accent); transform: scale(1.04); }
-
-.ba-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  background: rgba(20, 18, 24, 0.82);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6vh 1.5rem;
-}
-.ba-lightbox[hidden] { display: none; }
-.ba-lightbox-content {
-  max-width: 640px;
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: var(--ba-accent-light);
-  color: var(--ba-accent-dark);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-}
-.ba-lightbox-close {
-  position: absolute;
-  top: 1.25rem;
-  inset-inline-end: 1.25rem;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(252, 252, 252, 0.15);
-  color: var(--snow);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ba-lightbox-close svg { width: 18px; height: 18px; }
-.ba-lightbox-close:hover { background: rgba(252, 252, 252, 0.3); }
-
-@media (max-width: 640px) {
-  .ba-modal { padding: 1.75rem 1.35rem; border-radius: 16px; }
-}
+.ba-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.75); margin: 0 1rem 1rem; }
+html[lang="ar"] .ba-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
 .ba-cert-item {
@@ -2046,3 +1869,650 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-star" viewBox="0 0 40 40">
+      <path d="M20 0 C21 13 27 19 40 20 C27 21 21 27 20 40 C19 27 13 21 0 20 C13 19 19 13 20 0 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-nav">
+  <a class="nav-mark" href="index.html" aria-label="Home">
+    <span data-i18n="nav_mark">حالم متوهج</span>
+  </a>
+
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="index.html#about" data-i18n="nav_about">عني</a>
+    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
+    <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
+    <a href="index.html#skills" data-i18n="nav_skills">المهارات</a>
+    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
+    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
+    <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
+  </nav>
+
+  <div class="nav-controls">
+    <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch language">
+      <span class="lang-ar" data-active="true">AR</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-en">EN</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="ux-page">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter ux-hero">
+    <a class="back-link" href="index.html#interests" data-i18n="back_link">→ العودة</a>
+    <span class="ux-hero-blob b1" aria-hidden="true"></span>
+    <span class="ux-hero-blob b2" aria-hidden="true"></span>
+    <svg class="ux-hero-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <p class="ux-eyebrow" data-i18n="ux_eyebrow">مجال العمل</p>
+    <h1 class="ux-title" data-i18n="card_ux_title">تجربة المستخدم</h1>
+    <span class="ux-underline" aria-hidden="true"></span>
+    <p class="ux-intro" data-i18n="ux_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتجربة المستخدم — نص قابل للتعديل لاحقًا ]</p>
+  </section>
+
+  <!-- ===================== TOOLS — الأدوات ===================== -->
+  <section class="chapter ux-section" id="ux-tools">
+    <span class="chapter-tag" data-i18n="ux_tools_tag">الأدوات</span>
+    <h2 class="chapter-title" data-i18n="ux_tools_title">الأدوات</h2>
+    <p class="ux-section-note" data-i18n="ux_tools_note">أدوات التصميم والبحث التي أستخدمها فعليًا.</p>
+
+    <div class="ux-tools-grid">
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/framer/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Framer</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18 h28 M18 6 v28" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <span>Google Stitch</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/miro/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Miro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS — المهارات ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-skills">
+    <span class="chapter-tag" data-i18n="ux_skills_tag">المهارات</span>
+    <h2 class="chapter-title" data-i18n="ux_skills_title">المهارات</h2>
+    <p class="ux-section-note" data-i18n="ux_skills_note">قدرات البحث والتصميم التي أعمل بها.</p>
+
+    <ul class="ux-skills-list">
+      <li data-i18n="ux_skill_1">تدفق المستخدم</li>
+      <li data-i18n="ux_skill_2">هيكلة المعلومات</li>
+      <li data-i18n="ux_skill_3">تصميم الإطارات الأولية</li>
+      <li data-i18n="ux_skill_4">النماذج التفاعلية</li>
+      <li data-i18n="ux_skill_5">تحليل قابلية الاستخدام</li>
+      <li data-i18n="ux_skill_6">تحديد مشكلات تجربة المستخدم</li>
+      <li data-i18n="ux_skill_7">تصميم واجهات المستخدم</li>
+      <li data-i18n="ux_skill_8">توثيق تجربة المستخدم</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS — المشاريع ===================== -->
+  <section class="chapter ux-section" id="ux-projects">
+    <span class="chapter-tag" data-i18n="ux_projects_tag">المشاريع</span>
+    <h2 class="chapter-title" data-i18n="ux_projects_title">المشاريع</h2>
+    <p class="ux-section-note" data-i18n="ux_projects_note">دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.</p>
+
+    <div class="ux-project-card">
+      <div class="ux-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+      <div class="ux-project-body">
+        <div class="ux-project-tags">
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+        </div>
+        <h3 data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</h3>
+        <p data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</p>
+        <div class="ux-project-footer">
+          <span class="ux-project-year" data-i18n="ux_project_year_placeholder">[ السنة ]</span>
+          <span class="ux-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-miniwork">
+    <span class="chapter-tag" data-i18n="ux_mini_tag">أعمال مصغرة</span>
+    <h2 class="chapter-title" data-i18n="ux_mini_title">أعمال مصغرة</h2>
+    <p class="ux-section-note" data-i18n="ux_mini_note">نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.</p>
+
+    <div class="ux-mini-grid">
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
+  <section class="chapter ux-section" id="ux-certs">
+    <span class="chapter-tag" data-i18n="ux_certs_tag">الشهادات</span>
+    <h2 class="chapter-title" data-i18n="ux_certs_title">الشهادات</h2>
+    <p class="ux-section-note" data-i18n="ux_certs_note">شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.</p>
+
+    <div class="ux-cert-item">
+      <span class="ux-cert-badge" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+      </span>
+      <div class="ux-cert-info">
+        <h4 data-i18n="ux_cert_name_placeholder">[ اسم الشهادة ]</h4>
+        <p class="ux-cert-meta">
+          <span data-i18n="ux_cert_issuer_placeholder">[ الجهة المانحة ]</span>
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="ux_cert_date_placeholder">[ السنة ]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer_mark">حالم متوهج</span>
+</footer>
+
+<script>
+/* ==========================================================================
+   TRANSLATIONS
+   Every visible string lives here, keyed by the data-i18n id used in the
+   markup. Add a language by adding a new top-level key.
+   ========================================================================== */
+const translations = {
+  ar: {
+    page_title: "ملف أعمالي",
+    nav_mark: "حالم متوهج",
+    nav_about: "عني",
+    nav_interests: "اهتماماتي",
+    nav_experience: "الخبرة",
+    nav_skills: "المهارات",
+    nav_highlights: "مختارات",
+    nav_work: "الأعمال",
+    nav_contact: "التواصل",
+
+    hero_eyebrow: "نــدى محــــمد",
+    hero_title: "ملــــــف أعمـــــــــــالـــي",
+
+    about_title_1: "نبذة",
+    about_title_2: "عني",
+    about_lead: "أدرس النظم من الداخل: كيف تتحرّك المعلومة، وأين تتعثّر، وكيف تصبح تجربة واضحة لشخص يستخدمها فعلاً.",
+    about_p1: "خريجة نظم معلومات إدارية من جامعة طيبة. أعمل في المساحة التي يلتقي فيها التحليل بالتصميم — حيث تتحوّل العمليات المعقّدة إلى واجهات وقرارات واضحة.",
+    about_p2: "أفكّر بشكل تحليلي، وأصمّم بشكل إنساني، وأنظر للمشكلة كنظام كامل قبل أن أنظر إليها كشاشة.",
+    about_edu_heading: "التعليم",
+    about_edu_major: "نظم المعلومات الإدارية",
+    about_edu_gpa: "المعدل 4.92 / 5",
+    about_edu_year: "سنة التخرج 2026",
+
+    interests_tag: "03 — اهتماماتي",
+    interests_title: "أين أعمل تحديداً",
+    card_ux_title: "تجربة المستخدم",
+    card_ux_body: "فهم المستخدم قبل الحل — بحث، تدفقات، وواجهات تُبنى على سبب.",
+    card_ba_title: "تحليل الأعمال",
+    card_ba_body: "قراءة العمليات، تحديد الفجوات، وتحويل الغموض إلى متطلبات واضحة.",
+    card_dx_title: "التحول الرقمي",
+    card_dx_body: "ربط الأنظمة والأشخاص والعمليات ضمن تجربة رقمية واحدة متماسكة.",
+    card_cdm_title: "تصميم حر و تسويق رقمي",
+    card_cdm_body: "تصميم بصري حر وصناعة محتوى وتسويق رقمي يجمع بين الفكرة والهوية والتواصل.",
+
+    exp_tag: "04 — خبراتي",
+    placeholder_date: "[ التاريخ ]",
+    exp_vol_title: "خبرة تطوعية",
+    exp_vol_body: "[ نص قابل للتعديل ]",
+    exp_train_title: "خبرة تدريبية",
+    exp_train_body: "[ نص قابل للتعديل ]",
+    exp_job_title: "خبرة وظيفية",
+    exp_job_body: "[ ستُضاف عند توفرها ]",
+    exp_job_status: "قريبًا",
+
+    skills_tag: "05 — المهارات والأدوات",
+    skills_ba: "تحليل الأعمال",
+    skills_ux: "تجربة المستخدم",
+    skills_data: "البيانات والأنظمة",
+    skills_tech: "تقني",
+    skills_design: "تصميم",
+
+    highlights_tag: "06 — مختارات",
+    highlights_note: "لحظات وفعاليات وأنشطة شاركت فيها — ستُضاف تباعاً.",
+    highlight_placeholder_title: "[ اسم الفعالية ]",
+    highlight_placeholder_date: "[ التاريخ ]",
+    highlight_placeholder_location: "[ الموقع ]",
+    highlight_placeholder_note: "[ ملاحظة قصيرة ]",
+
+    work_tag: "07 — الأعمال المختارة",
+    rafd_cat: "تحليل الأعمال × تجربة المستخدم",
+    rafd_desc: "إعادة تصميم مسار البرامج والمشاريع في نظام ERP لمنظمة غير ربحية — من تشخيص المشكلة إلى واجهة أوضح.",
+    view_case_study: "عرض دراسة الحالة",
+    placeholder_image: "[ صورة المشروع ]",
+    placeholder_cat: "قيد الإضافة",
+    placeholder_title: "مشروع قادم",
+
+    edu_uni: "جامعة طيبة",
+
+    contact_title: "لنتواصل.",
+    contact_email: "[ البريد الإلكتروني ]",
+    contact_linkedin: "[ LinkedIn ]",
+    contact_cv: "[ السيرة الذاتية ]",
+    back_link: "→ العودة",
+    field_placeholder: "سيتم إضافة أبرز المشاريع في هذا المجال هنا.",
+
+    ba_eyebrow: "مجال العمل",
+    ba_intro: "أفهم ما يحدث وأحلّل ما يمكن تحسينه، أستمع لمتطلبات العميل وأحوّل احتياجاته إلى متطلبات واضحة وحلول أكثر ملاءمة.",
+    ba_tools_tag: "الأدوات",
+    ba_tools_title: "الأدوات",
+    ba_tools_note: "الأدوات والبرامج التي أستخدمها فعليًا.",
+    ba_skills_tag: "المهارات",
+    ba_skills_title: "المهارات",
+    ba_skills_note: "القدرات التحليلية التي أعمل بها.",
+    ba_skill_1: "تحليل عمليات الأعمال",
+    ba_skill_2: "جمع وتحليل المتطلبات",
+    ba_skill_3: "تحليل وتوثيق سير العمل",
+    ba_skill_4: "تحليل الفجوات",
+    ba_skill_5: "تخطيط تدفق العمليات",
+    ba_skill_6: "تحليل الوضع الحالي والمستهدف",
+    ba_skill_7: "تحديد المشكلات",
+    ba_skill_8: "اقتراح الحلول والتحسينات",
+    ba_projects_tag: "المشاريع",
+    ba_projects_title: "المشاريع",
+    ba_projects_note: "دراسات حالة كاملة — ستُضاف هنا عند توفرها.",
+    ba_project_tag_placeholder: "[ وسم ]",
+    ba_project_title_placeholder: "[ عنوان المشروع ]",
+    ba_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    ba_project_year_placeholder: "[ السنة ]",
+    ba_mini_tag: "أعمال مصغرة",
+    ba_mini_title: "أعمال مصغرة",
+    ba_mini_note: "مخططات وتحليلات ووثائق صغيرة لا تحتاج دراسة حالة كاملة.",
+    ba_mini_title_placeholder: "[ عنوان العمل ]",
+    ba_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    ba_certs_tag: "الشهادات",
+    ba_certs_title: "الشهادات",
+    ba_certs_note: "شهادات ودورات متعلقة بتحليل الأعمال — ستُضاف عند توفرها.",
+    ba_cert_name_placeholder: "[ اسم الشهادة ]",
+    ba_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    ba_cert_date_placeholder: "[ السنة ]",
+    ba_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+
+    ux_eyebrow: "مجال العمل",
+    ux_intro: "أبدأ بالمستخدم، أفهم احتياجه، وأحوّل الملاحظات والمشكلات إلى تجارب أبسط وأكثر وضوحًا.",
+    ux_tools_tag: "الأدوات",
+    ux_tools_title: "الأدوات",
+    ux_tools_note: "أدوات التصميم والبحث التي أستخدمها فعليًا.",
+    ux_skills_tag: "المهارات",
+    ux_skills_title: "المهارات",
+    ux_skills_note: "قدرات البحث والتصميم التي أعمل بها.",
+    ux_skill_1: "تدفق المستخدم",
+    ux_skill_2: "هيكلة المعلومات",
+    ux_skill_3: "تصميم الإطارات الأولية",
+    ux_skill_4: "النماذج التفاعلية",
+    ux_skill_5: "تحليل قابلية الاستخدام",
+    ux_skill_6: "تحديد مشكلات تجربة المستخدم",
+    ux_skill_7: "تصميم واجهات المستخدم",
+    ux_skill_8: "توثيق تجربة المستخدم",
+    ux_projects_tag: "المشاريع",
+    ux_projects_title: "المشاريع",
+    ux_projects_note: "دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.",
+    ux_project_tag_placeholder: "[ وسم ]",
+    ux_project_title_placeholder: "[ عنوان المشروع ]",
+    ux_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    ux_project_year_placeholder: "[ السنة ]",
+    ux_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+    ux_mini_tag: "أعمال مصغرة",
+    ux_mini_title: "أعمال مصغرة",
+    ux_mini_note: "نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.",
+    ux_mini_title_placeholder: "[ عنوان العمل ]",
+    ux_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    ux_certs_tag: "الشهادات",
+    ux_certs_title: "الشهادات",
+    ux_certs_note: "شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.",
+    ux_cert_name_placeholder: "[ اسم الشهادة ]",
+    ux_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    ux_cert_date_placeholder: "[ السنة ]",
+
+    cdm_eyebrow: "مجال العمل",
+    cdm_intro: "أحوّل الأفكار إلى محتوى بصري له هوية؛ يجذب الانتباه، يوصل الرسالة، ويترك أثرًا.",
+    cdm_tools_tag: "الأدوات",
+    cdm_tools_title: "الأدوات",
+    cdm_tools_note: "أدوات التصميم والتسويق التي أستخدمها فعليًا.",
+    cdm_skills_tag: "المهارات",
+    cdm_skills_title: "المهارات",
+    cdm_skills_note: "قدرات التصميم والتسويق التي أعمل بها.",
+    cdm_skill_1: "التصميم البصري",
+    cdm_skill_2: "صناعة المحتوى",
+    cdm_skill_3: "تصميم محتوى منصات التواصل",
+    cdm_skill_4: "تصميم البوسترات",
+    cdm_skill_5: "المحتوى التسويقي",
+    cdm_skill_6: "تطوير الأفكار الإبداعية",
+    cdm_projects_tag: "المشاريع",
+    cdm_projects_title: "المشاريع",
+    cdm_projects_note: "حملات ومشاريع تصميم كاملة — ستُضاف هنا عند توفرها.",
+    cdm_project_tag_placeholder: "[ وسم ]",
+    cdm_project_title_placeholder: "[ عنوان المشروع ]",
+    cdm_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    cdm_project_year_placeholder: "[ السنة ]",
+    cdm_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+    cdm_mini_tag: "أعمال مصغرة",
+    cdm_mini_title: "أعمال مصغرة",
+    cdm_mini_note: "تصاميم بصرية، محتوى تواصل، وملصقات لا تحتاج دراسة حالة كاملة.",
+    cdm_mini_title_placeholder: "[ عنوان العمل ]",
+    cdm_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    cdm_certs_tag: "الشهادات",
+    cdm_certs_title: "الشهادات",
+    cdm_certs_note: "شهادات ودورات متعلقة بالتصميم والتسويق الرقمي — ستُضاف عند توفرها.",
+    cdm_cert_name_placeholder: "[ اسم الشهادة ]",
+    cdm_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    cdm_cert_date_placeholder: "[ السنة ]",
+
+    footer_mark: "حالم متوهج"
+  },
+
+  en: {
+    page_title: "My Portfolio",
+    nav_mark: "Glowing Dreamer",
+    nav_about: "About",
+    nav_interests: "Interests",
+    nav_experience: "Experience",
+    nav_skills: "Skills",
+    nav_highlights: "Highlights",
+    nav_work: "Work",
+    nav_contact: "Contact",
+
+    hero_eyebrow: "Nada Mohammed Hassan Al-Faifi",
+    hero_title: "MY PORTFOLIO",
+
+    about_title_1: "About",
+    about_title_2: "Me",
+    about_lead: "I study systems from the inside: how information moves, where it stalls, and how it becomes an experience someone can actually use.",
+    about_p1: "A Management Information Systems graduate from Taibah University. I work where analysis meets design — turning complex processes into clear interfaces and clear decisions.",
+    about_p2: "I think analytically, design with people in mind, and look at a problem as a whole system before I look at it as a screen.",
+    about_edu_heading: "Education",
+    about_edu_major: "Management Information Systems",
+    about_edu_gpa: "GPA 4.92 / 5",
+    about_edu_year: "Graduation Year 2026",
+
+    interests_tag: "03 — My Interests",
+    interests_title: "Where exactly I work",
+    card_ux_title: "User Experience",
+    card_ux_body: "Understanding the user before the solution — research, flows, and interfaces built on a reason.",
+    card_ba_title: "Business Analysis",
+    card_ba_body: "Reading processes, spotting gaps, and turning ambiguity into clear requirements.",
+    card_dx_title: "Digital Transformation",
+    card_dx_body: "Connecting systems, people and processes into one coherent digital experience.",
+    card_cdm_title: "Creative Design & Digital Marketing",
+    card_cdm_body: "Creative visual design, content creation, and digital marketing that connect ideas, identity, and communication.",
+
+    exp_tag: "04 — Experience",
+    placeholder_date: "[ date ]",
+    exp_vol_title: "Volunteer Experience",
+    exp_vol_body: "[ editable text ]",
+    exp_train_title: "Training Experience",
+    exp_train_body: "[ editable text ]",
+    exp_job_title: "Job Experience",
+    exp_job_body: "[ to be added once available ]",
+    exp_job_status: "Coming soon",
+
+    skills_tag: "05 — Skills & Tools",
+    skills_ba: "Business Analysis",
+    skills_ux: "UX",
+    skills_data: "Data & Systems",
+    skills_tech: "Technical",
+    skills_design: "Design",
+
+    highlights_tag: "06 — Highlights",
+    highlights_note: "Moments, events and activities I've taken part in — more to be added over time.",
+    highlight_placeholder_title: "[ event name ]",
+    highlight_placeholder_date: "[ date ]",
+    highlight_placeholder_location: "[ location ]",
+    highlight_placeholder_note: "[ short note ]",
+
+    work_tag: "07 — Selected Work",
+    rafd_cat: "Business Analysis × UX Case Study",
+    rafd_desc: "Redesigning the Programs & Projects flow of an ERP system for a nonprofit — from diagnosing the problem to a clearer interface.",
+    view_case_study: "View case study",
+    placeholder_image: "[ project image ]",
+    placeholder_cat: "Coming soon",
+    placeholder_title: "Upcoming project",
+
+    edu_uni: "Taibah University",
+
+    contact_title: "LET'S CONNECT.",
+    contact_email: "[ email ]",
+    contact_linkedin: "[ LinkedIn ]",
+    contact_cv: "[ CV ]",
+    back_link: "← Back",
+    field_placeholder: "Selected projects in this field will be added here.",
+
+    ba_eyebrow: "Field of Work",
+    ba_intro: "I understand what's happening and identify what can be improved, listen to the client's needs, and translate them into clear requirements and more suitable solutions.",
+    ba_tools_tag: "Tools",
+    ba_tools_title: "Tools",
+    ba_tools_note: "The tools and software I actually use.",
+    ba_skills_tag: "Skills",
+    ba_skills_title: "Skills",
+    ba_skills_note: "The analytical capabilities I bring.",
+    ba_skill_1: "Business Process Analysis",
+    ba_skill_2: "Requirements Gathering & Analysis",
+    ba_skill_3: "Workflow Analysis & Documentation",
+    ba_skill_4: "Gap Analysis",
+    ba_skill_5: "Process Flow Mapping",
+    ba_skill_6: "As-Is / To-Be Analysis",
+    ba_skill_7: "Problem Identification",
+    ba_skill_8: "Solution Recommendations",
+    ba_projects_tag: "Projects",
+    ba_projects_title: "Projects",
+    ba_projects_note: "Full case studies — will be added here once ready.",
+    ba_project_tag_placeholder: "[ tag ]",
+    ba_project_title_placeholder: "[ Project title ]",
+    ba_project_desc_placeholder: "[ Short project description ]",
+    ba_project_year_placeholder: "[ Year ]",
+    ba_mini_tag: "Mini Work",
+    ba_mini_title: "Mini Work",
+    ba_mini_note: "Small diagrams, analyses, and documents that don't need a full case study.",
+    ba_mini_title_placeholder: "[ Item title ]",
+    ba_mini_note_placeholder: "[ Short note ]",
+    ba_certs_tag: "Certifications",
+    ba_certs_title: "Certifications",
+    ba_certs_note: "Certifications and courses related to Business Analysis — added once available.",
+    ba_cert_name_placeholder: "[ Certificate name ]",
+    ba_cert_issuer_placeholder: "[ Issuer ]",
+    ba_cert_date_placeholder: "[ Year ]",
+    ba_project_link_pending: "Coming soon — no link yet",
+
+    ux_eyebrow: "Field of Work",
+    ux_intro: "I start with the user, understand their needs, and turn insights and problems into simpler, clearer experiences.",
+    ux_tools_tag: "Tools",
+    ux_tools_title: "Tools",
+    ux_tools_note: "The design and research tools I actually use.",
+    ux_skills_tag: "Skills",
+    ux_skills_title: "Skills",
+    ux_skills_note: "The research and design capabilities I bring.",
+    ux_skill_1: "User Flow",
+    ux_skill_2: "Information Architecture",
+    ux_skill_3: "Wireframing",
+    ux_skill_4: "Prototyping",
+    ux_skill_5: "Usability Analysis",
+    ux_skill_6: "UX Problem Identification",
+    ux_skill_7: "UI Design",
+    ux_skill_8: "UX Documentation",
+    ux_projects_tag: "Projects",
+    ux_projects_title: "Projects",
+    ux_projects_note: "Full UX case studies — will be added here once ready.",
+    ux_project_tag_placeholder: "[ tag ]",
+    ux_project_title_placeholder: "[ Project title ]",
+    ux_project_desc_placeholder: "[ Short project description ]",
+    ux_project_year_placeholder: "[ Year ]",
+    ux_project_link_pending: "Coming soon — no link yet",
+    ux_mini_tag: "Mini Work",
+    ux_mini_title: "Mini Work",
+    ux_mini_note: "Wireframes, user flows, and research outputs that don't need a full case study.",
+    ux_mini_title_placeholder: "[ Item title ]",
+    ux_mini_note_placeholder: "[ Short note ]",
+    ux_certs_tag: "Certifications",
+    ux_certs_title: "Certifications",
+    ux_certs_note: "Certifications and courses related to User Experience — added once available.",
+    ux_cert_name_placeholder: "[ Certificate name ]",
+    ux_cert_issuer_placeholder: "[ Issuer ]",
+    ux_cert_date_placeholder: "[ Year ]",
+
+    cdm_eyebrow: "Field of Work",
+    cdm_intro: "I turn ideas into visual content with identity—designed to capture attention, communicate clearly, and leave an impression.",
+    cdm_tools_tag: "Tools",
+    cdm_tools_title: "Tools",
+    cdm_tools_note: "The design and marketing tools I actually use.",
+    cdm_skills_tag: "Skills",
+    cdm_skills_title: "Skills",
+    cdm_skills_note: "The design and marketing capabilities I bring.",
+    cdm_skill_1: "Visual Design",
+    cdm_skill_2: "Content Creation",
+    cdm_skill_3: "Social Media Content Design",
+    cdm_skill_4: "Poster Design",
+    cdm_skill_5: "Marketing Content",
+    cdm_skill_6: "Creative Concept Development",
+    cdm_projects_tag: "Projects",
+    cdm_projects_title: "Projects",
+    cdm_projects_note: "Full design/marketing campaigns — will be added here once ready.",
+    cdm_project_tag_placeholder: "[ tag ]",
+    cdm_project_title_placeholder: "[ Project title ]",
+    cdm_project_desc_placeholder: "[ Short project description ]",
+    cdm_project_year_placeholder: "[ Year ]",
+    cdm_project_link_pending: "Coming soon — no link yet",
+    cdm_mini_tag: "Mini Work",
+    cdm_mini_title: "Mini Work",
+    cdm_mini_note: "Visual designs, social content, and posters that don't need a full case study.",
+    cdm_mini_title_placeholder: "[ Item title ]",
+    cdm_mini_note_placeholder: "[ Short note ]",
+    cdm_certs_tag: "Certifications",
+    cdm_certs_title: "Certifications",
+    cdm_certs_note: "Certifications and courses related to design and digital marketing — added once available.",
+    cdm_cert_name_placeholder: "[ Certificate name ]",
+    cdm_cert_issuer_placeholder: "[ Issuer ]",
+    cdm_cert_date_placeholder: "[ Year ]",
+
+    footer_mark: "حالم متوهج"
+  }
+};
+
+/* ==========================================================================
+   LANGUAGE SWITCHING
+   ========================================================================== */
+function applyLanguage(lang) {
+  const dict = translations[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  const switchBtn = document.getElementById('langSwitch');
+  switchBtn.querySelector('.lang-ar').toggleAttribute('data-active', lang === 'ar');
+  switchBtn.querySelector('.lang-en').toggleAttribute('data-active', lang === 'en');
+
+  localStorage.setItem('portfolio-lang', lang);
+}
+
+document.getElementById('langSwitch').addEventListener('click', () => {
+  const next = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+  applyLanguage(next);
+});
+
+// Restore a previously chosen language, default to Arabic.
+applyLanguage(localStorage.getItem('portfolio-lang') || 'ar');
+
+/* ==========================================================================
+   MOBILE NAV
+   ========================================================================== */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+navLinks.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  })
+);
+
+/* ==========================================================================
+   SCROLL REVEAL
+   ========================================================================== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.chapter:not(.hero)').forEach(section => revealObserver.observe(section));
+
+/* ==========================================================================
+   PAGE TRANSITIONS
+   A quick, restrained fade between the homepage and each interest's
+   dedicated page — no loading animation, just a soft cross-fade.
+   ========================================================================== */
+document.body.classList.add('page-fade');
+
+window.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => document.body.classList.add('page-ready'));
+});
+
+document.querySelectorAll('.interest-card[href]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (!href || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    document.body.classList.remove('page-ready');
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { window.location.href = href; }, 180);
+  });
+});
+
+document.querySelectorAll('.back-link[href]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (!href || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    document.body.classList.remove('page-ready');
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { window.location.href = href; }, 180);
+  });
+});
+
+</script>
+</body>
+</html>

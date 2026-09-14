@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="card_cdm_title">Field</title>
-<meta name="description" content="Portfolio — Business Analysis × UX × Digital Transformation">
+<title data-i18n="card_cdm_title">تصميم حر و تسويق رقمي</title>
+<meta name="description" content="Portfolio — Creative Design & Digital Marketing field page">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +14,26 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-star" viewBox="0 0 40 40">
+      <path d="M20 0 C21 13 27 19 40 20 C27 21 21 27 20 40 C19 27 13 21 0 20 C13 19 19 13 20 0 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="site-nav">
   <a class="nav-mark" href="index.html" aria-label="Home">
     <span data-i18n="nav_mark">حالم متوهج</span>
   </a>
 
   <nav class="nav-links" id="navLinks" aria-label="Primary">
-    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#about" data-i18n="nav_about">عني</a>
+    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
     <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
     <a href="index.html#skills" data-i18n="nav_skills">المهارات</a>
+    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
+    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
   </nav>
 
@@ -39,12 +49,138 @@
   </div>
 </header>
 
-<main>
-  <section class="chapter field-page">
+<main class="cdm-page">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter cdm-hero">
     <a class="back-link" href="index.html#interests" data-i18n="back_link">→ العودة</a>
-    <h1 class="field-title" data-i18n="card_cdm_title">Field</h1>
-    <p class="field-placeholder" data-i18n="field_placeholder">سيتم إضافة أبرز المشاريع في هذا المجال هنا.</p>
+    <span class="cdm-hero-shape" aria-hidden="true"></span>
+    <svg class="cdm-hero-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <p class="cdm-eyebrow" data-i18n="cdm_eyebrow">مجال العمل</p>
+    <h1 class="cdm-title" data-i18n="card_cdm_title">تصميم حر و تسويق رقمي</h1>
+    <span class="cdm-underline" aria-hidden="true"></span>
+    <p class="cdm-intro" data-i18n="cdm_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بالتصميم الحر والتسويق الرقمي — نص قابل للتعديل لاحقًا ]</p>
   </section>
+
+  <!-- ===================== TOOLS — الأدوات ===================== -->
+  <section class="chapter cdm-section" id="cdm-tools">
+    <span class="chapter-tag" data-i18n="cdm_tools_tag">الأدوات</span>
+    <h2 class="chapter-title" data-i18n="cdm_tools_title">الأدوات</h2>
+    <p class="cdm-section-note" data-i18n="cdm_tools_note">أدوات التصميم والتسويق التي أستخدمها فعليًا.</p>
+
+    <div class="cdm-tools-grid">
+      <div class="cdm-tool-slot">
+        <span class="cdm-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/canva/3B3745" alt="" loading="lazy">
+        </span>
+        <span>Canva</span>
+      </div>
+      <div class="cdm-tool-slot">
+        <span class="cdm-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/framer/3B3745" alt="" loading="lazy">
+        </span>
+        <span>Framer</span>
+      </div>
+      <div class="cdm-tool-slot">
+        <span class="cdm-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18 h28 M18 6 v28" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <span>Google Stitch</span>
+      </div>
+      <div class="cdm-tool-slot">
+        <span class="cdm-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 4 L23 16 L35 19 L23 22 L20 34 L17 22 L5 19 L17 16 Z" fill="currentColor"/></svg>
+        </span>
+        <span>AI Creative Tools</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS — المهارات ===================== -->
+  <section class="chapter cdm-section cdm-alt-bg" id="cdm-skills">
+    <span class="chapter-tag" data-i18n="cdm_skills_tag">المهارات</span>
+    <h2 class="chapter-title" data-i18n="cdm_skills_title">المهارات</h2>
+    <p class="cdm-section-note" data-i18n="cdm_skills_note">قدرات التصميم والتسويق التي أعمل بها.</p>
+
+    <ul class="cdm-skills-list">
+      <li data-i18n="cdm_skill_1">التصميم البصري</li>
+      <li data-i18n="cdm_skill_2">صناعة المحتوى</li>
+      <li data-i18n="cdm_skill_3">تصميم محتوى منصات التواصل</li>
+      <li data-i18n="cdm_skill_4">تصميم البوسترات</li>
+      <li data-i18n="cdm_skill_5">المحتوى التسويقي</li>
+      <li data-i18n="cdm_skill_6">تطوير الأفكار الإبداعية</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS — المشاريع ===================== -->
+  <section class="chapter cdm-section" id="cdm-projects">
+    <span class="chapter-tag" data-i18n="cdm_projects_tag">المشاريع</span>
+    <h2 class="chapter-title" data-i18n="cdm_projects_title">المشاريع</h2>
+    <p class="cdm-section-note" data-i18n="cdm_projects_note">حملات ومشاريع تصميم كاملة — ستُضاف هنا عند توفرها.</p>
+
+    <div class="cdm-project-card">
+      <div class="cdm-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+      <div class="cdm-project-body">
+        <div class="cdm-project-tags">
+          <span data-i18n="cdm_project_tag_placeholder">[ وسم ]</span>
+          <span data-i18n="cdm_project_tag_placeholder">[ وسم ]</span>
+        </div>
+        <h3 data-i18n="cdm_project_title_placeholder">[ عنوان المشروع ]</h3>
+        <p data-i18n="cdm_project_desc_placeholder">[ وصف قصير للمشروع ]</p>
+        <div class="cdm-project-footer">
+          <span class="cdm-project-year" data-i18n="cdm_project_year_placeholder">[ السنة ]</span>
+          <span class="cdm-project-link is-disabled" aria-disabled="true" data-i18n="cdm_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
+  <section class="chapter cdm-section cdm-alt-bg" id="cdm-miniwork">
+    <span class="chapter-tag" data-i18n="cdm_mini_tag">أعمال مصغرة</span>
+    <h2 class="chapter-title" data-i18n="cdm_mini_title">أعمال مصغرة</h2>
+    <p class="cdm-section-note" data-i18n="cdm_mini_note">تصاميم بصرية، محتوى تواصل، وملصقات لا تحتاج دراسة حالة كاملة.</p>
+
+    <div class="cdm-mini-grid">
+      <div class="cdm-mini-item">
+        <div class="cdm-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="cdm_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="cdm_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="cdm-mini-item">
+        <div class="cdm-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="cdm_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="cdm_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="cdm-mini-item">
+        <div class="cdm-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="cdm_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="cdm_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
+  <section class="chapter cdm-section" id="cdm-certs">
+    <span class="chapter-tag" data-i18n="cdm_certs_tag">الشهادات</span>
+    <h2 class="chapter-title" data-i18n="cdm_certs_title">الشهادات</h2>
+    <p class="cdm-section-note" data-i18n="cdm_certs_note">شهادات ودورات متعلقة بالتصميم والتسويق الرقمي — ستُضاف عند توفرها.</p>
+
+    <div class="cdm-cert-item">
+      <span class="cdm-cert-badge" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+      </span>
+      <div class="cdm-cert-info">
+        <h4 data-i18n="cdm_cert_name_placeholder">[ اسم الشهادة ]</h4>
+        <p class="cdm-cert-meta">
+          <span data-i18n="cdm_cert_issuer_placeholder">[ الجهة المانحة ]</span>
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="cdm_cert_date_placeholder">[ السنة ]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">

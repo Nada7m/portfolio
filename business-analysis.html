@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="card_ba_title">Field</title>
-<meta name="description" content="Portfolio — Business Analysis × UX × Digital Transformation">
+<title data-i18n="card_ba_title">تحليل الأعمال</title>
+<meta name="description" content="Portfolio — Business Analysis field page">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +14,26 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-star" viewBox="0 0 40 40">
+      <path d="M20 0 C21 13 27 19 40 20 C27 21 21 27 20 40 C19 27 13 21 0 20 C13 19 19 13 20 0 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="site-nav">
   <a class="nav-mark" href="index.html" aria-label="Home">
     <span data-i18n="nav_mark">حالم متوهج</span>
   </a>
 
   <nav class="nav-links" id="navLinks" aria-label="Primary">
-    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#about" data-i18n="nav_about">عني</a>
+    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
     <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
     <a href="index.html#skills" data-i18n="nav_skills">المهارات</a>
+    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
+    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
     <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
   </nav>
 
@@ -39,12 +49,214 @@
   </div>
 </header>
 
-<main>
-  <section class="chapter field-page">
+<main class="ba-page">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter ba-hero">
     <a class="back-link" href="index.html#interests" data-i18n="back_link">→ العودة</a>
-    <h1 class="field-title" data-i18n="card_ba_title">Field</h1>
-    <p class="field-placeholder" data-i18n="field_placeholder">سيتم إضافة أبرز المشاريع في هذا المجال هنا.</p>
+    <span class="ba-hero-blob" aria-hidden="true"></span>
+    <svg class="ba-hero-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <p class="ba-eyebrow" data-i18n="ba_eyebrow">مجال العمل</p>
+    <h1 class="ba-title" data-i18n="card_ba_title">تحليل الأعمال</h1>
+    <span class="ba-underline" aria-hidden="true"></span>
+    <p class="ba-intro" data-i18n="ba_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتحليل الأعمال — نص قابل للتعديل لاحقًا ]</p>
   </section>
+
+  <!-- ===================== TOOLS — الأدوات ===================== -->
+  <section class="chapter ba-section" id="ba-tools">
+    <span class="chapter-tag" data-i18n="ba_tools_tag">الأدوات</span>
+    <h2 class="chapter-title" data-i18n="ba_tools_title">الأدوات</h2>
+    <p class="ba-section-note" data-i18n="ba_tools_note">الأدوات والبرامج التي أستخدمها فعليًا.</p>
+
+    <div class="ba-tools-grid">
+      <div class="ba-tool-slot">
+        <span class="ba-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/microsoftexcel/C43F60" alt="" loading="lazy">
+        </span>
+        <span>Microsoft Excel</span>
+      </div>
+      <div class="ba-tool-slot">
+        <span class="ba-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/powerbi/C43F60" alt="" loading="lazy">
+        </span>
+        <span>Power BI</span>
+      </div>
+      <div class="ba-tool-slot">
+        <span class="ba-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><ellipse cx="20" cy="10" rx="12" ry="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10 v14 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4 V10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <span>ERP Systems</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS — المهارات ===================== -->
+  <section class="chapter ba-section ba-alt-bg" id="ba-skills">
+    <span class="chapter-tag" data-i18n="ba_skills_tag">المهارات</span>
+    <h2 class="chapter-title" data-i18n="ba_skills_title">المهارات</h2>
+    <p class="ba-section-note" data-i18n="ba_skills_note">القدرات التحليلية التي أعمل بها.</p>
+
+    <ul class="ba-skills-list">
+      <li data-i18n="ba_skill_1">تحليل عمليات الأعمال</li>
+      <li data-i18n="ba_skill_2">جمع وتحليل المتطلبات</li>
+      <li data-i18n="ba_skill_3">تحليل وتوثيق سير العمل</li>
+      <li data-i18n="ba_skill_4">تحليل الفجوات</li>
+      <li data-i18n="ba_skill_5">تخطيط تدفق العمليات</li>
+      <li data-i18n="ba_skill_6">تحليل الوضع الحالي والمستهدف</li>
+      <li data-i18n="ba_skill_7">تحديد المشكلات</li>
+      <li data-i18n="ba_skill_8">اقتراح الحلول والتحسينات</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS — المشاريع ===================== -->
+  <section class="chapter ba-section" id="ba-projects">
+    <span class="chapter-tag" data-i18n="ba_projects_tag">المشاريع</span>
+    <h2 class="chapter-title" data-i18n="ba_projects_title">المشاريع</h2>
+    <p class="ba-section-note" data-i18n="ba_projects_note">دراسات حالة كاملة — ستُضاف هنا عند توفرها.</p>
+
+    <div class="ba-projects-grid">
+
+      <!-- ============ PROJECT 1: RAFD ERP UX IMPROVEMENT ============ -->
+      <article class="ba-project-card">
+        <!-- PROJECT IMAGE -->
+        <div class="ba-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+        <div class="ba-project-body">
+          <!-- PROJECT TITLE -->
+          <h3 data-i18n="ba_project1_title">تحسين تجربة نظام رافد ERP</h3>
+          <!-- PROJECT DESCRIPTION -->
+          <p data-i18n="ba_project1_desc">تحليل تجربة نظام رافد وتحديد التحديات والفجوات في سير العمل، ثم تطوير مقترحات ونماذج لتحسين وضوح الإجراءات وتجربة الاستخدام.</p>
+          <!-- PROJECT LINK (no dedicated case-study page yet — kept inert, not a dead link) -->
+          <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ba_view_project">عرض المشروع</span>
+        </div>
+      </article>
+      <!-- ============ END PROJECT 1 ============ -->
+
+      <!-- ============ PROJECT 2: ARAMEX SHIPMENT DELAY DSS ============ -->
+      <article class="ba-project-card">
+        <!-- PROJECT IMAGE -->
+        <div class="ba-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+        <div class="ba-project-body">
+          <!-- PROJECT TITLE -->
+          <h3 data-i18n="ba_project2_title">نظام دعم قرار لتأخر الشحنات — دراسة حالة أرامكس</h3>
+          <!-- PROJECT DESCRIPTION -->
+          <p data-i18n="ba_project2_desc">مشروع تحليلي أكاديمي لدراسة تأخر الشحنات باستخدام عدة أساليب تحليلية وتحويل النتائج إلى دعم لاتخاذ القرار.</p>
+          <!-- PROJECT LINK (no dedicated case-study page yet — kept inert, not a dead link) -->
+          <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ba_view_project">عرض المشروع</span>
+        </div>
+      </article>
+      <!-- ============ END PROJECT 2 ============ -->
+
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
+  <section class="chapter ba-section ba-alt-bg" id="ba-miniwork">
+    <span class="chapter-tag" data-i18n="ba_mini_tag">أعمال مصغرة</span>
+    <h2 class="chapter-title" data-i18n="ba_mini_title">أعمال مصغرة</h2>
+    <p class="ba-section-note" data-i18n="ba_mini_note">مخططات وتحليلات ووثائق صغيرة لا تحتاج دراسة حالة كاملة.</p>
+
+    <div class="ba-mini-grid">
+
+      <!-- ============ MINI WORK 1: RAFD PROCESS & WORKFLOW ANALYSIS ============ -->
+      <button class="ba-mini-item" type="button" data-modal-target="ba-modal-rafd" aria-haspopup="dialog">
+        <!-- MINI WORK COVER -->
+        <div class="ba-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h4>
+        <p class="ba-mini-view" data-i18n="ba_view_details">عرض التفاصيل</p>
+      </button>
+      <!-- ============ END MINI WORK 1 ============ -->
+
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK MODAL: RAFD PROCESS & WORKFLOW ANALYSIS ===================== -->
+  <div class="ba-modal-backdrop" id="ba-modal-backdrop" hidden>
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafd-title" id="ba-modal-rafd">
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <!-- MINI WORK TITLE -->
+      <h3 id="ba-modal-rafd-title" class="ba-modal-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h3>
+
+      <!-- OVERVIEW -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-i18n="ba_mini1_overview">[ نبذة قابلة للتعديل تشرح ما تم تحليله ]</p>
+      </section>
+
+      <!-- OBJECTIVE -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_objective_label">الهدف</h4>
+        <p data-i18n="ba_mini1_objective">[ الهدف من التحليل — قابل للتعديل ]</p>
+      </section>
+
+      <!-- ANALYSIS AREAS -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_areas_label">محاور التحليل</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
+          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
+          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
+        </ul>
+      </section>
+
+      <!-- KEY FINDINGS -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_findings_label">أبرز الملاحظات</h4>
+        <p class="ba-modal-empty" data-i18n="ba_modal_findings_placeholder">[ ستُضاف أبرز الملاحظات هنا عند توفرها ]</p>
+      </section>
+
+      <!-- DELIVERABLES -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_deliverables_label">المخرجات</h4>
+        <div class="ba-deliverables-grid">
+          <div class="ba-deliverable-slot" aria-hidden="true"><span data-i18n="ba_modal_deliverable_placeholder">[ مخرج ]</span></div>
+          <div class="ba-deliverable-slot" aria-hidden="true"><span data-i18n="ba_modal_deliverable_placeholder">[ مخرج ]</span></div>
+        </div>
+      </section>
+
+      <!-- IMAGE GALLERY (populate later from assets/images/projects/) -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_gallery_label">معرض الصور</h4>
+        <div class="ba-gallery">
+          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
+          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
+          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Shared lightbox for enlarging a clicked gallery image -->
+  <div class="ba-lightbox" id="ba-lightbox" hidden>
+    <button class="ba-lightbox-close" type="button" data-lightbox-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="ba-lightbox-content" id="ba-lightbox-content"></div>
+  </div>
+
+  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
+  <section class="chapter ba-section" id="ba-certs">
+    <span class="chapter-tag" data-i18n="ba_certs_tag">الشهادات</span>
+    <h2 class="chapter-title" data-i18n="ba_certs_title">الشهادات</h2>
+    <p class="ba-section-note" data-i18n="ba_certs_note">شهادات ودورات متعلقة بتحليل الأعمال — ستُضاف عند توفرها.</p>
+
+    <div class="ba-cert-item">
+      <span class="ba-cert-badge" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+      </span>
+      <div class="ba-cert-info">
+        <h4 data-i18n="ba_cert_name_placeholder">[ اسم الشهادة ]</h4>
+        <p class="ba-cert-meta">
+          <span data-i18n="ba_cert_issuer_placeholder">[ الجهة المانحة ]</span>
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="ba_cert_date_placeholder">[ السنة ]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -52,5 +264,82 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+/* ==========================================================================
+   BUSINESS ANALYSIS — MINI WORK MODAL + GALLERY LIGHTBOX
+   Page-scoped only: this logic lives here (not in the shared script.js)
+   since it currently applies to this page alone.
+   ========================================================================== */
+(function () {
+  var backdrop = document.getElementById('ba-modal-backdrop');
+  var lightbox = document.getElementById('ba-lightbox');
+  var lightboxContent = document.getElementById('ba-lightbox-content');
+  var lastTrigger = null;
+
+  function openModal(id) {
+    var modal = document.getElementById(id);
+    if (!modal || !backdrop) return;
+    document.querySelectorAll('.ba-modal').forEach(function (m) { m.hidden = m.id !== id; });
+    backdrop.hidden = false;
+    document.body.classList.add('ba-modal-open');
+    var closeBtn = modal.querySelector('[data-modal-close]');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal() {
+    if (!backdrop || backdrop.hidden) return;
+    backdrop.hidden = true;
+    document.body.classList.remove('ba-modal-open');
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  function openLightbox(thumb) {
+    if (!lightbox || !lightboxContent) return;
+    lightboxContent.innerHTML = thumb.innerHTML;
+    lightbox.hidden = false;
+  }
+
+  function closeLightbox() {
+    if (!lightbox || lightbox.hidden) return;
+    lightbox.hidden = true;
+  }
+
+  document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      lastTrigger = trigger;
+      openModal(trigger.getAttribute('data-modal-target'));
+    });
+  });
+
+  document.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+    btn.addEventListener('click', closeModal);
+  });
+
+  document.querySelectorAll('[data-gallery-item]').forEach(function (thumb) {
+    thumb.addEventListener('click', function () { openLightbox(thumb); });
+  });
+
+  document.querySelectorAll('[data-lightbox-close]').forEach(function (btn) {
+    btn.addEventListener('click', closeLightbox);
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeModal();
+    });
+  }
+  if (lightbox) {
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (lightbox && !lightbox.hidden) { closeLightbox(); return; }
+    if (backdrop && !backdrop.hidden) closeModal();
+  });
+})();
+</script>
 </body>
 </html>
