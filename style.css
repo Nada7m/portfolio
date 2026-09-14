@@ -1371,8 +1371,107 @@ html[lang="en"] .wip-line-2 { font-family: var(--font-body); }
 }
 
 /* ---------- Selected Projects: one shared type scale ---------- */
-.project-side .project-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 0; }
+.project-side .project-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 0 0 0.6rem; }
 .project-num { font-size: clamp(2.2rem, 4vw, 3rem); }
+
+.project-side .project-desc {
+  font-family: var(--font-ar);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: rgba(41, 71, 160, 0.82);
+  margin: 0 0 1rem;
+  text-align: justify;
+  text-align-last: start;
+}
+html[lang="en"] .project-side .project-desc { font-family: var(--font-body); }
+.project-side .project-link { margin-top: 0; font-size: 0.95rem; }
+
+/* ---------- Two-slide image area ----------
+   A wide presentation frame: slide 01 sits in view, slide 02 slides in
+   horizontally on hover (or via the dots / a swipe on touch devices). */
+.project-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: var(--cornsilk);
+  border: 1.5px solid var(--taupe);
+  /* same offset editorial shadow the old frames used */
+  box-shadow: 7px 7px 0 var(--aqua), 10px 12px 18px -8px rgba(41, 71, 160, 0.4);
+  transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html[dir="rtl"] .project-slider { box-shadow: -7px 7px 0 var(--aqua), -10px 12px 18px -8px rgba(41, 71, 160, 0.4); }
+
+.project-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* The slides are presentation-shaped: shown whole, never cropped. */
+.project-slide {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--cornsilk);
+}
+
+/* Hover (and keyboard focus within the card) advances to slide 02.
+   RTL flips the direction the track travels. */
+.project:hover .project-track,
+.project:focus-within .project-track,
+.project-slider.show-second .project-track { transform: translateX(-50%); }
+html[dir="rtl"] .project:hover .project-track,
+html[dir="rtl"] .project:focus-within .project-track,
+html[dir="rtl"] .project-slider.show-second .project-track { transform: translateX(50%); }
+
+.project:hover .project-slider {
+  transform: translateY(-4px);
+  box-shadow: 9px 10px 0 var(--pink), 12px 16px 22px -8px rgba(41, 71, 160, 0.45);
+}
+html[dir="rtl"] .project:hover .project-slider { box-shadow: -9px 10px 0 var(--pink), -12px 16px 22px -8px rgba(41, 71, 160, 0.45); }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-track { transition: none; }
+  .project:hover .project-slider { transform: none; }
+}
+
+/* Dots: only offered where hover doesn't exist. */
+.project-dots {
+  display: none;
+  position: absolute;
+  bottom: 8px;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  gap: 0.4rem;
+  z-index: 2;
+}
+html[dir="rtl"] .project-dots { transform: translateX(50%); }
+.project-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1.5px solid var(--taupe);
+  border-radius: 50%;
+  background: var(--snow);
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.project-dot.is-active { background: var(--taupe); }
+
+@media (hover: none) {
+  .project-dots { display: flex; }
+  /* No real hover on these devices — neutralise any stray :hover state… */
+  .project:hover .project-track { transform: translateX(0); }
+  html[dir="rtl"] .project:hover .project-track { transform: translateX(0); }
+  .project:hover .project-slider { transform: none; }
+  /* …then let the dots / swipe win, since they are the only way to advance. */
+  .project-slider.show-second .project-track { transform: translateX(-50%); }
+  html[dir="rtl"] .project-slider.show-second .project-track { transform: translateX(50%); }
+}
 .contact-star {
   position: absolute;
   width: 60px; height: 60px;

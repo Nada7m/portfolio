@@ -61,9 +61,13 @@ const translations = {
     highlight_3_note: "الاحتفال ضمن الخريجات المتميزات الحاصلات على مرتبة الشرف الأولى في تخصص نظم المعلومات الإدارية بجامعة طيبة.",
 
     work_tag: "06 — مشاريع مختارة",
-    madar_title: "مدار — MADAR",
-    noreen_title: "نورين — NOREEN",
-    rafd_title: "رافد — RAFD",
+    madar_title: "مدار",
+    madar_desc: "منصة ذكية تربط الزائر بالمدينة المنورة وتحوّل اكتشاف أماكنها وتجاربها إلى رحلة سهلة وتفاعلية عن طريق خارطة تفاعلية، قصص المكان، مسارات مقترحة ومتناسبة للزائر، ومرشد محلي يجعل الرحلة الاستكشافية أكثر إمتاعًا.",
+    noreen_title: "نورين",
+    noreen_desc: "نورين منصة تعليمية استثمارية ذكية تربط المستفيدين بالفرصة المناسبة عبر تكامل الجهات الاستثمارية والمكاتب الاستشارية، لتبسيط رحلة القبول والدراسة من البداية حتى تحقيق المسار الأكاديمي والمهني المرغوب.",
+    rafd_title: "رافد",
+    rafd_desc: "حالة دراسية تهدف إلى إعادة تصميم تجربة المستخدم لنظام رافد من خلال تحليل سير العمل الحالي، وتحديد المشكلات التشغيلية، ثم تحويل نتائج التحليل إلى حلول تصميمية تعتمد على مبادئ UX لتحسين وضوح العمليات وسهولة استخدامها.",
+    explore_project: "استكشف المشروع ↗",
     view_case_study: "عرض دراسة الحالة",
     placeholder_image: "[ صورة المشروع ]",
     placeholder_cat: "قيد الإضافة",
@@ -258,9 +262,13 @@ const translations = {
     highlight_3_note: "Recognized among distinguished graduates who earned First-Class Honors in Management Information Systems at Taibah University.",
 
     work_tag: "06 — Selected Projects",
-    madar_title: "MADAR — مدار",
-    noreen_title: "NOREEN — نورين",
-    rafd_title: "RAFD — رافد",
+    madar_title: "MADAR",
+    madar_desc: "MADAR is a smart platform that connects visitors with Al-Madinah and transforms discovering its places and experiences into an easy, interactive journey through an interactive map, place stories, personalized routes, and a local guide that makes exploration more engaging.",
+    noreen_title: "NOREEN",
+    noreen_desc: "Noreen is a smart educational and investment platform that connects beneficiaries with suitable opportunities through the integration of investment entities and consulting offices, simplifying the admission and study journey from the beginning until reaching the desired academic and professional path.",
+    rafd_title: "RAFD",
+    rafd_desc: "A case study focused on redesigning the user experience of the Rafd system by analyzing current workflows, identifying operational issues, and translating the findings into UX-based design solutions that improve process clarity and usability.",
+    explore_project: "Explore Project ↗",
     view_case_study: "View case study",
     placeholder_image: "[ project image ]",
     placeholder_cat: "Coming soon",
@@ -442,6 +450,37 @@ navLinks.querySelectorAll('a').forEach(a =>
     navToggle.setAttribute('aria-expanded', 'false');
   })
 );
+
+/* ==========================================================================
+   PROJECT IMAGE SLIDER (homepage — Selected Projects)
+   Hover drives the slide in CSS. This adds the touch path only: dots and a
+   horizontal swipe, for devices where hover doesn't exist.
+   ========================================================================== */
+document.querySelectorAll('[data-slider]').forEach(slider => {
+  const dots = [...slider.querySelectorAll('.project-dot')];
+
+  function show(index) {
+    slider.classList.toggle('show-second', index === 1);
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', (e) => { e.preventDefault(); show(i); });
+  });
+
+  // Swipe: direction is read in document order, so it works in RTL and LTR.
+  let startX = null;
+  slider.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) < 40) return;
+    const rtl = document.documentElement.dir === 'rtl';
+    const forward = rtl ? dx > 0 : dx < 0;
+    show(forward ? 1 : 0);
+  }, { passive: true });
+});
 
 /* ==========================================================================
    PHOTO LIGHTBOX (homepage highlights)

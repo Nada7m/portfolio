@@ -306,28 +306,62 @@
 <section class="chapter work" id="work">
   <span class="chapter-tag" data-i18n="work_tag">06 — مشاريع مختارة</span>
 
-  <!-- Three equal projects — same size, proportions and visual weight. -->
+  <!-- Three equal projects — same size, proportions and visual weight.
+       Each image area is a two-slide track: slide 01 by default, slide 02
+       slides in horizontally on hover (dots/swipe on touch devices). -->
   <div class="project-row">
     <!-- ============ 01 MADAR ============ -->
     <article class="project project-side">
       <span class="project-num">01</span>
-      <!-- IMAGE SLOT — replace with <img src="assets/images/projects/madar-cover.jpg"> later -->
-      <div class="project-frame small" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-      <h3 class="project-title" data-i18n="madar_title">مدار — MADAR</h3>
+      <div class="project-slider" data-slider>
+        <div class="project-track">
+          <img class="project-slide" src="assets/images/projects/madar-01.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/madar-02.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="project-dots" aria-hidden="true">
+          <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
+          <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
+        </div>
+      </div>
+      <h3 class="project-title" data-i18n="madar_title">مدار</h3>
+      <p class="project-desc" data-i18n="madar_desc">منصة ذكية تربط الزائر بالمدينة المنورة وتحوّل اكتشاف أماكنها وتجاربها إلى رحلة سهلة وتفاعلية عن طريق خارطة تفاعلية، قصص المكان، مسارات مقترحة ومتناسبة للزائر، ومرشد محلي يجعل الرحلة الاستكشافية أكثر إمتاعًا.</p>
+      <a class="project-link" href="creative-design-marketing.html#madar" data-i18n="explore_project">استكشف المشروع ↗</a>
     </article>
+
     <!-- ============ 02 NOREEN ============ -->
     <article class="project project-side">
       <span class="project-num">02</span>
-      <!-- IMAGE SLOT — replace with <img src="assets/images/projects/noreen-cover.jpg"> later -->
-      <div class="project-frame small" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-      <h3 class="project-title" data-i18n="noreen_title">نورين — NOREEN</h3>
+      <div class="project-slider" data-slider>
+        <div class="project-track">
+          <img class="project-slide" src="assets/images/projects/noreen-01.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/noreen-02.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="project-dots" aria-hidden="true">
+          <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
+          <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
+        </div>
+      </div>
+      <h3 class="project-title" data-i18n="noreen_title">نورين</h3>
+      <p class="project-desc" data-i18n="noreen_desc">نورين منصة تعليمية استثمارية ذكية تربط المستفيدين بالفرصة المناسبة عبر تكامل الجهات الاستثمارية والمكاتب الاستشارية، لتبسيط رحلة القبول والدراسة من البداية حتى تحقيق المسار الأكاديمي والمهني المرغوب.</p>
+      <a class="project-link" href="ux.html#noreen" data-i18n="explore_project">استكشف المشروع ↗</a>
     </article>
+
     <!-- ============ 03 RAFD ============ -->
     <article class="project project-side">
       <span class="project-num">03</span>
-      <!-- IMAGE SLOT — replace with <img src="assets/images/projects/rafd-cover.jpg"> later -->
-      <div class="project-frame small" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-      <h3 class="project-title" data-i18n="rafd_title">رافد — RAFD</h3>
+      <div class="project-slider" data-slider>
+        <div class="project-track">
+          <img class="project-slide" src="assets/images/projects/rafd-01.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/rafd-02.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="project-dots" aria-hidden="true">
+          <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
+          <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
+        </div>
+      </div>
+      <h3 class="project-title" data-i18n="rafd_title">رافد</h3>
+      <p class="project-desc" data-i18n="rafd_desc">حالة دراسية تهدف إلى إعادة تصميم تجربة المستخدم لنظام رافد من خلال تحليل سير العمل الحالي، وتحديد المشكلات التشغيلية، ثم تحويل نتائج التحليل إلى حلول تصميمية تعتمد على مبادئ UX لتحسين وضوح العمليات وسهولة استخدامها.</p>
+      <a class="project-link" href="business-analysis.html#rafd" data-i18n="explore_project">استكشف المشروع ↗</a>
     </article>
   </div>
 </section>

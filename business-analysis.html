@@ -111,39 +111,28 @@
   <section class="chapter ba-section" id="ba-projects">
     <span class="chapter-tag" data-i18n="ba_projects_tag">المشاريع</span>
     <h2 class="chapter-title" data-i18n="ba_projects_title">المشاريع</h2>
-    <p class="ba-section-note" data-i18n="ba_projects_note">دراسات حالة كاملة — ستُضاف هنا عند توفرها.</p>
+    <p class="ba-section-note" data-i18n="ba_projects_note">دراسات حالة كاملة في تحليل الأعمال وتجربة المستخدم.</p>
 
     <div class="ba-projects-grid">
 
-      <!-- ============ PROJECT 1: RAFD ERP UX IMPROVEMENT ============ -->
-      <article class="ba-project-card">
-        <!-- PROJECT IMAGE -->
-        <div class="ba-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-        <div class="ba-project-body">
-          <!-- PROJECT TITLE -->
-          <h3 data-i18n="ba_project1_title">تحسين تجربة نظام رافد ERP</h3>
-          <!-- PROJECT DESCRIPTION -->
-          <p data-i18n="ba_project1_desc">تحليل تجربة نظام رافد وتحديد التحديات والفجوات في سير العمل، ثم تطوير مقترحات ونماذج لتحسين وضوح الإجراءات وتجربة الاستخدام.</p>
-          <!-- PROJECT LINK (no dedicated case-study page yet — kept inert, not a dead link) -->
-          <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ba_view_project">عرض المشروع</span>
-        </div>
+      <!-- ============ PROJECT 1: RAFED ERP UX REDESIGN ============ -->
+      <!-- id is the destination of the homepage "استكشف المشروع" link -->
+      <article class="ba-project-card" id="rafd">
+        <button class="ba-card-open" type="button" data-modal-target="ba-modal-rafed-ux" aria-haspopup="dialog">
+          <!-- PROJECT IMAGE -->
+          <span class="ba-project-cover">
+            <img src="assets/images/projects/rafed-ux-cover.png" alt="" loading="lazy" decoding="async">
+          </span>
+          <span class="ba-project-body">
+            <!-- PROJECT TITLE -->
+            <span class="ba-card-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</span>
+            <!-- PROJECT DESCRIPTION -->
+            <span class="ba-card-desc" data-i18n="ba_project1_desc">دراسة حالة لإعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد، بدأت بتحليل النظام وسير العمل الحالي وتحديد تحديات الاستخدام، ثم تحويل النتائج إلى حلول تصميمية تهدف إلى توضيح دورة العمل، تقليل التعقيد، وتسهيل الوصول إلى الإجراءات والمعلومات.</span>
+            <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
+          </span>
+        </button>
       </article>
       <!-- ============ END PROJECT 1 ============ -->
-
-      <!-- ============ PROJECT 2: ARAMEX SHIPMENT DELAY DSS ============ -->
-      <article class="ba-project-card">
-        <!-- PROJECT IMAGE -->
-        <div class="ba-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-        <div class="ba-project-body">
-          <!-- PROJECT TITLE -->
-          <h3 data-i18n="ba_project2_title">نظام دعم قرار لتأخر الشحنات — دراسة حالة أرامكس</h3>
-          <!-- PROJECT DESCRIPTION -->
-          <p data-i18n="ba_project2_desc">مشروع تحليلي أكاديمي لدراسة تأخر الشحنات باستخدام عدة أساليب تحليلية وتحويل النتائج إلى دعم لاتخاذ القرار.</p>
-          <!-- PROJECT LINK (no dedicated case-study page yet — kept inert, not a dead link) -->
-          <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ba_view_project">عرض المشروع</span>
-        </div>
-      </article>
-      <!-- ============ END PROJECT 2 ============ -->
 
     </div>
   </section>
@@ -152,109 +141,298 @@
   <section class="chapter ba-section ba-alt-bg" id="ba-miniwork">
     <span class="chapter-tag" data-i18n="ba_mini_tag">أعمال مصغرة</span>
     <h2 class="chapter-title" data-i18n="ba_mini_title">أعمال مصغرة</h2>
-    <p class="ba-section-note" data-i18n="ba_mini_note">مخططات وتحليلات ووثائق صغيرة لا تحتاج دراسة حالة كاملة.</p>
+    <p class="ba-section-note" data-i18n="ba_mini_note">مخرجات تحليلية توثّق أساليب العمل والأدوات المستخدمة في تحليل العمليات والمتطلبات.</p>
 
     <div class="ba-mini-grid">
 
-      <!-- ============ MINI WORK 1: RAFD PROCESS & WORKFLOW ANALYSIS ============ -->
-      <button class="ba-mini-item" type="button" data-modal-target="ba-modal-rafd" aria-haspopup="dialog">
-        <!-- MINI WORK COVER -->
-        <div class="ba-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
-        <h4 data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h4>
-        <p class="ba-mini-view" data-i18n="ba_view_details">عرض التفاصيل</p>
+      <!-- ============ MINI WORK 1: RAFED PROCESS & WORKFLOW ANALYSIS ============ -->
+      <button class="ba-mini-item" type="button" data-modal-target="ba-modal-rafed-analysis" aria-haspopup="dialog">
+        <span class="ba-mini-preview">
+          <img src="assets/images/projects/rafed-analysis-cover.png" alt="" loading="lazy" decoding="async">
+        </span>
+        <span class="ba-card-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</span>
+        <span class="ba-card-desc" data-i18n="ba_mini1_desc">دراسة تحليلية لعمليات إدارتي البرامج والمشاريع في نظام رافد، هدفت إلى فهم آلية تنفيذ الإجراءات وتسلسلها داخل النظام، ومقارنة دورة العمل بين الإدارتين؛ للكشف عن الفجوات وفرص التحسين وتحويل العمليات الحالية إلى تدفقات عمل أكثر وضوحًا وقابلية للتتبع.</span>
+        <span class="ba-mini-view" data-i18n="ba_view_details">عرض التفاصيل</span>
       </button>
       <!-- ============ END MINI WORK 1 ============ -->
+
+      <!-- ============ MINI WORK 2: ARAMEX SHIPMENT DELAY DSS ============ -->
+      <button class="ba-mini-item" type="button" data-modal-target="ba-modal-aramex" aria-haspopup="dialog">
+        <span class="ba-mini-preview">
+          <img src="assets/images/projects/aramex-dss-cover.png" alt="" loading="lazy" decoding="async">
+        </span>
+        <span class="ba-card-title" data-i18n="ba_mini2_title">نظام دعم قرار للتنبؤ بتأخر الشحنات — دراسة حالة أرامكس</span>
+        <span class="ba-card-desc" data-i18n="ba_mini2_desc">مشروع أكاديمي لنظام دعم قرار يهدف إلى تحليل مشكلة تأخر الشحنات والتنبؤ بالحالات الأكثر عرضة للتأخير قبل وقوعها، بالاعتماد على عوامل تشغيلية مثل الموسم، حجم الشحنات والمسافة، ثم تحويل نتائج التحليل إلى مؤشرات وتوصيات تساعد في اتخاذ قرارات استباقية وتقليل أثر التأخير.</span>
+        <span class="ba-mini-view" data-i18n="ba_view_details">عرض التفاصيل</span>
+      </button>
+      <!-- ============ END MINI WORK 2 ============ -->
 
     </div>
   </section>
 
-  <!-- ===================== MINI WORK MODAL: RAFD PROCESS & WORKFLOW ANALYSIS ===================== -->
+  <!-- ===================== MODALS ===================== -->
   <div class="ba-modal-backdrop" id="ba-modal-backdrop" hidden>
-    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafd-title" id="ba-modal-rafd">
+
+    <!-- ============ MODAL 1: RAFED ERP UX REDESIGN ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafed-ux-title" id="ba-modal-rafed-ux" hidden>
       <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
-      <!-- MINI WORK TITLE -->
-      <h3 id="ba-modal-rafd-title" class="ba-modal-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h3>
+      <h3 id="ba-modal-rafed-ux-title" class="ba-modal-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</h3>
 
-      <!-- OVERVIEW -->
+      <!-- نبذة -->
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
-        <p data-i18n="ba_mini1_overview">[ نبذة قابلة للتعديل تشرح ما تم تحليله ]</p>
+        <p data-i18n="ba_project1_desc">دراسة حالة لإعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد، بدأت بتحليل النظام وسير العمل الحالي وتحديد تحديات الاستخدام، ثم تحويل النتائج إلى حلول تصميمية تهدف إلى توضيح دورة العمل، تقليل التعقيد، وتسهيل الوصول إلى الإجراءات والمعلومات.</p>
       </section>
 
-      <!-- OBJECTIVE -->
+      <!-- محاور العمل -->
       <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_objective_label">الهدف</h4>
-        <p data-i18n="ba_mini1_objective">[ الهدف من التحليل — قابل للتعديل ]</p>
-      </section>
-
-      <!-- ANALYSIS AREAS -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_areas_label">محاور التحليل</h4>
+        <h4 data-i18n="ba_modal_axes_label">محاور العمل</h4>
         <ul class="ba-modal-list">
-          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
-          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
-          <li data-i18n="ba_modal_area_placeholder">[ محور تحليل قابل للإضافة ]</li>
+          <li data-i18n="ba_p1_axis_1">مراجعة النظام الحالي وتحليل تجربة الاستخدام وسير العمليات.</li>
+          <li data-i18n="ba_p1_axis_2">تحديد مشكلات وضوح التسلسل، دورة العمل، الإرشاد وسهولة الاستخدام.</li>
+          <li data-i18n="ba_p1_axis_3">فهم احتياجات المستخدم من خلال Persona وUser Journey وتجميع المشكلات باستخدام Affinity Mapping.</li>
+          <li data-i18n="ba_p1_axis_4">تحويل المشكلات إلى فرص تصميمية وإعادة تصميم الواجهات وتدفقات الاستخدام.</li>
         </ul>
       </section>
 
-      <!-- KEY FINDINGS -->
+      <!-- المنهجية والأدوات -->
       <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_findings_label">أبرز الملاحظات</h4>
-        <p class="ba-modal-empty" data-i18n="ba_modal_findings_placeholder">[ ستُضاف أبرز الملاحظات هنا عند توفرها ]</p>
+        <h4 data-i18n="ba_modal_methods_label">المنهجية والأدوات</h4>
+        <dl class="ba-method-list">
+          <div><dt>Double Diamond</dt><dd>Discover → Define → Develop → Deliver</dd></div>
+          <div><dt>UX Methods</dt><dd>UX Evaluation, Competitive Analysis, Affinity Mapping, Persona, User Journey, How Might We, Before &amp; After</dd></div>
+          <div><dt>Design</dt><dd>Wireframes &amp; UI Redesign</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Canva</dd></div>
+        </dl>
       </section>
 
-      <!-- DELIVERABLES -->
+      <!-- النتائج -->
       <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_deliverables_label">المخرجات</h4>
-        <div class="ba-deliverables-grid">
-          <div class="ba-deliverable-slot" aria-hidden="true"><span data-i18n="ba_modal_deliverable_placeholder">[ مخرج ]</span></div>
-          <div class="ba-deliverable-slot" aria-hidden="true"><span data-i18n="ba_modal_deliverable_placeholder">[ مخرج ]</span></div>
-        </div>
+        <h4 data-i18n="ba_modal_results_label">النتائج</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_p1_result_1">تصميم مسارات أكثر وضوحًا لدورة حياة البرامج والمشاريع والخطوات التالية.</li>
+          <li data-i18n="ba_p1_result_2">إضافة مؤشرات للحالة والتقدم والمراحل والمتطلبات الإلزامية.</li>
+          <li data-i18n="ba_p1_result_3">تنظيم العمليات المرتبطة بكل مرحلة وتقليل تشتتها داخل النظام.</li>
+          <li data-i18n="ba_p1_result_4">تقسيم العمليات والنماذج الطويلة إلى خطوات متتابعة لتقليل العبء المعرفي.</li>
+          <li data-i18n="ba_p1_result_5">تحسين الإرشاد أثناء الاستخدام والاتساق وسهولة الوصول إلى الوظائف.</li>
+        </ul>
       </section>
 
-      <!-- IMAGE GALLERY (populate later from assets/images/projects/) -->
+      <!-- معرض الصور -->
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_gallery_label">معرض الصور</h4>
-        <div class="ba-gallery">
-          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
-          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
-          <button class="ba-gallery-thumb" type="button" data-gallery-item><span data-i18n="placeholder_image">[ صورة ]</span></button>
+        <div class="ba-gallery" data-gallery>
+          <div class="ba-gal-viewport">
+            <div class="ba-gal-track">
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-ux-problem-discovery.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_p1_img_1">فهم المشكلة</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-ux-user-research.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_p1_img_2">فهم المستخدم</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-ux-solution-development.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_p1_img_3">تطوير الحلول</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-ux-final-interfaces.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_p1_img_4">الواجهات النهائية</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-ux-before-after.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_p1_img_5">قبل وبعد إعادة التصميم</figcaption>
+              </figure>
+            </div>
+          </div>
+          <button class="ba-gal-arrow is-prev" type="button" data-gal="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ba-gal-arrow is-next" type="button" data-gal="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="ba-gal-dots" data-gal-dots></div>
+        </div>
+      </section>
+
+      <!-- رابط المشروع -->
+      <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-i18n="ba_open_project">فتح المشروع ↗</a>
+    </div>
+    <!-- ============ END MODAL 1 ============ -->
+
+    <!-- ============ MODAL 2: RAFED PROCESS & WORKFLOW ANALYSIS ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafed-analysis-title" id="ba-modal-rafed-analysis" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <h3 id="ba-modal-rafed-analysis-title" class="ba-modal-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h3>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-i18n="ba_mini1_desc">دراسة تحليلية لعمليات إدارتي البرامج والمشاريع في نظام رافد، هدفت إلى فهم آلية تنفيذ الإجراءات وتسلسلها داخل النظام، ومقارنة دورة العمل بين الإدارتين؛ للكشف عن الفجوات وفرص التحسين وتحويل العمليات الحالية إلى تدفقات عمل أكثر وضوحًا وقابلية للتتبع.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_analysis_axes_label">محاور التحليل</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_m1_axis_1">تتبع العمليات والإجراءات الفعلية داخل إدارتي البرامج والمشاريع.</li>
+          <li data-i18n="ba_m1_axis_2">مقارنة بنية وتسلسل سير العمل بين دورة حياة البرنامج والمشروع.</li>
+          <li data-i18n="ba_m1_axis_3">تحليل نقاط الانتقال والاعتماد بين المراحل والإجراءات المرتبطة بها.</li>
+          <li data-i18n="ba_m1_axis_4">رصد الفجوات المتعلقة بترابط الإجراءات ووضوح حالة التقدم والخطوات التالية للمستخدم.</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_methods_label">المنهجيات والأدوات</h4>
+        <dl class="ba-method-list">
+          <div><dt>Methodologies</dt><dd>Process Analysis, Workflow Analysis, Comparative Analysis, System Review, Process Mapping</dd></div>
+          <div><dt>Tools</dt><dd>draw.io, Rafed ERP</dd></div>
+        </dl>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_results_label">النتائج</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_m1_result_1">توثيق دورة حياة البرامج والمشاريع من خلال مخططات سير عمل متكاملة توضح المراحل ونقاط القرار والانتقال.</li>
+          <li data-i18n="ba_m1_result_2">تحديد اختلاف واضح في بنية سير العمل؛ إذ تتبع المشاريع مراحل أكثر تسلسلًا وتنظيمًا مقارنة بالبرامج.</li>
+          <li data-i18n="ba_m1_result_3">رصد ضعف ترابط بعض إجراءات البرامج، خصوصًا إجراءات ما بعد النشر، بالمراحل والإجراءات السابقة.</li>
+          <li data-i18n="ba_m1_result_4">تحديد الحاجة إلى مؤشرات أوضح لحالة التقدم والجاهزية والخطوة التالية المطلوبة من المستخدم.</li>
+          <li data-i18n="ba_m1_result_5">صياغة توصيات لتحسين تسلسل سير العمل، وربط الإجراءات التابعة بمراحلها السابقة، وتعزيز وضوح العمليات داخل النظام.</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_gallery_label">معرض الصور</h4>
+        <div class="ba-gallery" data-gallery>
+          <div class="ba-gal-viewport">
+            <div class="ba-gal-track">
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-analysis-program-workflow.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m1_img_1">مخطط سير عمل البرنامج</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-analysis-project-workflow.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m1_img_2">مخطط سير عمل المشروع</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-analysis-program-process.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m1_img_3">تحليل عملية البرنامج</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-analysis-project-process.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m1_img_4">تحليل عملية المشروع</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/rafed-analysis-findings.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m1_img_5">النتائج والتوصيات</figcaption>
+              </figure>
+            </div>
+          </div>
+          <button class="ba-gal-arrow is-prev" type="button" data-gal="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ba-gal-arrow is-next" type="button" data-gal="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="ba-gal-dots" data-gal-dots></div>
         </div>
       </section>
     </div>
-  </div>
+    <!-- ============ END MODAL 2 ============ -->
 
-  <!-- Shared lightbox for enlarging a clicked gallery image -->
-  <div class="ba-lightbox" id="ba-lightbox" hidden>
-    <button class="ba-lightbox-close" type="button" data-lightbox-close aria-label="Close">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
-    <div class="ba-lightbox-content" id="ba-lightbox-content"></div>
-  </div>
+    <!-- ============ MODAL 3: ARAMEX SHIPMENT DELAY DSS ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-aramex-title" id="ba-modal-aramex" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
 
-  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
-  <section class="chapter ba-section" id="ba-certs">
-    <span class="chapter-tag" data-i18n="ba_certs_tag">الشهادات</span>
-    <h2 class="chapter-title" data-i18n="ba_certs_title">الشهادات</h2>
-    <p class="ba-section-note" data-i18n="ba_certs_note">شهادات ودورات متعلقة بتحليل الأعمال — ستُضاف عند توفرها.</p>
+      <h3 id="ba-modal-aramex-title" class="ba-modal-title" data-i18n="ba_mini2_title">نظام دعم قرار للتنبؤ بتأخر الشحنات — دراسة حالة أرامكس</h3>
 
-    <div class="ba-cert-item">
-      <span class="ba-cert-badge" aria-hidden="true">
-        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
-      </span>
-      <div class="ba-cert-info">
-        <h4 data-i18n="ba_cert_name_placeholder">[ اسم الشهادة ]</h4>
-        <p class="ba-cert-meta">
-          <span data-i18n="ba_cert_issuer_placeholder">[ الجهة المانحة ]</span>
-          <span aria-hidden="true"> · </span>
-          <span data-i18n="ba_cert_date_placeholder">[ السنة ]</span>
-        </p>
-      </div>
+      <!-- Academic scope: simulated data, not a deployed system -->
+      <p class="ba-modal-notice" data-i18n="ba_m2_notice">مشروع أكاديمي ودراسة حالة تعتمد على بيانات مولّدة بالمحاكاة — النظام غير مطبّق فعليًا لدى شركة أرامكس.</p>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-i18n="ba_mini2_desc">مشروع أكاديمي لنظام دعم قرار يهدف إلى تحليل مشكلة تأخر الشحنات والتنبؤ بالحالات الأكثر عرضة للتأخير قبل وقوعها، بالاعتماد على عوامل تشغيلية مثل الموسم، حجم الشحنات والمسافة، ثم تحويل نتائج التحليل إلى مؤشرات وتوصيات تساعد في اتخاذ قرارات استباقية وتقليل أثر التأخير.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_axes_label">محاور العمل</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_m2_axis_1">محاكاة بيانات الشحنات وبناء سيناريوهات تشغيلية مختلفة.</li>
+          <li data-i18n="ba_m2_axis_2">تحليل العوامل المرتبطة بالتأخير مثل الموسم والحجم والمسافة.</li>
+          <li data-i18n="ba_m2_axis_3">تطبيق التحليلات الوصفية والتنبؤية والتوجيهية لدعم القرار.</li>
+          <li data-i18n="ba_m2_axis_4">بناء لوحة معلومات تفاعلية لعرض المؤشرات واختبار سيناريوهات "ماذا لو".</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_methods_label">المنهجيات والأدوات</h4>
+        <dl class="ba-method-list">
+          <div><dt>Simulation</dt><dd>Stochastic Simulation</dd></div>
+          <div><dt>Analytics</dt><dd>Descriptive Analytics, Predictive Analytics, Prescriptive Analytics, Association Rules Analysis</dd></div>
+          <div><dt>Techniques</dt><dd>Naive Bayes, Support &amp; Confidence, What-if Analysis</dd></div>
+          <div><dt>Tools</dt><dd>Power BI, Posit Cloud, DAX</dd></div>
+        </dl>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_results_label">النتائج</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_m2_result_1">تقدير احتمالية تأخر الشحنات وتصنيف الحالات وفق مستوى الخطورة.</li>
+          <li data-i18n="ba_m2_result_2">اكتشاف أنماط وعلاقات بين الظروف التشغيلية وحالات التأخير.</li>
+          <li data-i18n="ba_m2_result_3">تحويل نتائج التحليل إلى قرارات مقترحة مثل زيادة الموارد أو متابعة الشحنة.</li>
+          <li data-i18n="ba_m2_result_4">إنشاء مؤشرات لمقارنة معدل التأخير بالمستهدف ودعم تقييم الأداء.</li>
+          <li data-i18n="ba_m2_result_5">إتاحة اختبار سيناريوهات تشغيلية مختلفة قبل اتخاذ القرار.</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_gallery_label">معرض الصور</h4>
+        <div class="ba-gallery" data-gallery>
+          <div class="ba-gal-viewport">
+            <div class="ba-gal-track">
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/aramex-dss-dashboard.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m2_img_1">لوحة دعم القرار</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/aramex-dss-descriptive.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m2_img_2">التحليلات الوصفية</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/aramex-dss-predictive.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m2_img_3">التحليلات التنبؤية</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/aramex-dss-decision-support.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m2_img_4">التحليلات التوجيهية ودعم القرار</figcaption>
+              </figure>
+              <figure class="ba-gal-slide">
+                <img src="assets/images/projects/aramex-dss-simulation.png" alt="" loading="lazy" decoding="async">
+                <figcaption data-i18n="ba_m2_img_5">محاكاة البيانات</figcaption>
+              </figure>
+            </div>
+          </div>
+          <button class="ba-gal-arrow is-prev" type="button" data-gal="prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ba-gal-arrow is-next" type="button" data-gal="next" aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="ba-gal-dots" data-gal-dots></div>
+        </div>
+      </section>
+      <!-- Power BI link intentionally omitted until a public link is ready -->
     </div>
-  </section>
+    <!-- ============ END MODAL 3 ============ -->
+
+  </div>
 
 </main>
 
@@ -265,42 +443,33 @@
 <script src="script.js"></script>
 <script>
 /* ==========================================================================
-   BUSINESS ANALYSIS — MINI WORK MODAL + GALLERY LIGHTBOX
+   BUSINESS ANALYSIS — PROJECT MODALS + IMAGE GALLERY
    Page-scoped only: this logic lives here (not in the shared script.js)
    since it currently applies to this page alone.
    ========================================================================== */
 (function () {
   var backdrop = document.getElementById('ba-modal-backdrop');
-  var lightbox = document.getElementById('ba-lightbox');
-  var lightboxContent = document.getElementById('ba-lightbox-content');
+  if (!backdrop) return;
+
   var lastTrigger = null;
 
+  /* ---------- Modals ---------- */
   function openModal(id) {
     var modal = document.getElementById(id);
-    if (!modal || !backdrop) return;
+    if (!modal) return;
     document.querySelectorAll('.ba-modal').forEach(function (m) { m.hidden = m.id !== id; });
     backdrop.hidden = false;
     document.body.classList.add('ba-modal-open');
+    modal.scrollTop = 0;
     var closeBtn = modal.querySelector('[data-modal-close]');
     if (closeBtn) closeBtn.focus();
   }
 
   function closeModal() {
-    if (!backdrop || backdrop.hidden) return;
+    if (backdrop.hidden) return;
     backdrop.hidden = true;
     document.body.classList.remove('ba-modal-open');
     if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
-  }
-
-  function openLightbox(thumb) {
-    if (!lightbox || !lightboxContent) return;
-    lightboxContent.innerHTML = thumb.innerHTML;
-    lightbox.hidden = false;
-  }
-
-  function closeLightbox() {
-    if (!lightbox || lightbox.hidden) return;
-    lightbox.hidden = true;
   }
 
   document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
@@ -314,32 +483,71 @@
     btn.addEventListener('click', closeModal);
   });
 
-  document.querySelectorAll('[data-gallery-item]').forEach(function (thumb) {
-    thumb.addEventListener('click', function () { openLightbox(thumb); });
+  // Click outside the modal card closes it.
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) closeModal();
   });
-
-  document.querySelectorAll('[data-lightbox-close]').forEach(function (btn) {
-    btn.addEventListener('click', closeLightbox);
-  });
-
-  if (backdrop) {
-    backdrop.addEventListener('click', function (e) {
-      if (e.target === backdrop) closeModal();
-    });
-  }
-  if (lightbox) {
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
-  }
 
   document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    if (lightbox && !lightbox.hidden) { closeLightbox(); return; }
-    if (backdrop && !backdrop.hidden) closeModal();
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ---------- Image gallery ----------
+     One simple carousel per modal: arrows, dots and a horizontal slide.
+     Images keep their own proportions — nothing is cropped. */
+  document.querySelectorAll('[data-gallery]').forEach(function (gallery) {
+    var track = gallery.querySelector('.ba-gal-track');
+    var slides = gallery.querySelectorAll('.ba-gal-slide');
+    var dotsWrap = gallery.querySelector('[data-gal-dots]');
+    var index = 0;
+
+    if (!track || !slides.length) return;
+
+    var dots = [];
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'ba-gal-dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', String(i + 1));
+      dot.addEventListener('click', function () { go(i); });
+      if (dotsWrap) dotsWrap.appendChild(dot);
+      dots.push(dot);
+    });
+
+    function go(next) {
+      index = (next + slides.length) % slides.length;
+      var rtl = document.documentElement.dir === 'rtl';
+      var offset = index * 100 * (rtl ? 1 : -1);
+      track.style.transform = 'translateX(' + offset + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
+    }
+
+    gallery.querySelectorAll('[data-gal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        go(index + (btn.getAttribute('data-gal') === 'next' ? 1 : -1));
+      });
+    });
+
+    // Re-apply the offset when the language (and so the direction) flips.
+    var langBtn = document.getElementById('langSwitch');
+    if (langBtn) langBtn.addEventListener('click', function () { setTimeout(function () { go(index); }, 0); });
+
+    // Swipe on touch devices.
+    var startX = null;
+    gallery.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    gallery.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(dx) < 40) return;
+      var rtl = document.documentElement.dir === 'rtl';
+      go(index + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
+    }, { passive: true });
   });
 })();
 </script>
 </body>
 </html>
+
+
 
