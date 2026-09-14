@@ -874,7 +874,7 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--aqua-ink, #2F8377);
+  color: var(--wisteria-ink);
   background: var(--cornsilk);
   padding: 0.22rem 0.6rem;
   border-radius: 2px;
@@ -1325,7 +1325,7 @@ html[lang="ar"] .field-placeholder { font-family: var(--font-ar); }
 .ba-eyebrow {
   position: relative;
   z-index: 1;
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   font-weight: 700;
   font-size: 0.95rem;
   margin: 0 0 0.5rem;
@@ -1380,8 +1380,8 @@ html[lang="ar"] .ba-section-note { font-family: var(--font-ar); }
 /* Section tag/title/back-link on THIS page pick up the BA accent
    instead of the site-wide pink token, so a future page using a
    different field colour stays independent of this one. */
-.ba-page .chapter-tag { color: var(--ba-accent); }
-.ba-page .back-link { color: var(--ba-accent); }
+.ba-page .chapter-tag { color: var(--ba-accent-dark); }
+.ba-page .back-link { color: var(--ba-accent-dark); }
 .ba-page .back-link:hover { border-color: var(--ba-accent-dark); color: var(--ba-accent-dark); }
 
 /* ---- Tools ---- */
@@ -1409,7 +1409,7 @@ html[lang="ar"] .ba-section-note { font-family: var(--font-ar); }
 }
 .ba-tool-slot:hover { border-color: var(--ba-accent); box-shadow: 0 14px 24px -12px rgba(184, 70, 127, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
-.ba-tool-icon { width: 36px; height: 36px; color: var(--ba-accent); }
+.ba-tool-icon { width: 36px; height: 36px; color: var(--ba-accent-dark); }
 .ba-tool-icon svg { width: 100%; height: 100%; }
 .ba-tool-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
@@ -1427,7 +1427,7 @@ html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
   padding: 0.55rem 1.2rem;
   border: 1.5px solid var(--ba-accent);
   border-radius: 999px;
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   font-family: var(--font-body);
   font-size: 0.9rem;
   background: var(--snow);
@@ -1468,7 +1468,7 @@ html[lang="ar"] .ba-project-body h3 { font-family: var(--font-ar); font-weight: 
 html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
 .ba-project-link {
   text-decoration: none;
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   font-weight: 700;
   border-bottom: 2px solid var(--ba-accent);
   padding-bottom: 2px;
@@ -1523,7 +1523,7 @@ html[lang="en"] .ba-mini-item h4 { font-family: var(--font-display); font-weight
 .ba-mini-view {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   margin: 0 1rem 1rem;
   font-weight: 600;
 }
@@ -1566,7 +1566,7 @@ body.ba-modal-open { overflow: hidden; }
   border-radius: 50%;
   border: 1px solid rgba(121, 136, 156, 0.2);
   background: var(--snow);
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1590,7 +1590,7 @@ html[lang="ar"] .ba-modal-title { font-family: var(--font-ar); font-weight: 800;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ba-accent);
+  color: var(--ba-accent-dark);
   font-family: var(--font-body);
   margin: 0 0 0.6rem;
 }
@@ -1719,7 +1719,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   transition: border-color 0.25s ease;
 }
 .ba-cert-item:hover { border-color: var(--ba-accent); }
-.ba-cert-badge { width: 34px; height: 34px; flex-shrink: 0; fill: var(--ba-accent); color: var(--ba-accent); }
+.ba-cert-badge { width: 34px; height: 34px; flex-shrink: 0; fill: var(--ba-accent); color: var(--ba-accent-dark); }
 .ba-cert-badge svg { width: 100%; height: 100%; }
 .ba-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--taupe); }
 html[lang="en"] .ba-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
@@ -2233,4 +2233,5 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
+
 
