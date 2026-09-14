@@ -1,4 +1,17 @@
-﻿/* ==========================================================================
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="card_ux_title">تجربة المستخدم</title>
+<meta name="description" content="Portfolio — User Experience field page">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Love+Ya+Like+A+Sister&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
    PORTFOLIO — EDITORIAL BOOK DESIGN SYSTEM
    Color tokens, type tokens and layout rules are centralised here so the
    site can be restyled later without touching structure.
@@ -14,24 +27,12 @@
 }
 
 :root {
-  /* ---- Color system — PALETTE EXPERIMENT ----------------------------------
-     Test palette: French Blue #2947A0 · Pink Carnation #F894C8 ·
-     Wisteria #C7A7DB · Snow #F1EDF0 · Slate Grey #79889C
-     The original palette is backed up in _backup-original-palette/.
-     Token names are kept as-is so nothing else in the file had to move.  */
-  --snow: #F1EDF0;     /* Snow — main light surface        (was #FCFCFC) */
-  --pink: #F894C8;     /* Pink Carnation — playful accent  (was #F7567C) */
-  --cornsilk: #E5D9EA; /* Snow washed with Wisteria — the second light
-                          surface; the palette has only one light tone, so
-                          this tint keeps the two-surface hierarchy intact */
-  --aqua: #C7A7DB;     /* Wisteria — soft secondary accent (was #99E1D9) */
-  --taupe: #2947A0;    /* French Blue — ink & strong accent(was #5D576B) */
-  --slate: #79889C;    /* Slate Grey — muted text, borders, neutral UI     */
-
-  /* Deepened shades of the two light accents, used ONLY where the accent
-     carries small text — the pure tints fail contrast on Snow. */
-  --pink-ink: #B8467F;
-  --wisteria-ink: #6E5090;
+  /* ---- Color system ---- */
+  --snow: #FCFCFC;
+  --pink: #F7567C;
+  --cornsilk: #FFFAE3;
+  --aqua: #99E1D9;
+  --taupe: #5D576B;
 
   --ink: var(--taupe);
   --bg: var(--snow);
@@ -95,13 +96,13 @@ a { color: inherit; }
   padding: 1.1rem var(--gutter);
   background: rgba(252, 252, 252, 0.82);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(121, 136, 156, 0.12);
+  border-bottom: 1px solid rgba(93, 87, 107, 0.12);
 }
 
 .nav-mark {
   font-family: var(--font-poem);
   font-size: 1.15rem;
-  color: var(--pink-ink);
+  color: var(--pink);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -153,7 +154,7 @@ a { color: inherit; }
   gap: 0.35rem;
 }
 
-.lang-switch [data-active] { color: var(--pink-ink); font-weight: 700; }
+.lang-switch [data-active] { color: var(--pink); font-weight: 700; }
 
 .nav-toggle {
   display: none;
@@ -181,7 +182,7 @@ a { color: inherit; }
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
-    border-bottom: 1px solid rgba(121, 136, 156, 0.12);
+    border-bottom: 1px solid rgba(93,87,107,0.12);
   }
   .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
 }
@@ -198,7 +199,7 @@ a { color: inherit; }
 .chapter-tag {
   display: block;
   font-size: 0.85rem;
-  color: var(--pink-ink);
+  color: var(--pink);
   margin-block-end: 0.75rem;
   font-weight: 700;
 }
@@ -230,7 +231,7 @@ html[lang="en"] .chapter-title { font-family: var(--font-display); font-weight: 
   font-family: var(--font-ar);
   font-weight: 500;
   font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-  color: var(--pink-ink);
+  color: var(--pink);
   margin: 0 0 0.75rem;
   letter-spacing: 0.02em;
   position: relative;
@@ -291,7 +292,7 @@ html[lang="en"] .chapter-title { font-family: var(--font-display); font-weight: 
 }
 html[lang="en"] .hero-title { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; }
 
-.hero-period { color: var(--pink-ink); }
+.hero-period { color: var(--pink); }
 
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 
@@ -399,7 +400,7 @@ html[lang="en"] .hero-title { font-family: var(--font-display); text-transform: 
   margin: clamp(2.5rem, 6vh, 4rem) auto 0;
   width: 1px;
   height: 40px;
-  background: rgba(41, 71, 160, 0.3);
+  background: rgba(93,87,107,0.3);
   position: relative;
 }
 .hero-scroll-cue span {
@@ -521,39 +522,11 @@ html[lang="ar"] .about-body p { font-family: var(--font-ar); font-weight: 400; }
   max-width: 58ch;
 }
 
-/* The main About paragraph sits a notch below the section title in weight:
-   smaller than the lead, justified in both scripts. */
-.about-body p.about-main { font-size: 0.95rem; line-height: 1.95; }
-html[lang="en"] .about-body p.about-main { font-size: 0.95rem; }
-
-/* Accent sentence — pink, smaller than the body copy, introduced by an
-   oversized editorial exclamation mark rather than a rule. */
-.about-accent {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin: 1.75rem 0 0;
-}
-.about-bang {
-  flex: none;
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 4.6rem);
-  line-height: 0.8;
-  color: var(--pink-ink);
-  opacity: 0.9;
-  transform: rotate(-6deg);
-  align-self: flex-start;
-}
-html[dir="rtl"] .about-bang { transform: rotate(6deg); }
-
-.about-body p.about-annot {
-  color: var(--pink-ink);
+.about-annot {
+  color: var(--pink);
   font-style: italic;
-  font-size: 0.88rem;
-  line-height: 1.75;
-  text-align: start;
-  margin: 0;
-  max-width: 40ch;
+  border-inline-start: 2px solid var(--pink);
+  padding-inline-start: 1rem;
 }
 
 /* Editorial Education block, folded into About — typography and a thin
@@ -561,32 +534,31 @@ html[dir="rtl"] .about-bang { transform: rotate(6deg); }
 .about-education {
   margin-top: 2rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(121, 136, 156, 0.2);
+  border-top: 1px solid rgba(93, 87, 107, 0.2);
   max-width: 42ch;
 }
 .edu-heading {
-  color: var(--wisteria-ink);
-  font-size: 0.88rem;
+  color: var(--aqua);
+  font-size: 1rem;
   letter-spacing: 0.06em;
   font-family: var(--font-ar);
   font-weight: 800;
   margin: 0 0 0.6rem;
 }
-html[lang="en"] .edu-heading { font-family: var(--font-display); font-weight: 400; font-size: 1rem; color: var(--wisteria-ink); }
+html[lang="en"] .edu-heading { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; color: var(--aqua); }
 .edu-major {
   font-family: var(--font-ar);
   font-weight: 700;
-  font-size: 0.92rem;
-  margin: 0 0 0.15rem;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
   color: var(--taupe);
 }
 html[lang="ar"] .edu-uni { font-family: var(--font-ar); }
-.edu-uni { font-family: var(--font-body); font-size: 0.85rem; margin: 0 0 0.55rem; color: var(--taupe); opacity: 0.8; }
+.edu-uni { font-family: var(--font-body); margin: 0 0 0.7rem; color: var(--taupe); opacity: 0.85; }
 .edu-meta {
   display: flex;
-  gap: 1.25rem;
-  font-size: 0.78rem;
-  opacity: 0.9;
+  gap: 1.5rem;
+  font-size: 0.9rem;
   color: var(--taupe);
   font-family: var(--font-body);
 }
@@ -628,9 +600,9 @@ html[lang="ar"] .edu-meta { font-family: var(--font-ar); }
   width: 230px;
   height: 330px;
   border-radius: 26px;
-  border: 1px solid rgba(121, 136, 156, 0.12);
+  border: 1px solid rgba(93, 87, 107, 0.12);
   background: var(--snow);
-  box-shadow: 0 14px 28px -10px rgba(41, 71, 160, 0.28), 0 4px 10px rgba(121, 136, 156, 0.12);
+  box-shadow: 0 14px 28px -10px rgba(93, 87, 107, 0.28), 0 4px 10px rgba(93, 87, 107, 0.12);
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -655,6 +627,17 @@ html[lang="ar"] .edu-meta { font-family: var(--font-ar); }
 html[dir="rtl"] .card-corner { transform-origin: top left; }
 
 .interest-card:hover .card-corner { transform: scale(4.2); }
+
+/* Very low-contrast line-art, purely decorative, sitting behind content. */
+.card-bg-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+  z-index: 0;
+  pointer-events: none;
+}
 
 .card-content {
   position: relative;
@@ -693,31 +676,15 @@ html[lang="ar"] .card-content p { font-family: var(--font-ar); }
 html[lang="en"] .card-cdm .card-content h3 { font-size: 1.05rem; }
 .card-cdm .card-content p { font-size: 0.78rem; line-height: 1.42; }
 
-/* With the descriptions gone, the illustration + title sit optically
-   centred and the arrow stays anchored at the foot of the card. */
-.card-content { justify-content: center; gap: 0.75rem; }
-.card-content h3 { margin: 0; }
-
 .card-arrow {
   display: inline-block;
-  margin-top: 0.2rem;
-  padding-top: 0;
-  font-size: 1.15rem;
-  opacity: 0.6;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
-/* Travels along the reading direction: up-and-right in LTR, up-and-left in RTL. */
-.interest-card:hover .card-arrow,
-.interest-card:focus-visible .card-arrow { transform: translate(8px, -8px); opacity: 1; }
-html[dir="rtl"] .card-arrow { display: inline-block; transform: scaleX(-1); }
-html[dir="rtl"] .interest-card:hover .card-arrow,
-html[dir="rtl"] .interest-card:focus-visible .card-arrow { transform: scaleX(-1) translate(8px, -8px); }
-
-@media (prefers-reduced-motion: reduce) {
-  .card-arrow { transition: opacity 0.3s ease; }
-  .interest-card:hover .card-arrow { transform: none; }
-  html[dir="rtl"] .interest-card:hover .card-arrow { transform: scaleX(-1); }
-}
+.interest-card:hover .card-arrow { transform: translate(3px, -3px); opacity: 1; }
 
 /* Per-card accent colour. Text colour flips to whichever reads best
    once that colour fills the whole card. */
@@ -727,7 +694,7 @@ html[dir="rtl"] .interest-card:focus-visible .card-arrow { transform: scaleX(-1)
 
 .interest-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 22px 34px -10px rgba(41, 71, 160, 0.4), 0 8px 14px rgba(121, 136, 156, 0.18);
+  box-shadow: 0 22px 34px -10px rgba(93, 87, 107, 0.4), 0 8px 14px rgba(93, 87, 107, 0.18);
 }
 
 @media (max-width: 860px) {
@@ -746,31 +713,34 @@ html[dir="rtl"] .interest-card:focus-visible .card-arrow { transform: scaleX(-1)
 .project-num {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 6rem);
-  color: var(--wisteria-ink);
+  color: var(--aqua);
   line-height: 1;
   display: block;
 }
 
+.project-lead {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(93,87,107,0.15);
+}
+.project-body { grid-column: 2; }
 .project-frame {
-  aspect-ratio: 4/3;
-  background: var(--cornsilk);
+  grid-column: 1 / -1;
+  order: 3;
+  aspect-ratio: 16/9;
+  background: var(--aqua);
   border: 1.5px solid var(--taupe);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
   color: var(--taupe);
-  /* Offset "printed piece" shadow — a flat block behind the frame plus a
-     soft lift, rather than a uniform SaaS drop shadow. */
-  box-shadow: 7px 7px 0 var(--aqua), 10px 12px 18px -8px rgba(41, 71, 160, 0.4);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
-html[dir="rtl"] .project-frame { box-shadow: -7px 7px 0 var(--aqua), -10px 12px 18px -8px rgba(41, 71, 160, 0.4); }
-.project:hover .project-frame { transform: translateY(-4px); }
-.project:hover .project-frame { box-shadow: 9px 10px 0 var(--pink), 12px 16px 22px -8px rgba(41, 71, 160, 0.45); }
-html[dir="rtl"] .project:hover .project-frame { box-shadow: -9px 10px 0 var(--pink), -12px 16px 22px -8px rgba(41, 71, 160, 0.45); }
-@media (prefers-reduced-motion: reduce) { .project:hover .project-frame { transform: none; } }
-.project-cat { font-size: 0.9rem; color: var(--pink-ink); font-weight: 600; margin: 0 0 0.4rem; }
+.project-cat { font-size: 0.9rem; color: var(--pink); font-weight: 600; margin: 0 0 0.4rem; }
 .project-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 0 0 0.75rem; }
 html[lang="ar"] .project-title { font-family: var(--font-ar); font-weight: 800; }
 .project-desc { font-family: var(--font-body); max-width: var(--max-line); line-height: 1.8; }
@@ -785,17 +755,13 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
 }
 .project-link.muted { border-color: var(--taupe); opacity: 0.65; }
 
-/* Three equal columns — same width, height, proportions and weight. */
 .project-row {
   display: grid;
-  gap: 3rem 2.5rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
-  margin-top: 2.5rem;
-  align-items: start;
 }
-@media (min-width: 720px) { .project-row { grid-template-columns: repeat(3, 1fr); } }
-.project-side .project-frame.small { aspect-ratio: 4/3; margin-bottom: 1.25rem; }
-.project-num { margin-bottom: 0.6rem; }
+@media (min-width: 760px) { .project-row { grid-template-columns: 1fr 1fr; } }
+.project-side .project-frame.small { aspect-ratio: 4/3; margin-bottom: 1rem; background: var(--cornsilk); }
 
 /* ==========================================================================
    04 EXPERIENCE — horizontal milestone timeline
@@ -824,8 +790,7 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
   position: relative;
   flex: 1;
   text-align: center;
-  /* Generous breathing room between the node on the rail and its text. */
-  padding-top: 3.4rem;
+  padding-top: 1.5rem;
   transition: transform 0.3s ease;
 }
 .milestone:hover { transform: translateY(-4px); }
@@ -852,12 +817,12 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
 }
 @keyframes node-pulse {
   0%, 100% { box-shadow: 0 0 0 4px var(--snow); opacity: 0.75; }
-  50% { box-shadow: 0 0 0 4px var(--snow), 0 0 0 8px rgba(248, 148, 200, 0.12); opacity: 1; }
+  50% { box-shadow: 0 0 0 4px var(--snow), 0 0 0 8px rgba(247, 86, 124, 0.12); opacity: 1; }
 }
 .milestone.upcoming h3 { opacity: 0.55; }
 .milestone.upcoming p { opacity: 0.55; }
 .milestone-soon {
-  color: var(--pink-ink) !important;
+  color: var(--pink) !important;
   font-style: italic;
   opacity: 0.85;
 }
@@ -866,42 +831,23 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
   .milestone-node.node-upcoming { animation: none; }
 }
 
-/* Dates read as a separate register from the body copy: aqua, spaced
-   small caps on a thin cornsilk strip — same palette, different voice. */
 .milestone-date {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--aqua-ink, #2F8377);
-  background: var(--cornsilk);
-  padding: 0.22rem 0.6rem;
-  border-radius: 2px;
-  margin-bottom: 0.9rem;
+  display: block;
+  font-size: 0.8rem;
+  color: var(--pink);
   font-weight: 700;
+  margin-bottom: 0.4rem;
 }
-html[lang="ar"] .milestone-date { font-family: var(--font-ar); letter-spacing: 0; font-size: 0.78rem; }
-
-.milestone h3 { font-family: var(--font-ar); margin: 0 0 0.6rem; font-size: 1.15rem; color: var(--taupe); }
+.milestone h3 { font-family: var(--font-ar); margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--taupe); }
 html[lang="en"] .milestone h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; }
-.milestone p { font-family: var(--font-body); margin: 0; line-height: 1.75; color: rgba(41, 71, 160, 0.8); max-width: 26ch; margin-inline: auto; }
+.milestone p { font-family: var(--font-body); margin: 0; line-height: 1.65; color: rgba(93,87,107,0.8); max-width: 24ch; margin-inline: auto; }
 html[lang="ar"] .milestone p { font-family: var(--font-ar); }
-
-/* Club names: one running line in parentheses, smaller and in the accent. */
-.milestone-clubs {
-  font-size: 0.8rem !important;
-  line-height: 1.7 !important;
-  color: var(--pink-ink) !important;
-  margin-top: 0.45rem !important;
-  max-width: 28ch !important;
-}
 
 @media (max-width: 760px) {
   .milestones {
     flex-direction: column;
     align-items: flex-start;
-    gap: 3.25rem;
+    gap: 2.5rem;
     padding-top: 0;
   }
   .milestones::before {
@@ -917,7 +863,7 @@ html[lang="ar"] .milestone p { font-family: var(--font-ar); }
   .milestone {
     text-align: start;
     padding-top: 0;
-    padding-inline-start: 2.75rem;
+    padding-inline-start: 2rem;
     width: 100%;
   }
   .milestone-node {
@@ -926,7 +872,7 @@ html[lang="ar"] .milestone p { font-family: var(--font-ar); }
     transform: translate(-50%, 0);
   }
   html[dir="rtl"] .milestone-node { transform: translate(50%, 0); }
-  .milestone p, .milestone-clubs { margin-inline: 0 !important; max-width: none !important; }
+  .milestone p { margin-inline: 0; }
 }
 
 /* ==========================================================================
@@ -961,39 +907,92 @@ html[lang="ar"] .highlights-note { font-family: var(--font-ar); }
 .highlight-ticket:nth-child(2) { transform: rotate(-1deg); }
 .highlight-ticket:nth-child(3) { transform: rotate(1.2deg); }
 
-/* Hand-drawn paper clip: the card reads as physically clipped to the page.
-   Drawn as an open stroke so it looks sketched, not rendered. */
-.ticket-clip {
+.ticket-stamp {
   position: absolute;
-  top: -19px;
-  inset-inline-end: 22px;
-  width: 22px;
-  height: 36px;
-  fill: none;
-  stroke: var(--taupe);
-  stroke-width: 2.1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.75;
-  transform: rotate(-9deg);
-  transform-origin: top center;
+  top: -10px;
+  inset-inline-end: 16px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--pink);
+  background: var(--cornsilk);
 }
-html[dir="rtl"] .ticket-clip { transform: rotate(9deg); }
-.highlight-ticket:nth-child(2) .ticket-clip { stroke: var(--pink); opacity: 0.8; }
-.highlight-ticket:nth-child(3) .ticket-clip { transform: rotate(6deg); }
-html[dir="rtl"] .highlight-ticket:nth-child(3) .ticket-clip { transform: rotate(-6deg); }
 
 .highlight-ticket h3 { font-family: var(--font-ar); font-size: 1.05rem; margin: 0.4rem 0 0.5rem; color: var(--taupe); }
 html[lang="en"] .highlight-ticket h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; }
-.ticket-meta { font-family: var(--font-body); font-size: 0.82rem; color: var(--pink-ink); margin: 0 0 0.6rem; }
+.ticket-meta { font-family: var(--font-body); font-size: 0.82rem; color: var(--pink); margin: 0 0 0.6rem; }
 html[lang="ar"] .ticket-meta { font-family: var(--font-ar); }
-.ticket-note { font-family: var(--font-body); font-size: 0.9rem; color: rgba(41, 71, 160, 0.75); margin: 0; }
+.ticket-note { font-family: var(--font-body); font-size: 0.9rem; color: rgba(93,87,107,0.75); margin: 0; }
 html[lang="ar"] .ticket-note { font-family: var(--font-ar); }
 
 @media (max-width: 640px) {
   .highlights-row { flex-direction: column; align-items: center; }
   .highlight-ticket { width: min(300px, 86vw); transform: none !important; }
 }
+
+/* ==========================================================================
+   10 SKILLS
+   ========================================================================== */
+
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+/* Large decorative index number behind each category, with a Tiffany
+   five-point star sitting behind the digits — the number stays readable
+   on top. */
+.skill-num {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.6rem;
+}
+.skill-star {
+  position: absolute;
+  inset: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  fill: var(--aqua);
+  z-index: 0;
+}
+.skill-num-text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--taupe);
+}
+
+.skills-group {
+  position: relative;
+}
+.skills-group h3 {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0 0 0.6rem;
+  color: var(--pink);
+}
+html[lang="ar"] .skills-group h3 { font-family: var(--font-ar); font-weight: 800; }
+/* Thin beige "highlighter tape" strip behind the label — not a box
+   around the whole group, just a narrow strip behind the text itself. */
+.skills-group h3::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0.15em -0.35em;
+  background: var(--cornsilk);
+  transform: rotate(-1deg);
+}
+.skills-group p { margin: 0; font-family: var(--font-body); line-height: 1.8; }
+html[lang="ar"] .skills-group p { font-family: var(--font-ar); }
 
 /* ==========================================================================
    12 CONTACT
@@ -1018,180 +1017,7 @@ html[lang="ar"] .ticket-note { font-family: var(--font-ar); }
 }
 html[lang="ar"] .contact-title { font-family: var(--font-ar); font-weight: 900; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: center; }
-.contact-links a,
-.contact-cv-btn {
-  text-decoration: none;
-  border: 0;
-  border-bottom: 2px solid var(--pink);
-  font-size: 1.1rem;
-  padding-bottom: 2px;
-  background: none;
-  color: inherit;
-  font-family: inherit;
-  cursor: pointer;
-}
-/* ---------- CV language modal ---------- */
-.cv-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-  background: rgba(59, 55, 69, 0.55);
-  backdrop-filter: blur(2px);
-}
-.cv-modal-backdrop[hidden] { display: none; }
-body.cv-modal-open { overflow: hidden; }
-
-.cv-modal {
-  position: relative;
-  width: min(380px, 100%);
-  padding: 2.25rem 1.75rem 1.9rem;
-  background: var(--snow);
-  border: 1.5px solid var(--taupe);
-  border-radius: 6px;
-  text-align: center;
-  box-shadow: 0 24px 48px -16px rgba(41, 71, 160, 0.45);
-  animation: cvModalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes cvModalIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .cv-modal { animation: none; } }
-
-.cv-modal-close {
-  position: absolute;
-  top: 0.6rem;
-  inset-inline-end: 0.6rem;
-  width: 32px;
-  height: 32px;
-  padding: 6px;
-  border: 0;
-  background: none;
-  color: var(--taupe);
-  cursor: pointer;
-}
-.cv-modal-close svg { width: 100%; height: 100%; }
-
-.cv-modal-title {
-  font-family: var(--font-ar);
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--taupe);
-  margin: 0 0 1.4rem;
-}
-html[lang="en"] .cv-modal-title { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; }
-
-.cv-modal-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-.cv-choice {
-  flex: 1 1 130px;
-  padding: 0.7rem 1rem;
-  border: 1.5px solid var(--taupe);
-  border-radius: 4px;
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--taupe);
-  background: var(--cornsilk);
-  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
-}
-.cv-choice:hover { background: var(--pink); color: var(--snow); transform: translateY(-2px); }
-
-/* ---------- Experience: volunteer club list ---------- */
-.milestone-list {
-  list-style: none;
-  margin: 0.5rem 0 0;
-  padding: 0;
-  font-family: var(--font-ar);
-  font-size: 0.92rem;
-  line-height: 1.9;
-  color: rgba(41, 71, 160, 0.8);
-}
-html[lang="en"] .milestone-list { font-family: var(--font-body); }
-
-/* ---------- Highlights: index number + image slot ---------- */
-.ticket-num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--pink-ink);
-  line-height: 1;
-  margin-bottom: 0.6rem;
-}
-.ticket-photo {
-  aspect-ratio: 4/3;
-  margin-bottom: 0.8rem;
-  background: var(--cornsilk);
-  border: 1px solid rgba(121, 136, 156, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: rgba(41, 71, 160, 0.6);
-}
-.ticket-photo img { width: 100%; height: 100%; object-fit: cover; }
-
-/* ---------- Highlight scrapbook photos (Barmajan item) ----------
-   Three printed photos pinned into the card: one lead print with two
-   smaller ones tucked under it, each tilted a touch off-square. */
-.ticket-scrapbook {
-  position: relative;
-  margin: 0 0 1rem;
-  padding-bottom: 0.4rem;
-}
-.snap {
-  margin: 0;
-  background: var(--snow);
-  border: 3px solid var(--snow);
-  outline: 1px solid rgba(121, 136, 156, 0.18);
-  box-shadow: 2px 3px 0 rgba(121, 136, 156, 0.1), 3px 5px 10px -4px rgba(41, 71, 160, 0.35);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
-}
-.snap img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  height: auto;
-  object-fit: cover;
-  background: var(--cornsilk);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.snap-main { width: 78%; transform: rotate(-1.8deg); position: relative; z-index: 1; }
-html[dir="rtl"] .snap-main { transform: rotate(1.8deg); }
-
-/* The pair sits opposite the lead print and laps slightly over it. */
-.snap-row {
-  display: flex;
-  gap: 0.5rem;
-  width: 78%;
-  margin-inline-start: auto;
-  margin-top: -15%;
-  position: relative;
-  z-index: 2;
-}
-.snap-row .snap { flex: 1 1 0; min-width: 0; }
-.snap-b { transform: rotate(2.4deg); }
-.snap-c { transform: rotate(-1.4deg); }
-html[dir="rtl"] .snap-b { transform: rotate(-2.4deg); }
-html[dir="rtl"] .snap-c { transform: rotate(1.4deg); }
-
-/* Hover: a small lift only — the tilt lives on the figure, the lift on the
-   image inside it, so the two never fight over `transform`. */
-.snap:hover {
-  box-shadow: 3px 5px 0 rgba(121, 136, 156, 0.12), 5px 9px 16px -5px rgba(41, 71, 160, 0.42);
-  z-index: 3;
-}
-.snap:hover img { transform: translateY(-3px) scale(1.03); }
-
-@media (prefers-reduced-motion: reduce) {
-  .snap:hover img { transform: none; }
-}
-
-/* ---------- Selected Projects: one shared type scale ---------- */
-.project-side .project-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 0; }
-.project-num { font-size: clamp(2.2rem, 4vw, 3rem); }
+.contact-links a { text-decoration: none; border-bottom: 2px solid var(--pink); font-size: 1.1rem; padding-bottom: 2px; }
 .contact-star {
   position: absolute;
   width: 60px; height: 60px;
@@ -1205,7 +1031,7 @@ html[dir="rtl"] .snap-c { transform: rotate(1.4deg); }
   text-align: center;
   padding: 2rem;
   font-family: var(--font-poem);
-  color: var(--pink-ink);
+  color: var(--pink);
   background: var(--taupe);
 }
 
@@ -1253,7 +1079,7 @@ body.page-fade.page-leaving { opacity: 0; }
   display: inline-block;
   margin-bottom: 2rem;
   text-decoration: none;
-  color: var(--pink-ink);
+  color: var(--pink);
   font-weight: 700;
   border-bottom: 2px solid transparent;
   width: fit-content;
@@ -1271,7 +1097,7 @@ html[lang="ar"] .field-title { font-family: var(--font-ar); font-weight: 900; }
 .field-placeholder {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: rgba(41, 71, 160, 0.75);
+  color: rgba(93, 87, 107, 0.75);
   border-inline-start: 2px dashed var(--aqua);
   padding-inline-start: 1.25rem;
   max-width: var(--max-line);
@@ -1288,9 +1114,9 @@ html[lang="ar"] .field-placeholder { font-family: var(--font-ar); }
 
 .ba-page {
   overflow-x: hidden;
-  --ba-accent: #F894C8;       /* Pink Carnation — same as the homepage BA card */
-  --ba-accent-dark: #B8467F;  /* deepened carnation, for text/hover/active states */
-  --ba-accent-light: #FBE9F3; /* light tint of the same carnation, for subtle backgrounds */
+  --ba-accent: #F7567C;       /* same pink as the homepage BA card */
+  --ba-accent-dark: #C43F60;  /* darker shade, for hover/active states */
+  --ba-accent-light: #FCE3EA; /* light tint of the same pink, for subtle backgrounds */
 }
 
 /* ---- Hero ---- */
@@ -1371,7 +1197,7 @@ html[lang="ar"] .ba-intro { font-family: var(--font-ar); }
 .ba-alt-bg { background: var(--ba-accent-light); }
 .ba-section-note {
   font-family: var(--font-body);
-  color: rgba(41, 71, 160, 0.75);
+  color: rgba(93, 87, 107, 0.75);
   max-width: var(--max-line);
   margin: -0.5rem 0 2.25rem;
 }
@@ -1398,16 +1224,16 @@ html[lang="ar"] .ba-section-note { font-family: var(--font-ar); }
   gap: 0.6rem;
   padding: 1.5rem 1rem;
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 16px;
-  box-shadow: 0 10px 20px -14px rgba(41, 71, 160, 0.28);
+  box-shadow: 0 10px 20px -14px rgba(93, 87, 107, 0.28);
   text-align: center;
   color: var(--taupe);
   font-family: var(--font-body);
   font-size: 0.9rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.ba-tool-slot:hover { border-color: var(--ba-accent); box-shadow: 0 14px 24px -12px rgba(184, 70, 127, 0.3); transform: translateY(-3px); }
+.ba-tool-slot:hover { border-color: var(--ba-accent); box-shadow: 0 14px 24px -12px rgba(196, 63, 96, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
 .ba-tool-icon { width: 36px; height: 36px; color: var(--ba-accent); }
 .ba-tool-icon svg { width: 100%; height: 100%; }
@@ -1437,20 +1263,13 @@ html[lang="ar"] .ba-tool-slot { font-family: var(--font-ar); }
 html[lang="ar"] .ba-skills-list li { font-family: var(--font-ar); }
 
 /* ---- Projects ---- */
-.ba-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
-  max-width: 1100px;
-}
 .ba-project-card {
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  max-width: 760px;
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 20px;
   overflow: hidden;
   background: var(--snow);
-  box-shadow: 0 14px 28px -14px rgba(41, 71, 160, 0.3);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 14px 28px -14px rgba(93, 87, 107, 0.3);
 }
 .ba-project-cover {
   aspect-ratio: 16/9;
@@ -1461,26 +1280,34 @@ html[lang="ar"] .ba-skills-list li { font-family: var(--font-ar); }
   color: var(--ba-accent-dark);
   font-family: var(--font-body);
 }
-.ba-project-body { padding: 1.5rem 1.75rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
+.ba-project-body { padding: 1.5rem 1.75rem 1.75rem; }
+.ba-project-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.ba-project-tags span {
+  font-size: 0.75rem;
+  color: var(--ba-accent);
+  border: 1px solid var(--ba-accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
 .ba-project-body h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0 0 0.5rem; color: var(--taupe); }
 html[lang="ar"] .ba-project-body h3 { font-family: var(--font-ar); font-weight: 800; }
 .ba-project-body p { font-family: var(--font-body); line-height: 1.7; color: var(--taupe); margin: 0 0 1.25rem; }
 html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
+.ba-project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.ba-project-year { font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); }
 .ba-project-link {
   text-decoration: none;
   color: var(--ba-accent);
   font-weight: 700;
   border-bottom: 2px solid var(--ba-accent);
   padding-bottom: 2px;
-  margin-top: auto;
-  width: fit-content;
 }
 .ba-project-link:hover { color: var(--ba-accent-dark); border-color: var(--ba-accent-dark); }
-/* No dedicated case-study page yet: shown as an inert label, never a dead "#" link. */
+/* No real case study yet: shown as an inert label, never a dead "#" link. */
 .ba-project-link.is-disabled {
-  color: rgba(41, 71, 160, 0.55);
+  color: rgba(93, 87, 107, 0.55);
   border-bottom-style: dashed;
-  border-color: rgba(41, 71, 160, 0.35);
+  border-color: rgba(93, 87, 107, 0.35);
   font-weight: 500;
   cursor: default;
 }
@@ -1488,26 +1315,18 @@ html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
 /* ---- Mini work ---- */
 .ba-mini-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   max-width: 900px;
 }
 .ba-mini-item {
-  /* button reset */
-  appearance: none;
-  font: inherit;
-  text-align: start;
-  cursor: pointer;
-
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.12);
+  border: 1px solid rgba(93, 87, 107, 0.12);
   border-radius: 14px;
   overflow: hidden;
-  padding: 0;
-  width: 100%;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.ba-mini-item:hover, .ba-mini-item:focus-visible { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(184, 70, 127, 0.35); }
+.ba-mini-item:hover { border-color: var(--ba-accent); box-shadow: 0 10px 20px -12px rgba(196, 63, 96, 0.35); }
 .ba-mini-preview {
   aspect-ratio: 4/3;
   background: var(--ba-accent-light);
@@ -1518,193 +1337,10 @@ html[lang="ar"] .ba-project-body p { font-family: var(--font-ar); }
   font-family: var(--font-body);
   font-size: 0.85rem;
 }
-.ba-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.2rem; color: var(--taupe); }
+.ba-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--taupe); }
 html[lang="en"] .ba-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ba-mini-view {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--ba-accent);
-  margin: 0 1rem 1rem;
-  font-weight: 600;
-}
-html[lang="ar"] .ba-mini-view { font-family: var(--font-ar); }
-
-/* ---- Mini Work modal ---- */
-body.ba-modal-open { overflow: hidden; }
-
-.ba-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(59, 55, 69, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4vh 1.25rem;
-}
-.ba-modal-backdrop[hidden] { display: none; }
-
-.ba-modal {
-  position: relative;
-  background: var(--snow);
-  border-radius: 22px;
-  max-width: 640px;
-  width: 100%;
-  max-height: 92vh;
-  overflow-y: auto;
-  padding: 2.25rem 2rem;
-  box-shadow: 0 30px 60px -20px rgba(59, 55, 69, 0.45);
-}
-.ba-modal[hidden] { display: none; }
-
-.ba-modal-close {
-  position: absolute;
-  top: 1.1rem;
-  inset-inline-end: 1.1rem;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(121, 136, 156, 0.2);
-  background: var(--snow);
-  color: var(--ba-accent);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-.ba-modal-close svg { width: 16px; height: 16px; }
-.ba-modal-close:hover { background: var(--ba-accent-light); color: var(--ba-accent-dark); }
-
-.ba-modal-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--taupe);
-  margin: 0 2.5rem 1.5rem 0;
-}
-html[lang="ar"] .ba-modal-title { font-family: var(--font-ar); font-weight: 800; margin: 0 0 1.5rem 2.5rem; }
-
-.ba-modal-section { margin-bottom: 1.5rem; }
-.ba-modal-section:last-child { margin-bottom: 0; }
-.ba-modal-section h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ba-accent);
-  font-family: var(--font-body);
-  margin: 0 0 0.6rem;
-}
-html[lang="ar"] .ba-modal-section h4 { font-family: var(--font-ar); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: 0.9rem; }
-.ba-modal-section p {
-  font-family: var(--font-body);
-  color: var(--taupe);
-  line-height: 1.7;
-  margin: 0;
-}
-html[lang="ar"] .ba-modal-section p { font-family: var(--font-ar); }
-.ba-modal-empty { color: rgba(41, 71, 160, 0.55); }
-
-.ba-modal-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.ba-modal-list li {
-  font-family: var(--font-body);
-  color: var(--taupe);
-  padding-inline-start: 1rem;
-  position: relative;
-}
-html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
-.ba-modal-list li::before {
-  content: '';
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0.55em;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--ba-accent);
-}
-
-.ba-deliverables-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.75rem;
-}
-.ba-deliverable-slot {
-  aspect-ratio: 4/3;
-  border: 1.5px dashed rgba(41, 71, 160, 0.3);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(41, 71, 160, 0.55);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-.ba-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  gap: 0.6rem;
-}
-.ba-gallery-thumb {
-  appearance: none;
-  aspect-ratio: 1;
-  border: 1px solid rgba(121, 136, 156, 0.18);
-  border-radius: 10px;
-  background: var(--ba-accent-light);
-  color: var(--ba-accent-dark);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.ba-gallery-thumb:hover, .ba-gallery-thumb:focus-visible { border-color: var(--ba-accent); transform: scale(1.04); }
-
-.ba-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  background: rgba(20, 18, 24, 0.82);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6vh 1.5rem;
-}
-.ba-lightbox[hidden] { display: none; }
-.ba-lightbox-content {
-  max-width: 640px;
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: var(--ba-accent-light);
-  color: var(--ba-accent-dark);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-}
-.ba-lightbox-close {
-  position: absolute;
-  top: 1.25rem;
-  inset-inline-end: 1.25rem;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(252, 252, 252, 0.15);
-  color: var(--snow);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ba-lightbox-close svg { width: 18px; height: 18px; }
-.ba-lightbox-close:hover { background: rgba(252, 252, 252, 0.3); }
-
-@media (max-width: 640px) {
-  .ba-modal { padding: 1.75rem 1.35rem; border-radius: 16px; }
-}
+.ba-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.75); margin: 0 1rem 1rem; }
+html[lang="ar"] .ba-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
 .ba-cert-item {
@@ -1713,7 +1349,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   gap: 1.1rem;
   max-width: 560px;
   padding: 1.1rem 1.3rem;
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 14px;
   background: var(--snow);
   transition: border-color 0.25s ease;
@@ -1723,7 +1359,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
 .ba-cert-badge svg { width: 100%; height: 100%; }
 .ba-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--taupe); }
 html[lang="en"] .ba-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ba-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); margin: 0; }
+.ba-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); margin: 0; }
 html[lang="ar"] .ba-cert-meta { font-family: var(--font-ar); }
 
 @media (max-width: 640px) {
@@ -1740,9 +1376,9 @@ html[lang="ar"] .ba-cert-meta { font-family: var(--font-ar); }
 
 .ux-page {
   overflow-x: hidden;
-  --ux-accent: #C7A7DB;       /* Wisteria — same as the homepage UX card */
-  --ux-accent-dark: #6E5090;  /* deep wisteria derived from it, for text/borders/hover */
-  --ux-accent-light: #EFE8F5; /* light tint of the same wisteria, for subtle backgrounds */
+  --ux-accent: #99E1D9;       /* same aqua as the homepage UX card */
+  --ux-accent-dark: #2F8377;  /* deep teal derived from it, for text/borders/hover */
+  --ux-accent-light: #EAF9F7; /* light tint of the same aqua, for subtle backgrounds */
 }
 
 .ux-hero {
@@ -1827,7 +1463,7 @@ html[lang="ar"] .ux-intro { font-family: var(--font-ar); }
 .ux-alt-bg { background: var(--ux-accent-light); }
 .ux-section-note {
   font-family: var(--font-body);
-  color: rgba(41, 71, 160, 0.75);
+  color: rgba(93, 87, 107, 0.75);
   max-width: var(--max-line);
   margin: -0.5rem 0 2.25rem;
 }
@@ -1850,9 +1486,9 @@ html[lang="ar"] .ux-section-note { font-family: var(--font-ar); }
   gap: 0.6rem;
   padding: 1.5rem 1rem;
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 16px;
-  box-shadow: 0 10px 20px -14px rgba(41, 71, 160, 0.28);
+  box-shadow: 0 10px 20px -14px rgba(93, 87, 107, 0.28);
   text-align: center;
   color: var(--taupe);
   font-family: var(--font-body);
@@ -1891,11 +1527,11 @@ html[lang="ar"] .ux-skills-list li { font-family: var(--font-ar); }
 /* ---- Projects ---- */
 .ux-project-card {
   max-width: 760px;
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 20px;
   overflow: hidden;
   background: var(--snow);
-  box-shadow: 0 14px 28px -14px rgba(41, 71, 160, 0.3);
+  box-shadow: 0 14px 28px -14px rgba(93, 87, 107, 0.3);
 }
 .ux-project-cover {
   aspect-ratio: 16/9;
@@ -1918,7 +1554,7 @@ html[lang="ar"] .ux-project-body h3 { font-family: var(--font-ar); font-weight: 
 .ux-project-body p { font-family: var(--font-body); line-height: 1.7; color: var(--taupe); margin: 0 0 1.25rem; }
 html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
 .ux-project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
-.ux-project-year { font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); }
+.ux-project-year { font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); }
 .ux-project-link {
   text-decoration: none;
   color: var(--ux-accent-dark);
@@ -1927,9 +1563,9 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
   padding-bottom: 2px;
 }
 .ux-project-link.is-disabled {
-  color: rgba(41, 71, 160, 0.55);
+  color: rgba(93, 87, 107, 0.55);
   border-bottom-style: dashed;
-  border-color: rgba(41, 71, 160, 0.35);
+  border-color: rgba(93, 87, 107, 0.35);
   font-weight: 500;
   cursor: default;
 }
@@ -1943,7 +1579,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
 }
 .ux-mini-item {
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.12);
+  border: 1px solid rgba(93, 87, 107, 0.12);
   border-radius: 14px;
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
@@ -1959,7 +1595,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
 }
 .ux-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--taupe); }
 html[lang="en"] .ux-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ux-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.75); margin: 0 1rem 1rem; }
+.ux-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.75); margin: 0 1rem 1rem; }
 html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
@@ -1967,7 +1603,7 @@ html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
   display: flex; align-items: center; gap: 1.1rem;
   max-width: 560px;
   padding: 1.1rem 1.3rem;
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 14px;
   background: var(--snow);
   transition: border-color 0.25s ease;
@@ -1977,7 +1613,7 @@ html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
 .ux-cert-badge svg { width: 100%; height: 100%; }
 .ux-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--taupe); }
 html[lang="en"] .ux-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ux-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); margin: 0; }
+.ux-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); margin: 0; }
 html[lang="ar"] .ux-cert-meta { font-family: var(--font-ar); }
 
 @media (max-width: 640px) {
@@ -1996,9 +1632,9 @@ html[lang="ar"] .ux-cert-meta { font-family: var(--font-ar); }
 
 .cdm-page {
   overflow-x: hidden;
-  --cdm-accent: #2947A0;       /* French Blue — same as the homepage CDM card */
-  --cdm-accent-dark: #1C3273;  /* darker blue, for hover/emphasis */
-  --cdm-accent-light: #E3E8F5; /* light tint of the same blue, for subtle backgrounds */
+  --cdm-accent: #5D576B;       /* same taupe as the homepage CDM card */
+  --cdm-accent-dark: #3B3745;  /* darker shade, for hover/emphasis */
+  --cdm-accent-light: #ECEAF0; /* light tint of the same taupe, for subtle backgrounds */
 }
 
 .cdm-hero {
@@ -2074,7 +1710,7 @@ html[lang="ar"] .cdm-intro { font-family: var(--font-ar); }
 .cdm-alt-bg { background: var(--cdm-accent-light); }
 .cdm-section-note {
   font-family: var(--font-body);
-  color: rgba(41, 71, 160, 0.75);
+  color: rgba(93, 87, 107, 0.75);
   max-width: var(--max-line);
   margin: -0.5rem 0 2.25rem;
 }
@@ -2097,9 +1733,9 @@ html[lang="ar"] .cdm-section-note { font-family: var(--font-ar); }
   gap: 0.6rem;
   padding: 1.5rem 1rem;
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 16px;
-  box-shadow: 0 10px 20px -14px rgba(41, 71, 160, 0.28);
+  box-shadow: 0 10px 20px -14px rgba(93, 87, 107, 0.28);
   text-align: center;
   color: var(--taupe);
   font-family: var(--font-body);
@@ -2140,11 +1776,11 @@ html[lang="ar"] .cdm-skills-list li { font-family: var(--font-ar); }
 /* ---- Projects ---- */
 .cdm-project-card {
   max-width: 760px;
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 20px;
   overflow: hidden;
   background: var(--snow);
-  box-shadow: 0 14px 28px -14px rgba(41, 71, 160, 0.3);
+  box-shadow: 0 14px 28px -14px rgba(93, 87, 107, 0.3);
 }
 .cdm-project-cover {
   aspect-ratio: 16/9;
@@ -2167,7 +1803,7 @@ html[lang="ar"] .cdm-project-body h3 { font-family: var(--font-ar); font-weight:
 .cdm-project-body p { font-family: var(--font-body); line-height: 1.7; color: var(--taupe); margin: 0 0 1.25rem; }
 html[lang="ar"] .cdm-project-body p { font-family: var(--font-ar); }
 .cdm-project-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
-.cdm-project-year { font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); }
+.cdm-project-year { font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); }
 .cdm-project-link {
   text-decoration: none;
   color: var(--cdm-accent);
@@ -2176,9 +1812,9 @@ html[lang="ar"] .cdm-project-body p { font-family: var(--font-ar); }
   padding-bottom: 2px;
 }
 .cdm-project-link.is-disabled {
-  color: rgba(41, 71, 160, 0.55);
+  color: rgba(93, 87, 107, 0.55);
   border-bottom-style: dashed;
-  border-color: rgba(41, 71, 160, 0.35);
+  border-color: rgba(93, 87, 107, 0.35);
   font-weight: 500;
   cursor: default;
 }
@@ -2192,7 +1828,7 @@ html[lang="ar"] .cdm-project-body p { font-family: var(--font-ar); }
 }
 .cdm-mini-item {
   background: var(--snow);
-  border: 1px solid rgba(121, 136, 156, 0.12);
+  border: 1px solid rgba(93, 87, 107, 0.12);
   border-radius: 14px;
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
@@ -2208,7 +1844,7 @@ html[lang="ar"] .cdm-project-body p { font-family: var(--font-ar); }
 }
 .cdm-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--taupe); }
 html[lang="en"] .cdm-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.cdm-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.75); margin: 0 1rem 1rem; }
+.cdm-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.75); margin: 0 1rem 1rem; }
 html[lang="ar"] .cdm-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
@@ -2216,7 +1852,7 @@ html[lang="ar"] .cdm-mini-item p { font-family: var(--font-ar); }
   display: flex; align-items: center; gap: 1.1rem;
   max-width: 560px;
   padding: 1.1rem 1.3rem;
-  border: 1px solid rgba(121, 136, 156, 0.15);
+  border: 1px solid rgba(93, 87, 107, 0.15);
   border-radius: 14px;
   background: var(--snow);
   transition: border-color 0.25s ease;
@@ -2226,7 +1862,7 @@ html[lang="ar"] .cdm-mini-item p { font-family: var(--font-ar); }
 .cdm-cert-badge svg { width: 100%; height: 100%; }
 .cdm-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--taupe); }
 html[lang="en"] .cdm-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.cdm-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); margin: 0; }
+.cdm-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(93, 87, 107, 0.7); margin: 0; }
 html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
 
 @media (max-width: 640px) {
@@ -2234,3 +1870,649 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
 
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-star" viewBox="0 0 40 40">
+      <path d="M20 0 C21 13 27 19 40 20 C27 21 21 27 20 40 C19 27 13 21 0 20 C13 19 19 13 20 0 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-nav">
+  <a class="nav-mark" href="index.html" aria-label="Home">
+    <span data-i18n="nav_mark">حالم متوهج</span>
+  </a>
+
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="index.html#about" data-i18n="nav_about">عني</a>
+    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
+    <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
+    <a href="index.html#skills" data-i18n="nav_skills">المهارات</a>
+    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
+    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
+    <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
+  </nav>
+
+  <div class="nav-controls">
+    <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch language">
+      <span class="lang-ar" data-active="true">AR</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-en">EN</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="ux-page">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter ux-hero">
+    <a class="back-link" href="index.html#interests" data-i18n="back_link">→ العودة</a>
+    <span class="ux-hero-blob b1" aria-hidden="true"></span>
+    <span class="ux-hero-blob b2" aria-hidden="true"></span>
+    <svg class="ux-hero-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <p class="ux-eyebrow" data-i18n="ux_eyebrow">مجال العمل</p>
+    <h1 class="ux-title" data-i18n="card_ux_title">تجربة المستخدم</h1>
+    <span class="ux-underline" aria-hidden="true"></span>
+    <p class="ux-intro" data-i18n="ux_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتجربة المستخدم — نص قابل للتعديل لاحقًا ]</p>
+  </section>
+
+  <!-- ===================== TOOLS — الأدوات ===================== -->
+  <section class="chapter ux-section" id="ux-tools">
+    <span class="chapter-tag" data-i18n="ux_tools_tag">الأدوات</span>
+    <h2 class="chapter-title" data-i18n="ux_tools_title">الأدوات</h2>
+    <p class="ux-section-note" data-i18n="ux_tools_note">أدوات التصميم والبحث التي أستخدمها فعليًا.</p>
+
+    <div class="ux-tools-grid">
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/framer/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Framer</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 18 h28 M18 6 v28" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <span>Google Stitch</span>
+      </div>
+      <div class="ux-tool-slot">
+        <span class="ux-tool-icon" aria-hidden="true">
+          <img src="https://cdn.simpleicons.org/miro/2F8377" alt="" loading="lazy">
+        </span>
+        <span>Miro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS — المهارات ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-skills">
+    <span class="chapter-tag" data-i18n="ux_skills_tag">المهارات</span>
+    <h2 class="chapter-title" data-i18n="ux_skills_title">المهارات</h2>
+    <p class="ux-section-note" data-i18n="ux_skills_note">قدرات البحث والتصميم التي أعمل بها.</p>
+
+    <ul class="ux-skills-list">
+      <li data-i18n="ux_skill_1">تدفق المستخدم</li>
+      <li data-i18n="ux_skill_2">هيكلة المعلومات</li>
+      <li data-i18n="ux_skill_3">تصميم الإطارات الأولية</li>
+      <li data-i18n="ux_skill_4">النماذج التفاعلية</li>
+      <li data-i18n="ux_skill_5">تحليل قابلية الاستخدام</li>
+      <li data-i18n="ux_skill_6">تحديد مشكلات تجربة المستخدم</li>
+      <li data-i18n="ux_skill_7">تصميم واجهات المستخدم</li>
+      <li data-i18n="ux_skill_8">توثيق تجربة المستخدم</li>
+    </ul>
+  </section>
+
+  <!-- ===================== PROJECTS — المشاريع ===================== -->
+  <section class="chapter ux-section" id="ux-projects">
+    <span class="chapter-tag" data-i18n="ux_projects_tag">المشاريع</span>
+    <h2 class="chapter-title" data-i18n="ux_projects_title">المشاريع</h2>
+    <p class="ux-section-note" data-i18n="ux_projects_note">دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.</p>
+
+    <div class="ux-project-card">
+      <div class="ux-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
+      <div class="ux-project-body">
+        <div class="ux-project-tags">
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+        </div>
+        <h3 data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</h3>
+        <p data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</p>
+        <div class="ux-project-footer">
+          <span class="ux-project-year" data-i18n="ux_project_year_placeholder">[ السنة ]</span>
+          <span class="ux-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
+  <section class="chapter ux-section ux-alt-bg" id="ux-miniwork">
+    <span class="chapter-tag" data-i18n="ux_mini_tag">أعمال مصغرة</span>
+    <h2 class="chapter-title" data-i18n="ux_mini_title">أعمال مصغرة</h2>
+    <p class="ux-section-note" data-i18n="ux_mini_note">نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.</p>
+
+    <div class="ux-mini-grid">
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+      <div class="ux-mini-item">
+        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
+        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
+        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
+  <section class="chapter ux-section" id="ux-certs">
+    <span class="chapter-tag" data-i18n="ux_certs_tag">الشهادات</span>
+    <h2 class="chapter-title" data-i18n="ux_certs_title">الشهادات</h2>
+    <p class="ux-section-note" data-i18n="ux_certs_note">شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.</p>
+
+    <div class="ux-cert-item">
+      <span class="ux-cert-badge" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+      </span>
+      <div class="ux-cert-info">
+        <h4 data-i18n="ux_cert_name_placeholder">[ اسم الشهادة ]</h4>
+        <p class="ux-cert-meta">
+          <span data-i18n="ux_cert_issuer_placeholder">[ الجهة المانحة ]</span>
+          <span aria-hidden="true"> · </span>
+          <span data-i18n="ux_cert_date_placeholder">[ السنة ]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer_mark">حالم متوهج</span>
+</footer>
+
+<script>
+/* ==========================================================================
+   TRANSLATIONS
+   Every visible string lives here, keyed by the data-i18n id used in the
+   markup. Add a language by adding a new top-level key.
+   ========================================================================== */
+const translations = {
+  ar: {
+    page_title: "ملف أعمالي",
+    nav_mark: "حالم متوهج",
+    nav_about: "عني",
+    nav_interests: "اهتماماتي",
+    nav_experience: "الخبرة",
+    nav_skills: "المهارات",
+    nav_highlights: "مختارات",
+    nav_work: "الأعمال",
+    nav_contact: "التواصل",
+
+    hero_eyebrow: "نــدى محــــمد",
+    hero_title: "ملــــــف أعمـــــــــــالـــي",
+
+    about_title_1: "نبذة",
+    about_title_2: "عني",
+    about_lead: "أدرس النظم من الداخل: كيف تتحرّك المعلومة، وأين تتعثّر، وكيف تصبح تجربة واضحة لشخص يستخدمها فعلاً.",
+    about_p1: "خريجة نظم معلومات إدارية من جامعة طيبة. أعمل في المساحة التي يلتقي فيها التحليل بالتصميم — حيث تتحوّل العمليات المعقّدة إلى واجهات وقرارات واضحة.",
+    about_p2: "أفكّر بشكل تحليلي، وأصمّم بشكل إنساني، وأنظر للمشكلة كنظام كامل قبل أن أنظر إليها كشاشة.",
+    about_edu_heading: "التعليم",
+    about_edu_major: "نظم المعلومات الإدارية",
+    about_edu_gpa: "المعدل 4.92 / 5",
+    about_edu_year: "سنة التخرج 2026",
+
+    interests_tag: "03 — اهتماماتي",
+    interests_title: "أين أعمل تحديداً",
+    card_ux_title: "تجربة المستخدم",
+    card_ux_body: "فهم المستخدم قبل الحل — بحث، تدفقات، وواجهات تُبنى على سبب.",
+    card_ba_title: "تحليل الأعمال",
+    card_ba_body: "قراءة العمليات، تحديد الفجوات، وتحويل الغموض إلى متطلبات واضحة.",
+    card_dx_title: "التحول الرقمي",
+    card_dx_body: "ربط الأنظمة والأشخاص والعمليات ضمن تجربة رقمية واحدة متماسكة.",
+    card_cdm_title: "تصميم حر و تسويق رقمي",
+    card_cdm_body: "تصميم بصري حر وصناعة محتوى وتسويق رقمي يجمع بين الفكرة والهوية والتواصل.",
+
+    exp_tag: "04 — خبراتي",
+    placeholder_date: "[ التاريخ ]",
+    exp_vol_title: "خبرة تطوعية",
+    exp_vol_body: "[ نص قابل للتعديل ]",
+    exp_train_title: "خبرة تدريبية",
+    exp_train_body: "[ نص قابل للتعديل ]",
+    exp_job_title: "خبرة وظيفية",
+    exp_job_body: "[ ستُضاف عند توفرها ]",
+    exp_job_status: "قريبًا",
+
+    skills_tag: "05 — المهارات والأدوات",
+    skills_ba: "تحليل الأعمال",
+    skills_ux: "تجربة المستخدم",
+    skills_data: "البيانات والأنظمة",
+    skills_tech: "تقني",
+    skills_design: "تصميم",
+
+    highlights_tag: "06 — مختارات",
+    highlights_note: "لحظات وفعاليات وأنشطة شاركت فيها — ستُضاف تباعاً.",
+    highlight_placeholder_title: "[ اسم الفعالية ]",
+    highlight_placeholder_date: "[ التاريخ ]",
+    highlight_placeholder_location: "[ الموقع ]",
+    highlight_placeholder_note: "[ ملاحظة قصيرة ]",
+
+    work_tag: "07 — الأعمال المختارة",
+    rafd_cat: "تحليل الأعمال × تجربة المستخدم",
+    rafd_desc: "إعادة تصميم مسار البرامج والمشاريع في نظام ERP لمنظمة غير ربحية — من تشخيص المشكلة إلى واجهة أوضح.",
+    view_case_study: "عرض دراسة الحالة",
+    placeholder_image: "[ صورة المشروع ]",
+    placeholder_cat: "قيد الإضافة",
+    placeholder_title: "مشروع قادم",
+
+    edu_uni: "جامعة طيبة",
+
+    contact_title: "لنتواصل.",
+    contact_email: "[ البريد الإلكتروني ]",
+    contact_linkedin: "[ LinkedIn ]",
+    contact_cv: "[ السيرة الذاتية ]",
+    back_link: "→ العودة",
+    field_placeholder: "سيتم إضافة أبرز المشاريع في هذا المجال هنا.",
+
+    ba_eyebrow: "مجال العمل",
+    ba_intro: "أفهم ما يحدث وأحلّل ما يمكن تحسينه، أستمع لمتطلبات العميل وأحوّل احتياجاته إلى متطلبات واضحة وحلول أكثر ملاءمة.",
+    ba_tools_tag: "الأدوات",
+    ba_tools_title: "الأدوات",
+    ba_tools_note: "الأدوات والبرامج التي أستخدمها فعليًا.",
+    ba_skills_tag: "المهارات",
+    ba_skills_title: "المهارات",
+    ba_skills_note: "القدرات التحليلية التي أعمل بها.",
+    ba_skill_1: "تحليل عمليات الأعمال",
+    ba_skill_2: "جمع وتحليل المتطلبات",
+    ba_skill_3: "تحليل وتوثيق سير العمل",
+    ba_skill_4: "تحليل الفجوات",
+    ba_skill_5: "تخطيط تدفق العمليات",
+    ba_skill_6: "تحليل الوضع الحالي والمستهدف",
+    ba_skill_7: "تحديد المشكلات",
+    ba_skill_8: "اقتراح الحلول والتحسينات",
+    ba_projects_tag: "المشاريع",
+    ba_projects_title: "المشاريع",
+    ba_projects_note: "دراسات حالة كاملة — ستُضاف هنا عند توفرها.",
+    ba_project_tag_placeholder: "[ وسم ]",
+    ba_project_title_placeholder: "[ عنوان المشروع ]",
+    ba_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    ba_project_year_placeholder: "[ السنة ]",
+    ba_mini_tag: "أعمال مصغرة",
+    ba_mini_title: "أعمال مصغرة",
+    ba_mini_note: "مخططات وتحليلات ووثائق صغيرة لا تحتاج دراسة حالة كاملة.",
+    ba_mini_title_placeholder: "[ عنوان العمل ]",
+    ba_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    ba_certs_tag: "الشهادات",
+    ba_certs_title: "الشهادات",
+    ba_certs_note: "شهادات ودورات متعلقة بتحليل الأعمال — ستُضاف عند توفرها.",
+    ba_cert_name_placeholder: "[ اسم الشهادة ]",
+    ba_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    ba_cert_date_placeholder: "[ السنة ]",
+    ba_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+
+    ux_eyebrow: "مجال العمل",
+    ux_intro: "أبدأ بالمستخدم، أفهم احتياجه، وأحوّل الملاحظات والمشكلات إلى تجارب أبسط وأكثر وضوحًا.",
+    ux_tools_tag: "الأدوات",
+    ux_tools_title: "الأدوات",
+    ux_tools_note: "أدوات التصميم والبحث التي أستخدمها فعليًا.",
+    ux_skills_tag: "المهارات",
+    ux_skills_title: "المهارات",
+    ux_skills_note: "قدرات البحث والتصميم التي أعمل بها.",
+    ux_skill_1: "تدفق المستخدم",
+    ux_skill_2: "هيكلة المعلومات",
+    ux_skill_3: "تصميم الإطارات الأولية",
+    ux_skill_4: "النماذج التفاعلية",
+    ux_skill_5: "تحليل قابلية الاستخدام",
+    ux_skill_6: "تحديد مشكلات تجربة المستخدم",
+    ux_skill_7: "تصميم واجهات المستخدم",
+    ux_skill_8: "توثيق تجربة المستخدم",
+    ux_projects_tag: "المشاريع",
+    ux_projects_title: "المشاريع",
+    ux_projects_note: "دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.",
+    ux_project_tag_placeholder: "[ وسم ]",
+    ux_project_title_placeholder: "[ عنوان المشروع ]",
+    ux_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    ux_project_year_placeholder: "[ السنة ]",
+    ux_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+    ux_mini_tag: "أعمال مصغرة",
+    ux_mini_title: "أعمال مصغرة",
+    ux_mini_note: "نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.",
+    ux_mini_title_placeholder: "[ عنوان العمل ]",
+    ux_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    ux_certs_tag: "الشهادات",
+    ux_certs_title: "الشهادات",
+    ux_certs_note: "شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.",
+    ux_cert_name_placeholder: "[ اسم الشهادة ]",
+    ux_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    ux_cert_date_placeholder: "[ السنة ]",
+
+    cdm_eyebrow: "مجال العمل",
+    cdm_intro: "أحوّل الأفكار إلى محتوى بصري له هوية؛ يجذب الانتباه، يوصل الرسالة، ويترك أثرًا.",
+    cdm_tools_tag: "الأدوات",
+    cdm_tools_title: "الأدوات",
+    cdm_tools_note: "أدوات التصميم والتسويق التي أستخدمها فعليًا.",
+    cdm_skills_tag: "المهارات",
+    cdm_skills_title: "المهارات",
+    cdm_skills_note: "قدرات التصميم والتسويق التي أعمل بها.",
+    cdm_skill_1: "التصميم البصري",
+    cdm_skill_2: "صناعة المحتوى",
+    cdm_skill_3: "تصميم محتوى منصات التواصل",
+    cdm_skill_4: "تصميم البوسترات",
+    cdm_skill_5: "المحتوى التسويقي",
+    cdm_skill_6: "تطوير الأفكار الإبداعية",
+    cdm_projects_tag: "المشاريع",
+    cdm_projects_title: "المشاريع",
+    cdm_projects_note: "حملات ومشاريع تصميم كاملة — ستُضاف هنا عند توفرها.",
+    cdm_project_tag_placeholder: "[ وسم ]",
+    cdm_project_title_placeholder: "[ عنوان المشروع ]",
+    cdm_project_desc_placeholder: "[ وصف قصير للمشروع ]",
+    cdm_project_year_placeholder: "[ السنة ]",
+    cdm_project_link_pending: "قريبًا — لا يوجد رابط بعد",
+    cdm_mini_tag: "أعمال مصغرة",
+    cdm_mini_title: "أعمال مصغرة",
+    cdm_mini_note: "تصاميم بصرية، محتوى تواصل، وملصقات لا تحتاج دراسة حالة كاملة.",
+    cdm_mini_title_placeholder: "[ عنوان العمل ]",
+    cdm_mini_note_placeholder: "[ ملاحظة قصيرة ]",
+    cdm_certs_tag: "الشهادات",
+    cdm_certs_title: "الشهادات",
+    cdm_certs_note: "شهادات ودورات متعلقة بالتصميم والتسويق الرقمي — ستُضاف عند توفرها.",
+    cdm_cert_name_placeholder: "[ اسم الشهادة ]",
+    cdm_cert_issuer_placeholder: "[ الجهة المانحة ]",
+    cdm_cert_date_placeholder: "[ السنة ]",
+
+    footer_mark: "حالم متوهج"
+  },
+
+  en: {
+    page_title: "My Portfolio",
+    nav_mark: "Glowing Dreamer",
+    nav_about: "About",
+    nav_interests: "Interests",
+    nav_experience: "Experience",
+    nav_skills: "Skills",
+    nav_highlights: "Highlights",
+    nav_work: "Work",
+    nav_contact: "Contact",
+
+    hero_eyebrow: "Nada Mohammed Hassan Al-Faifi",
+    hero_title: "MY PORTFOLIO",
+
+    about_title_1: "About",
+    about_title_2: "Me",
+    about_lead: "I study systems from the inside: how information moves, where it stalls, and how it becomes an experience someone can actually use.",
+    about_p1: "A Management Information Systems graduate from Taibah University. I work where analysis meets design — turning complex processes into clear interfaces and clear decisions.",
+    about_p2: "I think analytically, design with people in mind, and look at a problem as a whole system before I look at it as a screen.",
+    about_edu_heading: "Education",
+    about_edu_major: "Management Information Systems",
+    about_edu_gpa: "GPA 4.92 / 5",
+    about_edu_year: "Graduation Year 2026",
+
+    interests_tag: "03 — My Interests",
+    interests_title: "Where exactly I work",
+    card_ux_title: "User Experience",
+    card_ux_body: "Understanding the user before the solution — research, flows, and interfaces built on a reason.",
+    card_ba_title: "Business Analysis",
+    card_ba_body: "Reading processes, spotting gaps, and turning ambiguity into clear requirements.",
+    card_dx_title: "Digital Transformation",
+    card_dx_body: "Connecting systems, people and processes into one coherent digital experience.",
+    card_cdm_title: "Creative Design & Digital Marketing",
+    card_cdm_body: "Creative visual design, content creation, and digital marketing that connect ideas, identity, and communication.",
+
+    exp_tag: "04 — Experience",
+    placeholder_date: "[ date ]",
+    exp_vol_title: "Volunteer Experience",
+    exp_vol_body: "[ editable text ]",
+    exp_train_title: "Training Experience",
+    exp_train_body: "[ editable text ]",
+    exp_job_title: "Job Experience",
+    exp_job_body: "[ to be added once available ]",
+    exp_job_status: "Coming soon",
+
+    skills_tag: "05 — Skills & Tools",
+    skills_ba: "Business Analysis",
+    skills_ux: "UX",
+    skills_data: "Data & Systems",
+    skills_tech: "Technical",
+    skills_design: "Design",
+
+    highlights_tag: "06 — Highlights",
+    highlights_note: "Moments, events and activities I've taken part in — more to be added over time.",
+    highlight_placeholder_title: "[ event name ]",
+    highlight_placeholder_date: "[ date ]",
+    highlight_placeholder_location: "[ location ]",
+    highlight_placeholder_note: "[ short note ]",
+
+    work_tag: "07 — Selected Work",
+    rafd_cat: "Business Analysis × UX Case Study",
+    rafd_desc: "Redesigning the Programs & Projects flow of an ERP system for a nonprofit — from diagnosing the problem to a clearer interface.",
+    view_case_study: "View case study",
+    placeholder_image: "[ project image ]",
+    placeholder_cat: "Coming soon",
+    placeholder_title: "Upcoming project",
+
+    edu_uni: "Taibah University",
+
+    contact_title: "LET'S CONNECT.",
+    contact_email: "[ email ]",
+    contact_linkedin: "[ LinkedIn ]",
+    contact_cv: "[ CV ]",
+    back_link: "← Back",
+    field_placeholder: "Selected projects in this field will be added here.",
+
+    ba_eyebrow: "Field of Work",
+    ba_intro: "I understand what's happening and identify what can be improved, listen to the client's needs, and translate them into clear requirements and more suitable solutions.",
+    ba_tools_tag: "Tools",
+    ba_tools_title: "Tools",
+    ba_tools_note: "The tools and software I actually use.",
+    ba_skills_tag: "Skills",
+    ba_skills_title: "Skills",
+    ba_skills_note: "The analytical capabilities I bring.",
+    ba_skill_1: "Business Process Analysis",
+    ba_skill_2: "Requirements Gathering & Analysis",
+    ba_skill_3: "Workflow Analysis & Documentation",
+    ba_skill_4: "Gap Analysis",
+    ba_skill_5: "Process Flow Mapping",
+    ba_skill_6: "As-Is / To-Be Analysis",
+    ba_skill_7: "Problem Identification",
+    ba_skill_8: "Solution Recommendations",
+    ba_projects_tag: "Projects",
+    ba_projects_title: "Projects",
+    ba_projects_note: "Full case studies — will be added here once ready.",
+    ba_project_tag_placeholder: "[ tag ]",
+    ba_project_title_placeholder: "[ Project title ]",
+    ba_project_desc_placeholder: "[ Short project description ]",
+    ba_project_year_placeholder: "[ Year ]",
+    ba_mini_tag: "Mini Work",
+    ba_mini_title: "Mini Work",
+    ba_mini_note: "Small diagrams, analyses, and documents that don't need a full case study.",
+    ba_mini_title_placeholder: "[ Item title ]",
+    ba_mini_note_placeholder: "[ Short note ]",
+    ba_certs_tag: "Certifications",
+    ba_certs_title: "Certifications",
+    ba_certs_note: "Certifications and courses related to Business Analysis — added once available.",
+    ba_cert_name_placeholder: "[ Certificate name ]",
+    ba_cert_issuer_placeholder: "[ Issuer ]",
+    ba_cert_date_placeholder: "[ Year ]",
+    ba_project_link_pending: "Coming soon — no link yet",
+
+    ux_eyebrow: "Field of Work",
+    ux_intro: "I start with the user, understand their needs, and turn insights and problems into simpler, clearer experiences.",
+    ux_tools_tag: "Tools",
+    ux_tools_title: "Tools",
+    ux_tools_note: "The design and research tools I actually use.",
+    ux_skills_tag: "Skills",
+    ux_skills_title: "Skills",
+    ux_skills_note: "The research and design capabilities I bring.",
+    ux_skill_1: "User Flow",
+    ux_skill_2: "Information Architecture",
+    ux_skill_3: "Wireframing",
+    ux_skill_4: "Prototyping",
+    ux_skill_5: "Usability Analysis",
+    ux_skill_6: "UX Problem Identification",
+    ux_skill_7: "UI Design",
+    ux_skill_8: "UX Documentation",
+    ux_projects_tag: "Projects",
+    ux_projects_title: "Projects",
+    ux_projects_note: "Full UX case studies — will be added here once ready.",
+    ux_project_tag_placeholder: "[ tag ]",
+    ux_project_title_placeholder: "[ Project title ]",
+    ux_project_desc_placeholder: "[ Short project description ]",
+    ux_project_year_placeholder: "[ Year ]",
+    ux_project_link_pending: "Coming soon — no link yet",
+    ux_mini_tag: "Mini Work",
+    ux_mini_title: "Mini Work",
+    ux_mini_note: "Wireframes, user flows, and research outputs that don't need a full case study.",
+    ux_mini_title_placeholder: "[ Item title ]",
+    ux_mini_note_placeholder: "[ Short note ]",
+    ux_certs_tag: "Certifications",
+    ux_certs_title: "Certifications",
+    ux_certs_note: "Certifications and courses related to User Experience — added once available.",
+    ux_cert_name_placeholder: "[ Certificate name ]",
+    ux_cert_issuer_placeholder: "[ Issuer ]",
+    ux_cert_date_placeholder: "[ Year ]",
+
+    cdm_eyebrow: "Field of Work",
+    cdm_intro: "I turn ideas into visual content with identity—designed to capture attention, communicate clearly, and leave an impression.",
+    cdm_tools_tag: "Tools",
+    cdm_tools_title: "Tools",
+    cdm_tools_note: "The design and marketing tools I actually use.",
+    cdm_skills_tag: "Skills",
+    cdm_skills_title: "Skills",
+    cdm_skills_note: "The design and marketing capabilities I bring.",
+    cdm_skill_1: "Visual Design",
+    cdm_skill_2: "Content Creation",
+    cdm_skill_3: "Social Media Content Design",
+    cdm_skill_4: "Poster Design",
+    cdm_skill_5: "Marketing Content",
+    cdm_skill_6: "Creative Concept Development",
+    cdm_projects_tag: "Projects",
+    cdm_projects_title: "Projects",
+    cdm_projects_note: "Full design/marketing campaigns — will be added here once ready.",
+    cdm_project_tag_placeholder: "[ tag ]",
+    cdm_project_title_placeholder: "[ Project title ]",
+    cdm_project_desc_placeholder: "[ Short project description ]",
+    cdm_project_year_placeholder: "[ Year ]",
+    cdm_project_link_pending: "Coming soon — no link yet",
+    cdm_mini_tag: "Mini Work",
+    cdm_mini_title: "Mini Work",
+    cdm_mini_note: "Visual designs, social content, and posters that don't need a full case study.",
+    cdm_mini_title_placeholder: "[ Item title ]",
+    cdm_mini_note_placeholder: "[ Short note ]",
+    cdm_certs_tag: "Certifications",
+    cdm_certs_title: "Certifications",
+    cdm_certs_note: "Certifications and courses related to design and digital marketing — added once available.",
+    cdm_cert_name_placeholder: "[ Certificate name ]",
+    cdm_cert_issuer_placeholder: "[ Issuer ]",
+    cdm_cert_date_placeholder: "[ Year ]",
+
+    footer_mark: "حالم متوهج"
+  }
+};
+
+/* ==========================================================================
+   LANGUAGE SWITCHING
+   ========================================================================== */
+function applyLanguage(lang) {
+  const dict = translations[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+
+  const switchBtn = document.getElementById('langSwitch');
+  switchBtn.querySelector('.lang-ar').toggleAttribute('data-active', lang === 'ar');
+  switchBtn.querySelector('.lang-en').toggleAttribute('data-active', lang === 'en');
+
+  localStorage.setItem('portfolio-lang', lang);
+}
+
+document.getElementById('langSwitch').addEventListener('click', () => {
+  const next = document.documentElement.lang === 'ar' ? 'en' : 'ar';
+  applyLanguage(next);
+});
+
+// Restore a previously chosen language, default to Arabic.
+applyLanguage(localStorage.getItem('portfolio-lang') || 'ar');
+
+/* ==========================================================================
+   MOBILE NAV
+   ========================================================================== */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+navLinks.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  })
+);
+
+/* ==========================================================================
+   SCROLL REVEAL
+   ========================================================================== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.chapter:not(.hero)').forEach(section => revealObserver.observe(section));
+
+/* ==========================================================================
+   PAGE TRANSITIONS
+   A quick, restrained fade between the homepage and each interest's
+   dedicated page — no loading animation, just a soft cross-fade.
+   ========================================================================== */
+document.body.classList.add('page-fade');
+
+window.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => document.body.classList.add('page-ready'));
+});
+
+document.querySelectorAll('.interest-card[href]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (!href || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    document.body.classList.remove('page-ready');
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { window.location.href = href; }, 180);
+  });
+});
+
+document.querySelectorAll('.back-link[href]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (!href || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    document.body.classList.remove('page-ready');
+    document.body.classList.add('page-leaving');
+    setTimeout(() => { window.location.href = href; }, 180);
+  });
+});
+
+</script>
+</body>
+</html>
