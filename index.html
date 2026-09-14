@@ -227,18 +227,23 @@
     <article class="highlight-ticket">
       <svg class="ticket-clip" viewBox="0 0 28 44" aria-hidden="true"><path d="M20.5 12.5 v18.2 c0 4.3 -3 7.3 -6.8 7.3 s-6.7 -3 -6.7 -7.3 V11.4 c0 -2.9 2.1 -5.1 4.8 -5.1 s4.8 2.2 4.8 5.1 v18.4 c0 1.5 -1.1 2.6 -2.5 2.6 s-2.6 -1.1 -2.6 -2.6 V13.6"/></svg>
       <span class="ticket-num" aria-hidden="true">01</span>
-      <!-- SCRAPBOOK PHOTO COMPOSITION — 01 is the main print, 02/03 support it -->
+      <!-- SCRAPBOOK PHOTO SPREAD — 01 is the main print, 02/03 lap its lower edge.
+           Every .snap carries data-photo, which is all the lightbox needs, so the
+           other highlights can reuse this markup as soon as they have images. -->
       <div class="ticket-scrapbook">
-        <figure class="snap snap-main">
+        <button class="snap snap-main" type="button"
+                data-photo="assets/images/highlights/barmajan-01.jpg" aria-label="Open photo">
           <img src="assets/images/highlights/barmajan-01.jpg" alt="" loading="lazy">
-        </figure>
+        </button>
         <div class="snap-row">
-          <figure class="snap snap-b">
+          <button class="snap snap-b" type="button"
+                  data-photo="assets/images/highlights/barmajan-02.jpg" aria-label="Open photo">
             <img src="assets/images/highlights/barmajan-02.jpg" alt="" loading="lazy">
-          </figure>
-          <figure class="snap snap-c">
+          </button>
+          <button class="snap snap-c" type="button"
+                  data-photo="assets/images/highlights/barmajan-03.jpg" aria-label="Open photo">
             <img src="assets/images/highlights/barmajan-03.jpg" alt="" loading="lazy">
-          </figure>
+          </button>
         </div>
       </div>
       <p class="ticket-meta"><span data-i18n="highlight_1_date">أغسطس 2026</span></p>
@@ -249,8 +254,23 @@
     <article class="highlight-ticket">
       <svg class="ticket-clip" viewBox="0 0 28 44" aria-hidden="true"><path d="M20.5 12.5 v18.2 c0 4.3 -3 7.3 -6.8 7.3 s-6.7 -3 -6.7 -7.3 V11.4 c0 -2.9 2.1 -5.1 4.8 -5.1 s4.8 2.2 4.8 5.1 v18.4 c0 1.5 -1.1 2.6 -2.5 2.6 s-2.6 -1.1 -2.6 -2.6 V13.6"/></svg>
       <span class="ticket-num" aria-hidden="true">02</span>
-      <!-- IMAGE SLOT — replace with <img src="assets/images/highlights/…"> later -->
-      <div class="ticket-photo" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة ]</span></div>
+      <!-- SCRAPBOOK PHOTO SPREAD — same composition and lightbox as highlight 01 -->
+      <div class="ticket-scrapbook">
+        <button class="snap snap-main" type="button"
+                data-photo="assets/images/highlights/noreen-award-01.jpg" aria-label="Open photo">
+          <img src="assets/images/highlights/noreen-award-01.jpg" alt="" loading="lazy">
+        </button>
+        <div class="snap-row">
+          <button class="snap snap-b" type="button"
+                  data-photo="assets/images/highlights/noreen-award-02.jpg" aria-label="Open photo">
+            <img src="assets/images/highlights/noreen-award-02.jpg" alt="" loading="lazy">
+          </button>
+          <button class="snap snap-c" type="button"
+                  data-photo="assets/images/highlights/noreen-award-03.jpg" aria-label="Open photo">
+            <img src="assets/images/highlights/noreen-award-03.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
       <p class="ticket-meta"><span data-i18n="highlight_2_date">مايو 2026</span></p>
       <p class="ticket-note" data-i18n="highlight_2_note">المركز الثالث لمشاريع التخرج في تخصص نظم المعلومات الإدارية بجامعة طيبة، عن مشروع "نورين".</p>
     </article>
@@ -259,8 +279,23 @@
     <article class="highlight-ticket">
       <svg class="ticket-clip" viewBox="0 0 28 44" aria-hidden="true"><path d="M20.5 12.5 v18.2 c0 4.3 -3 7.3 -6.8 7.3 s-6.7 -3 -6.7 -7.3 V11.4 c0 -2.9 2.1 -5.1 4.8 -5.1 s4.8 2.2 4.8 5.1 v18.4 c0 1.5 -1.1 2.6 -2.5 2.6 s-2.6 -1.1 -2.6 -2.6 V13.6"/></svg>
       <span class="ticket-num" aria-hidden="true">03</span>
-      <!-- IMAGE SLOT — replace with <img src="assets/images/highlights/…"> later -->
-      <div class="ticket-photo" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة ]</span></div>
+      <!-- SCRAPBOOK PHOTO SPREAD — same composition and lightbox as highlight 01 -->
+      <div class="ticket-scrapbook">
+        <button class="snap snap-main" type="button"
+                data-photo="assets/images/highlights/honors-01.jpg" aria-label="Open photo">
+          <img src="assets/images/highlights/honors-01.jpg" alt="" loading="lazy">
+        </button>
+        <div class="snap-row">
+          <button class="snap snap-b" type="button"
+                  data-photo="assets/images/highlights/honors-02.jpg" aria-label="Open photo">
+            <img src="assets/images/highlights/honors-02.jpg" alt="" loading="lazy">
+          </button>
+          <button class="snap snap-c" type="button"
+                  data-photo="assets/images/highlights/honors-03.jpg" aria-label="Open photo">
+            <img src="assets/images/highlights/honors-03.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
       <p class="ticket-meta"><span data-i18n="highlight_3_date">أبريل 2026</span></p>
       <p class="ticket-note" data-i18n="highlight_3_note">الاحتفال ضمن الخريجات المتميزات الحاصلات على مرتبة الشرف الأولى في تخصص نظم المعلومات الإدارية بجامعة طيبة.</p>
     </article>
@@ -307,6 +342,40 @@
   </div>
   <svg class="contact-star" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
 </section>
+
+<!-- ===================== PHOTO LIGHTBOX (shared by every highlight) ===================== -->
+<div class="photo-lightbox" id="photoLightbox" hidden>
+  <button class="photo-lightbox-close" type="button" id="photoLightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <figure class="photo-lightbox-frame" role="dialog" aria-modal="true" aria-label="Photo">
+    <img id="photoLightboxImg" src="" alt="">
+  </figure>
+</div>
+
+<!-- ===================== WORK-IN-PROGRESS INTRO NOTE ===================== -->
+<div class="wip-backdrop" id="wipModal" hidden>
+  <div class="wip-note" role="dialog" aria-modal="true" aria-labelledby="wipLine1">
+    <!-- Three decorations only: the star, the "قيد العمل" sticker and the cone.
+         Each still sits half-in / half-out of the note. -->
+    <span class="wip-sticker sticker-ar" aria-hidden="true">قيد العمل</span>
+    <svg class="wip-deco deco-star-a" viewBox="0 0 40 40" aria-hidden="true"><use href="#icon-star"/></svg>
+    <span class="wip-cone" aria-hidden="true">
+      <svg viewBox="0 0 40 40">
+        <path d="M20 5 L31 33 H9 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M13 22 h14 M11 28 h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M5 35 h30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </span>
+
+    <button class="wip-close" type="button" id="wipClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </button>
+
+    <p class="wip-line-1" id="wipLine1" data-i18n="wip_line_1">الملف قيد التطوير...</p>
+    <p class="wip-line-2" data-i18n="wip_line_2">من فضلك تحلّى بالصبر! 🙂</p>
+  </div>
+</div>
 
 <!-- ===================== CV LANGUAGE MODAL ===================== -->
 <div class="cv-modal-backdrop" id="cvModal" hidden>

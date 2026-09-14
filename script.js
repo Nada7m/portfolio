@@ -76,6 +76,8 @@ const translations = {
     contact_linkedin: "LinkedIn",
     contact_cv: "السيرة الذاتية",
     cv_modal_title: "اختر نسخة السيرة الذاتية",
+    wip_line_1: "الملف قيد التطوير...",
+    wip_line_2: "من فضلك تحلّى بالصبر! 🙂",
     back_link: "→ العودة",
     field_placeholder: "سيتم إضافة أبرز المشاريع في هذا المجال هنا.",
 
@@ -271,6 +273,8 @@ const translations = {
     contact_linkedin: "LinkedIn",
     contact_cv: "CV",
     cv_modal_title: "Choose CV Language",
+    wip_line_1: "Portfolio under construction...",
+    wip_line_2: "Please bear with me! 🙂",
     back_link: "← Back",
     field_placeholder: "Selected projects in this field will be added here.",
 
@@ -438,6 +442,76 @@ navLinks.querySelectorAll('a').forEach(a =>
     navToggle.setAttribute('aria-expanded', 'false');
   })
 );
+
+/* ==========================================================================
+   PHOTO LIGHTBOX (homepage highlights)
+   Delegated from [data-photo], so any highlight that gains photos later
+   works without touching this code.
+   ========================================================================== */
+(function () {
+  const box = document.getElementById('photoLightbox');
+  if (!box) return;
+
+  const img = document.getElementById('photoLightboxImg');
+  const closeBtn = document.getElementById('photoLightboxClose');
+  let lastTrigger = null;
+
+  function openPhoto(src, trigger) {
+    img.src = src;
+    box.hidden = false;
+    document.body.classList.add('photo-lightbox-open');
+    lastTrigger = trigger || null;
+    if (closeBtn) closeBtn.focus();
+  }
+  function closePhoto() {
+    if (box.hidden) return;
+    box.hidden = true;
+    img.src = '';
+    document.body.classList.remove('photo-lightbox-open');
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-photo]');
+    if (!trigger) return;
+    e.preventDefault();
+    openPhoto(trigger.getAttribute('data-photo'), trigger);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closePhoto);
+  // Clicking the backdrop — or the photo itself — closes it.
+  box.addEventListener('click', (e) => { if (e.target !== closeBtn) closePhoto(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePhoto(); });
+})();
+
+/* ==========================================================================
+   WORK-IN-PROGRESS INTRO NOTE
+   Temporary: appears on every fresh homepage load, deliberately NOT
+   remembered between visits (no localStorage/sessionStorage).
+   ========================================================================== */
+(function () {
+  const modal = document.getElementById('wipModal');
+  if (!modal) return;
+
+  const closeBtn = document.getElementById('wipClose');
+
+  function closeWip() {
+    if (modal.hidden) return;
+    modal.hidden = true;
+    document.body.classList.remove('wip-open');
+  }
+  function openWip() {
+    modal.hidden = false;
+    document.body.classList.add('wip-open');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  window.addEventListener('load', openWip);
+
+  if (closeBtn) closeBtn.addEventListener('click', closeWip);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeWip(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeWip(); });
+})();
 
 /* ==========================================================================
    CV LANGUAGE MODAL (homepage only — guarded so other pages ignore it)

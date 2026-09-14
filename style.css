@@ -93,7 +93,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem var(--gutter);
-  background: rgba(252, 252, 252, 0.82);
+  background: rgba(241, 237, 240, 0.82);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(121, 136, 156, 0.12);
 }
@@ -1039,7 +1039,7 @@ html[lang="ar"] .contact-title { font-family: var(--font-ar); font-weight: 900; 
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  background: rgba(59, 55, 69, 0.55);
+  background: rgba(30, 44, 92, 0.55);
   backdrop-filter: blur(2px);
 }
 .cv-modal-backdrop[hidden] { display: none; }
@@ -1135,40 +1135,50 @@ html[lang="en"] .milestone-list { font-family: var(--font-body); }
 /* ---------- Highlight scrapbook photos (Barmajan item) ----------
    Three printed photos pinned into the card: one lead print with two
    smaller ones tucked under it, each tilted a touch off-square. */
+/* A wide, shallow spread rather than a tall stack: the lead print sits on one
+   side and the two smaller ones lap its lower outer corner, so the whole
+   composition is only as tall as the lead print itself. */
 .ticket-scrapbook {
   position: relative;
   margin: 0 0 1rem;
-  padding-bottom: 0.4rem;
+  padding-bottom: 8%;
 }
 .snap {
+  display: block;
   margin: 0;
+  padding: 0;
+  cursor: zoom-in;
   background: var(--snow);
   border: 3px solid var(--snow);
   outline: 1px solid rgba(121, 136, 156, 0.18);
   box-shadow: 2px 3px 0 rgba(121, 136, 156, 0.1), 3px 5px 10px -4px rgba(41, 71, 160, 0.35);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
+/* Each print keeps the ratio of the file itself — portrait or landscape —
+   so nothing is cropped and nothing is letterboxed into empty bands. */
 .snap img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
   height: auto;
-  object-fit: cover;
+  /* `auto` first: a real photo uses its own ratio; the 5/4 only kicks in as a
+     placeholder box for an image file that isn't in place yet. */
+  aspect-ratio: auto 5 / 4;
+  object-fit: contain;
   background: var(--cornsilk);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.snap-main { width: 78%; transform: rotate(-1.8deg); position: relative; z-index: 1; }
+.snap-main { width: 62%; transform: rotate(-1.8deg); position: relative; z-index: 1; }
 html[dir="rtl"] .snap-main { transform: rotate(1.8deg); }
 
-/* The pair sits opposite the lead print and laps slightly over it. */
+/* The pair is pinned to the opposite lower corner, overlapping the lead. */
 .snap-row {
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 0;
+  width: 54%;
   display: flex;
-  gap: 0.5rem;
-  width: 78%;
-  margin-inline-start: auto;
-  margin-top: -15%;
-  position: relative;
+  gap: 0.4rem;
   z-index: 2;
 }
 .snap-row .snap { flex: 1 1 0; min-width: 0; }
@@ -1185,8 +1195,179 @@ html[dir="rtl"] .snap-c { transform: rotate(1.4deg); }
 }
 .snap:hover img { transform: translateY(-3px) scale(1.03); }
 
+.snap:focus-visible { outline: 2px solid var(--pink-ink); outline-offset: 3px; }
+
 @media (prefers-reduced-motion: reduce) {
   .snap:hover img { transform: none; }
+}
+
+/* ---------- Shared photo lightbox ---------- */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  background: rgba(14, 20, 44, 0.82);
+}
+.photo-lightbox[hidden] { display: none; }
+.photo-lightbox-frame {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--snow);
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: 0 28px 60px -20px rgba(14, 20, 44, 0.8);
+}
+/* The frame hugs the photo: the image keeps its own ratio, nothing is cropped. */
+.photo-lightbox-frame img {
+  display: block;
+  max-width: min(100%, 92vw);
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+.photo-lightbox-close {
+  position: absolute;
+  top: clamp(0.75rem, 3vw, 1.5rem);
+  inset-inline-end: clamp(0.75rem, 3vw, 1.5rem);
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border: 1.5px solid var(--snow);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--snow);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.photo-lightbox-close:hover { background: var(--snow); color: var(--taupe); }
+.photo-lightbox-close svg { width: 100%; height: 100%; }
+body.photo-lightbox-open { overflow: hidden; }
+
+/* ==========================================================================
+   WORK-IN-PROGRESS INTRO NOTE
+   A pinned paper note, deliberately a little crooked, with stickers that
+   straddle its edges. Temporary — shown on every fresh homepage load.
+   ========================================================================== */
+.wip-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 8vw, 4rem) clamp(1.5rem, 6vw, 3rem);
+  background: rgba(30, 44, 92, 0.42);
+  overflow: hidden; /* stickers may hang out — never let them scroll the page */
+}
+.wip-backdrop[hidden] { display: none; }
+body.wip-open { overflow: hidden; }
+
+/* Restrained on purpose: two colours only — French Blue for everything
+   structural and textual, Wisteria as the single accent, on Snow paper. */
+.wip-note {
+  position: relative;
+  width: min(390px, 100%);
+  padding: 2.5rem 1.75rem 2.25rem;
+  text-align: center;
+  background: var(--snow);
+  border: 1.5px solid var(--taupe);
+  border-radius: 4px;
+  transform: rotate(-0.6deg);
+  box-shadow: 4px 5px 0 var(--aqua), 8px 12px 22px -12px rgba(14, 20, 44, 0.35);
+  animation: wip-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html[dir="rtl"] .wip-note { transform: rotate(0.6deg); box-shadow: -4px 5px 0 var(--aqua), -8px 12px 22px -12px rgba(14, 20, 44, 0.35); }
+@keyframes wip-in { from { opacity: 0; transform: translateY(12px) rotate(-2deg); } }
+@media (prefers-reduced-motion: reduce) { .wip-note { animation: none; } }
+
+.wip-line-1 {
+  font-family: var(--font-ar);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--taupe);
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+.wip-line-2 {
+  font-family: var(--font-ar);
+  font-size: 1rem;
+  color: var(--wisteria-ink);
+  margin: 0;
+  line-height: 1.6;
+}
+html[lang="en"] .wip-line-1 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; }
+html[lang="en"] .wip-line-2 { font-family: var(--font-body); }
+
+/* The single sticker — half on the note, half off it. */
+.wip-sticker {
+  position: absolute;
+  font-family: var(--font-ar);
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  padding: 0.35rem 0.7rem;
+  border: 1.5px solid var(--taupe);
+  border-radius: 3px;
+  white-space: nowrap;
+  box-shadow: 2px 2px 0 rgba(41, 71, 160, 0.2);
+}
+.sticker-ar {
+  bottom: 18%;
+  inset-inline-end: -32px;
+  background: var(--aqua);
+  color: var(--taupe);
+  transform: rotate(4deg);
+}
+
+.wip-deco { position: absolute; color: var(--taupe); }
+.deco-star-a { width: 26px; height: 26px; fill: var(--aqua); top: -13px; inset-inline-end: 34px; transform: rotate(8deg); }
+
+/* Small construction cone, half off the lower outer corner */
+.wip-cone {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -20px;
+  inset-inline-start: -18px;
+  color: var(--taupe);
+  transform: rotate(-6deg);
+}
+.wip-cone svg { width: 100%; height: 100%; }
+
+.wip-close {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  border: 1.5px solid var(--taupe);
+  border-radius: 50%;
+  background: var(--snow);
+  color: var(--taupe);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.wip-close:hover { background: var(--aqua); }
+.wip-close svg { width: 100%; height: 100%; }
+
+/* On a phone the note steps in from the edges so the half-out stickers
+   still have room to hang off without touching the screen edge. */
+@media (max-width: 460px) {
+  .wip-backdrop { padding-inline: 3.25rem; }
+  .wip-note { width: min(300px, 100%); padding: 2.25rem 1.1rem 2rem; }
+  .wip-line-1 { font-size: 1.05rem; }
+  .wip-line-2 { font-size: 0.92rem; }
+  .sticker-ar { inset-inline-end: -24px; font-size: 0.7rem; padding: 0.3rem 0.55rem; }
+  .wip-cone { inset-inline-start: -14px; width: 34px; height: 34px; }
 }
 
 /* ---------- Selected Projects: one shared type scale ---------- */
@@ -1536,7 +1717,7 @@ body.ba-modal-open { overflow: hidden; }
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(59, 55, 69, 0.5);
+  background: rgba(30, 44, 92, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1553,7 +1734,7 @@ body.ba-modal-open { overflow: hidden; }
   max-height: 92vh;
   overflow-y: auto;
   padding: 2.25rem 2rem;
-  box-shadow: 0 30px 60px -20px rgba(59, 55, 69, 0.45);
+  box-shadow: 0 30px 60px -20px rgba(30, 44, 92, 0.45);
 }
 .ba-modal[hidden] { display: none; }
 
@@ -1664,7 +1845,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: rgba(20, 18, 24, 0.82);
+  background: rgba(14, 20, 44, 0.82);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1692,7 +1873,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   height: 38px;
   border-radius: 50%;
   border: none;
-  background: rgba(252, 252, 252, 0.15);
+  background: rgba(241, 237, 240, 0.15);
   color: var(--snow);
   cursor: pointer;
   display: flex;
@@ -1700,7 +1881,7 @@ html[lang="ar"] .ba-modal-list li { font-family: var(--font-ar); }
   justify-content: center;
 }
 .ba-lightbox-close svg { width: 18px; height: 18px; }
-.ba-lightbox-close:hover { background: rgba(252, 252, 252, 0.3); }
+.ba-lightbox-close:hover { background: rgba(241, 237, 240, 0.3); }
 
 @media (max-width: 640px) {
   .ba-modal { padding: 1.75rem 1.35rem; border-radius: 16px; }
@@ -1859,7 +2040,7 @@ html[lang="ar"] .ux-section-note { font-family: var(--font-ar); }
   font-size: 0.9rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.ux-tool-slot:hover { border-color: var(--ux-accent-dark); box-shadow: 0 14px 24px -12px rgba(47, 131, 119, 0.3); transform: translateY(-3px); }
+.ux-tool-slot:hover { border-color: var(--ux-accent-dark); box-shadow: 0 14px 24px -12px rgba(110, 80, 144, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ux-tool-slot { font-family: var(--font-ar); }
 .ux-tool-icon { width: 36px; height: 36px; color: var(--ux-accent-dark); }
 .ux-tool-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -1948,7 +2129,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.ux-mini-item:hover { border-color: var(--ux-accent-dark); box-shadow: 0 10px 20px -12px rgba(47, 131, 119, 0.35); }
+.ux-mini-item:hover { border-color: var(--ux-accent-dark); box-shadow: 0 10px 20px -12px rgba(110, 80, 144, 0.35); }
 .ux-mini-preview {
   aspect-ratio: 4/3;
   background: var(--ux-accent-light);
@@ -2106,7 +2287,7 @@ html[lang="ar"] .cdm-section-note { font-family: var(--font-ar); }
   font-size: 0.9rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.cdm-tool-slot:hover { border-color: var(--cdm-accent); box-shadow: 0 14px 24px -12px rgba(59, 55, 69, 0.3); transform: translateY(-3px); }
+.cdm-tool-slot:hover { border-color: var(--cdm-accent); box-shadow: 0 14px 24px -12px rgba(30, 44, 92, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .cdm-tool-slot { font-family: var(--font-ar); }
 .cdm-tool-icon { width: 36px; height: 36px; color: var(--cdm-accent); }
 .cdm-tool-icon svg { width: 100%; height: 100%; }
@@ -2197,7 +2378,7 @@ html[lang="ar"] .cdm-project-body p { font-family: var(--font-ar); }
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.cdm-mini-item:hover { border-color: var(--cdm-accent); box-shadow: 0 10px 20px -12px rgba(59, 55, 69, 0.35); }
+.cdm-mini-item:hover { border-color: var(--cdm-accent); box-shadow: 0 10px 20px -12px rgba(30, 44, 92, 0.35); }
 .cdm-mini-preview {
   aspect-ratio: 4/3;
   background: var(--cdm-accent-light);
@@ -2233,5 +2414,6 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
+
 
 
