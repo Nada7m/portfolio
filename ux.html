@@ -28,13 +28,11 @@
   </a>
 
   <nav class="nav-links" id="navLinks" aria-label="Primary">
-    <a href="index.html#about" data-i18n="nav_about">عني</a>
-    <a href="index.html#interests" data-i18n="nav_interests">اهتماماتي</a>
-    <a href="index.html#experience" data-i18n="nav_experience">الخبرة</a>
-    <a href="index.html#highlights" data-i18n="nav_highlights">مختارات</a>
-    <a href="index.html#work" data-i18n="nav_work">الأعمال</a>
-    <a href="index.html#contact" data-i18n="nav_contact">التواصل</a>
-  </nav>
+    <a href="#ux-tools" data-i18n="ux_tools_title">الأدوات</a>
+    <a href="#ux-skills" data-i18n="ux_skills_title">المهارات</a>
+    <a href="#ux-projects" data-i18n="ux_projects_title">المشاريع</a>
+    <a href="#ux-miniwork" data-i18n="ux_mini_title">أعمال مصغرة</a>
+    <a href="#ux-certs" data-i18n="ux_certs_title">الشهادات</a>  </nav>
 
   <div class="nav-controls">
     <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch language">
@@ -111,21 +109,20 @@
     <h2 class="chapter-title" data-i18n="ux_projects_title">المشاريع</h2>
     <p class="ux-section-note" data-i18n="ux_projects_note">دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.</p>
 
-    <!-- id is the destination of the homepage "استكشف المشروع" link for Noreen -->
-    <div class="ux-project-card" id="noreen">
-      <div class="ux-project-cover" aria-hidden="true"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></div>
-      <div class="ux-project-body">
-        <div class="ux-project-tags">
-          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
-          <span data-i18n="ux_project_tag_placeholder">[ وسم ]</span>
+    <!-- Same grid, card and type structure as the Business Analysis page —
+         only the accent colour differs. One project entry, as it stands today. -->
+    <div class="ba-projects-grid">
+      <!-- id is the destination of the homepage "استكشف المشروع" link for Noreen -->
+      <article class="ba-project-card" id="noreen">
+        <div class="ba-card-open is-pending">
+          <span class="ba-project-cover"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></span>
+          <span class="ba-project-body">
+            <span class="ba-card-title" data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</span>
+            <span class="ba-card-desc" data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</span>
+            <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+          </span>
         </div>
-        <h3 data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</h3>
-        <p data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</p>
-        <div class="ux-project-footer">
-          <span class="ux-project-year" data-i18n="ux_project_year_placeholder">[ السنة ]</span>
-          <span class="ux-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
-        </div>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -182,6 +179,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

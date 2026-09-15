@@ -484,15 +484,20 @@ html[lang="en"] .about-heading { font-family: var(--font-display); font-weight: 
   .about-accent-star { animation: none; }
 }
 
+/* Two balanced columns on desktop — heading + main text on the leading side,
+   the highlighted line and education on the trailing side. No boxes, no
+   backgrounds: just two columns of type with room to breathe between them. */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
   max-width: 1100px;
 }
-@media (min-width: 860px) {
-  .about-grid { grid-template-columns: 1.1fr 1fr; align-items: start; }
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: 1fr 1fr; align-items: start; gap: 4rem; }
+  .about-col-secondary { padding-top: 0.5rem; }
 }
+.about-col-primary .about-title-wrap { margin-bottom: 1.5rem; }
 
 .about-lead {
   font-family: var(--font-ar);
@@ -504,16 +509,16 @@ html[lang="en"] .about-heading { font-family: var(--font-display); font-weight: 
 }
 html[lang="en"] .about-lead { font-family: var(--font-display); font-weight: 400; text-transform: none; max-width: 22ch; }
 
-.about-body p {
+.about-col p {
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.85;
   max-width: var(--max-line);
 }
-html[lang="ar"] .about-body p { font-family: var(--font-ar); font-weight: 400; }
+html[lang="ar"] .about-col p { font-family: var(--font-ar); font-weight: 400; }
 
 /* Justified body copy: balanced edges without ballooning word-gaps. */
-.about-body p.justified {
+.about-col p.justified {
   text-align: justify;
   text-align-last: start;
   hyphens: auto;
@@ -522,8 +527,10 @@ html[lang="ar"] .about-body p { font-family: var(--font-ar); font-weight: 400; }
 
 /* The main About paragraph sits a notch below the section title in weight:
    smaller than the lead, justified in both scripts. */
-.about-body p.about-main { font-size: 0.95rem; line-height: 1.95; }
-html[lang="en"] .about-body p.about-main { font-size: 0.95rem; }
+/* The whole main paragraph is bold — stated at the same weight as the
+   language rules above so it isn't out-specified by them. */
+html[lang="ar"] .about-col p.about-main,
+html[lang="en"] .about-col p.about-main { font-size: 0.95rem; line-height: 1.95; font-weight: 700; }
 
 /* Accent sentence — pink, smaller than the body copy, introduced by an
    oversized editorial exclamation mark rather than a rule. */
@@ -545,7 +552,7 @@ html[lang="en"] .about-body p.about-main { font-size: 0.95rem; }
 }
 html[dir="rtl"] .about-bang { transform: rotate(6deg); }
 
-.about-body p.about-annot {
+.about-annot {
   color: var(--pink-ink);
   font-style: italic;
   font-size: 0.88rem;
@@ -697,18 +704,24 @@ html[lang="en"] .card-cdm .card-content h3 { font-size: 1.05rem; }
 .card-content { justify-content: center; gap: 0.75rem; }
 .card-content h3 { margin: 0; }
 
+/* A drawn SVG arrow, not a text glyph — crisp at any size and it takes the
+   card's colour through currentColor. */
 .card-arrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
   margin-top: 0.2rem;
-  padding-top: 0;
-  font-size: 1.15rem;
+  color: currentColor;
   opacity: 0.6;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
 }
+.card-arrow svg { width: 100%; height: 100%; display: block; }
 /* Travels along the reading direction: up-and-right in LTR, up-and-left in RTL. */
 .interest-card:hover .card-arrow,
 .interest-card:focus-visible .card-arrow { transform: translate(8px, -8px); opacity: 1; }
-html[dir="rtl"] .card-arrow { display: inline-block; transform: scaleX(-1); }
+html[dir="rtl"] .card-arrow { transform: scaleX(-1); }
 html[dir="rtl"] .interest-card:hover .card-arrow,
 html[dir="rtl"] .interest-card:focus-visible .card-arrow { transform: scaleX(-1) translate(8px, -8px); }
 
@@ -802,6 +815,9 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
    04 EXPERIENCE — horizontal milestone timeline
    ========================================================================== */
 
+/* Vertical order per milestone: date → dot (sitting exactly on the rail)
+   → rule → content. The rail is pinned at a fixed offset and the date and
+   dot are positioned against that same offset, so they always line up. */
 .milestones {
   position: relative;
   display: flex;
@@ -809,12 +825,13 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
   gap: 2rem;
   max-width: 980px;
   margin-top: 3rem;
-  padding-top: 1.5rem;
+  padding-top: 0;
+  --rail-y: 3.2rem;   /* distance from the top of the row to the line */
 }
 .milestones::before {
   content: '';
   position: absolute;
-  top: 1.5rem;
+  top: var(--rail-y);
   inset-inline: 6%;
   height: 0;
   border-top: 2px dashed var(--taupe);
@@ -825,16 +842,21 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
   position: relative;
   flex: 1;
   text-align: center;
-  /* Generous breathing room between the node on the rail and its text. */
-  padding-top: 3.4rem;
+  /* Clears the date, the rail, and leaves breathing room under the line. */
+  padding-top: calc(var(--rail-y) + 2rem);
   transition: transform 0.3s ease;
 }
 .milestone:hover { transform: translateY(-4px); }
 
+/* Centred exactly on the rail: same offset, then pulled back by half its
+   own size in both axes. */
 .milestone-node {
   position: absolute;
-  top: 1.5rem;
-  inset-inline-start: 50%;
+  top: var(--rail-y);
+  /* physical 50%, matching the date above it, so the two share one axis
+     in both writing directions */
+  left: 50%;
+  right: auto;
   transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
@@ -869,8 +891,14 @@ html[lang="ar"] .project-desc { font-family: var(--font-ar); }
 
 /* Dates read as a separate register from the body copy: aqua, spaced
    small caps on a thin cornsilk strip — same palette, different voice. */
+/* The date sits above its own dot, centred on the same axis. */
 .milestone-date {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-block;
+  white-space: nowrap;
   font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -915,18 +943,27 @@ html[lang="ar"] .milestone p { font-family: var(--font-ar); }
     border-top: none;
     border-inline-start: 2px dashed var(--taupe);
   }
+  /* Vertical rail: the date leads, the dot sits on the line beside it,
+     and the content follows underneath. */
   .milestone {
     text-align: start;
     padding-top: 0;
     padding-inline-start: 2.75rem;
     width: 100%;
   }
-  .milestone-node {
-    top: 0.35rem;
-    inset-inline-start: 6px;
-    transform: translate(-50%, 0);
+  .milestone-date {
+    position: static;
+    transform: none;
+    white-space: normal;
   }
-  html[dir="rtl"] .milestone-node { transform: translate(50%, 0); }
+  .milestone-node {
+    top: 0.7rem;
+    left: auto;
+    right: auto;
+    inset-inline-start: 6px;
+    transform: translate(-50%, -50%);
+  }
+  html[dir="rtl"] .milestone-node { transform: translate(50%, -50%); }
   .milestone p, .milestone-clubs { margin-inline: 0 !important; max-width: none !important; }
 }
 
@@ -1426,31 +1463,59 @@ html[dir="rtl"] .project-slider { box-shadow: -7px 7px 0 var(--aqua), -10px 12px
   height: 100%;
   object-fit: contain;
   background: var(--cornsilk);
+  cursor: zoom-in;   /* click opens the full image in the lightbox */
 }
+.project-slide:focus-visible { outline: 2px solid var(--taupe); outline-offset: -4px; }
 
-/* Hover (and keyboard focus within the card) advances to slide 02.
-   RTL flips the direction the track travels. */
-.project:hover .project-track,
-.project:focus-within .project-track,
+/* The slide changes ONLY through the arrows, the dots or a swipe — never on
+   hover. RTL flips the direction the track travels. */
 .project-slider.show-second .project-track { transform: translateX(-50%); }
-html[dir="rtl"] .project:hover .project-track,
-html[dir="rtl"] .project:focus-within .project-track,
 html[dir="rtl"] .project-slider.show-second .project-track { transform: translateX(50%); }
 
 .project:hover .project-slider {
-  transform: translateY(-4px);
   box-shadow: 9px 10px 0 var(--pink), 12px 16px 22px -8px rgba(41, 71, 160, 0.45);
 }
 html[dir="rtl"] .project:hover .project-slider { box-shadow: -9px 10px 0 var(--pink), -12px 16px 22px -8px rgba(41, 71, 160, 0.45); }
 
 @media (prefers-reduced-motion: reduce) {
   .project-track { transition: none; }
-  .project:hover .project-slider { transform: none; }
 }
 
-/* Dots: only offered where hover doesn't exist. */
+/* Arrows sit along the left and right edges of the frame, always available. */
+.project-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border: 1.5px solid var(--taupe);
+  border-radius: 50%;
+  background: var(--snow);
+  color: var(--taupe);
+  cursor: pointer;
+  opacity: 0.92;
+  transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+.project-nav svg { width: 100%; height: 100%; display: block; }
+.project-nav:hover { background: var(--pink); color: var(--snow); opacity: 1; }
+.project-nav:focus-visible { outline: 2px solid var(--taupe); outline-offset: 2px; }
+.project-nav.is-prev { left: 6px; right: auto; }
+.project-nav.is-next { right: 6px; left: auto; }
+/* Each chevron points outward, away from the image — the left one left, the
+   right one right — in both writing directions. */
+
+@media (max-width: 600px) {
+  /* Still an easy tap target on a phone. */
+  .project-nav { width: 36px; height: 36px; padding: 8px; }
+  .project-nav.is-prev { left: 4px; }
+  .project-nav.is-next { right: 4px; }
+}
+
+/* Two small indicators so it's clear which of the two images is showing. */
 .project-dots {
-  display: none;
+  display: flex;
   position: absolute;
   bottom: 8px;
   inset-inline-start: 50%;
@@ -1471,16 +1536,6 @@ html[dir="rtl"] .project-dots { transform: translateX(50%); }
 }
 .project-dot.is-active { background: var(--taupe); }
 
-@media (hover: none) {
-  .project-dots { display: flex; }
-  /* No real hover on these devices — neutralise any stray :hover state… */
-  .project:hover .project-track { transform: translateX(0); }
-  html[dir="rtl"] .project:hover .project-track { transform: translateX(0); }
-  .project:hover .project-slider { transform: none; }
-  /* …then let the dots / swipe win, since they are the only way to advance. */
-  .project-slider.show-second .project-track { transform: translateX(-50%); }
-  html[dir="rtl"] .project-slider.show-second .project-track { transform: translateX(50%); }
-}
 .contact-star {
   position: absolute;
   width: 60px; height: 60px;
@@ -2032,6 +2087,12 @@ html[dir="rtl"] .ba-gal-arrow svg { transform: scaleX(-1); }
   color: inherit;
   cursor: pointer;
 }
+/* A card whose details aren't written yet: same shape, no click affordance. */
+.ba-card-open.is-pending { cursor: default; }
+.ba-project-cover {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
 .ba-project-cover img,
 .ba-mini-preview img {
   display: block;
@@ -2209,17 +2270,43 @@ html[lang="ar"] .ba-cert-meta { font-family: var(--font-ar); }
    page's own accent keeps each field page on a single colour family, without
    touching the homepage or any shared rule.
    ========================================================================== */
+   Every global accent token is re-pointed at the page's own colour, including
+   --taupe (the site ink), which is itself the CDM accent — leaving it in place
+   would put French Blue on the BA and UX pages. Neutrals stay neutral.
+
+   BA  #EBA0C4 · UX #916EB4 · CDM #2947A0 — the exact homepage card colours. */
+body.page-ba {
+  --pink: #EBA0C4;        /* the BA pink, matching its homepage card */
+  --pink-ink: #9C4A73;
+  --aqua: #EBA0C4;
+  --wisteria-ink: #9C4A73;
+  --cornsilk: #F4E8EF;    /* light tint of the same pink */
+  --taupe: #3B2430;       /* near-black derived from the same pink */
+}
 body.page-ux {
   --pink: #916EB4;        /* the UX purple, matching its homepage card */
   --pink-ink: #5E4875;
   --aqua: #916EB4;
   --wisteria-ink: #5E4875;
+  --cornsilk: #E7E1EC;    /* light tint of the same purple */
+  --taupe: #2C2338;       /* near-black derived from the same purple */
+  /* The project-card components are shared with the BA page and read these,
+     so the same markup renders in this page's colour. */
+  --ba-accent: #916EB4;
+  --ba-accent-dark: #5E4875;
+  --ba-accent-light: #E7E1EC;
 }
 body.page-cdm {
   --pink: #2947A0;        /* the CDM French Blue, matching its homepage card */
   --pink-ink: #1C3273;
   --aqua: #2947A0;
   --wisteria-ink: #1C3273;
+  --cornsilk: #E3E8F5;    /* light tint of the same blue */
+  --taupe: #1C3273;       /* the same blue, darkened, as ink */
+  /* Shared project-card components, in this page's colour. */
+  --ba-accent: #2947A0;
+  --ba-accent-dark: #1C3273;
+  --ba-accent-light: #E3E8F5;
 }
 
 .ux-page {
@@ -2717,6 +2804,8 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
 }
+
+
 
 
 

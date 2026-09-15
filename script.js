@@ -19,9 +19,8 @@ const translations = {
 
     about_title_1: "نبذة",
     about_title_2: "عني",
-    about_lead: "أدرس النظم من الداخل: كيف تظهر المعلومة بأفضل صورة، وأين تكمن الصعوبات، وكيف تصبح التجربة واضحة لشخص يستخدمها.",
     about_p1: "متخصصة في نظم المعلومات أركز على تحليل الأعمال والنظم وتجربة المستخدم UX، بخلفية تجمع بين الجوانب التقنية والإدارية، تنوعت مشاريعي بين تحليل وتصميم الأنظمة، وتحسين تجربة المستخدم، وتحليل البيانات ودعم القرار، مع خبرة في قيادة فرق المشاريع والعمل عبر مراحل تطوير الأنظمة، ومهارات في التواصل والتنسيق والتكيف السريع مع الأدوات والتحديات الجديدة.",
-    about_p2: "أحب الأفكار التي تبدأ بفضول، تكبر بسؤال، وتنتهي بحل يصنع فرقًا.",
+    about_p2: "أدرس النظم من الداخل: كيف تظهر المعلومة بأفضل صورة، وأين تكمن الصعوبات، وكيف تصبح التجربة واضحة لشخص يستخدمها.",
     about_edu_heading: "التعليم",
     about_edu_major: "نظم المعلومات الإدارية",
     about_edu_gpa: "المعدل 4.92 / 5",
@@ -261,9 +260,8 @@ const translations = {
 
     about_title_1: "About",
     about_title_2: "Me",
-    about_lead: "I study systems from the inside: how information shows up at its clearest, where the difficulties lie, and how it becomes an experience someone can actually use.",
     about_p1: "An Information Systems specialist focused on business and systems analysis and user experience (UX), with a background that brings together the technical and the managerial. My projects have ranged across systems analysis and design, user experience improvement, and data analysis and decision support — alongside experience leading project teams and working across the stages of the systems development lifecycle, and skills in communication, coordination, and adapting quickly to new tools and challenges.",
-    about_p2: "I love ideas that begin with curiosity, grow through a question, and end in a solution that makes a difference.",
+    about_p2: "I study systems from the inside: how information shows up at its clearest, where the difficulties lie, and how it becomes an experience someone can actually use.",
     about_edu_heading: "Education",
     about_edu_major: "Management Information Systems",
     about_edu_gpa: "GPA 4.92 / 5",
@@ -535,13 +533,16 @@ navLinks.querySelectorAll('a').forEach(a =>
 
 /* ==========================================================================
    PROJECT IMAGE SLIDER (homepage — Selected Projects)
-   Hover drives the slide in CSS. This adds the touch path only: dots and a
-   horizontal swipe, for devices where hover doesn't exist.
+   Manual only: the arrows, the dots and a swipe move between the two images.
+   Nothing changes on hover and nothing advances on its own.
    ========================================================================== */
 document.querySelectorAll('[data-slider]').forEach(slider => {
   const dots = [...slider.querySelectorAll('.project-dot')];
+  const COUNT = 2;
+  let index = 0;
 
-  function show(index) {
+  function show(next) {
+    index = (next + COUNT) % COUNT;          // two images, so it cycles
     slider.classList.toggle('show-second', index === 1);
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
   }
@@ -550,7 +551,14 @@ document.querySelectorAll('[data-slider]').forEach(slider => {
     dot.addEventListener('click', (e) => { e.preventDefault(); show(i); });
   });
 
-  // Swipe: direction is read in document order, so it works in RTL and LTR.
+  slider.querySelectorAll('[data-slide-nav]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      show(index + (btn.getAttribute('data-slide-nav') === 'next' ? 1 : -1));
+    });
+  });
+
+  // Swipe: direction is read against the writing mode, so it works both ways.
   let startX = null;
   slider.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend', (e) => {
@@ -559,8 +567,7 @@ document.querySelectorAll('[data-slider]').forEach(slider => {
     startX = null;
     if (Math.abs(dx) < 40) return;
     const rtl = document.documentElement.dir === 'rtl';
-    const forward = rtl ? dx > 0 : dx < 0;
-    show(forward ? 1 : 0);
+    show(index + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
   }, { passive: true });
 });
 
@@ -594,6 +601,15 @@ document.querySelectorAll('[data-slider]').forEach(slider => {
 
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-photo]');
+    if (!trigger) return;
+    e.preventDefault();
+    openPhoto(trigger.getAttribute('data-photo'), trigger);
+  });
+
+  // Same for keyboard users on the focusable images (project slides).
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const trigger = e.target.closest && e.target.closest('[data-photo][tabindex]');
     if (!trigger) return;
     e.preventDefault();
     openPhoto(trigger.getAttribute('data-photo'), trigger);

@@ -95,32 +95,34 @@
 
 <!-- ===================== 02 ABOUT ===================== -->
 <section class="chapter about" id="about">
-  <div class="about-title-wrap">
-    <svg class="about-star" viewBox="0 0 200 200" aria-hidden="true">
-      <path d="M100,10 L123.5,74.5 L190,74.5 L136,112 L157,178 L100,138 L43,178 L64,112 L10,74.5 L76.5,74.5 Z"/>
-    </svg>
-    <p class="chapter-tag">02</p>
-    <h2 class="about-heading">
-      <span data-i18n="about_title_1">نبذة</span>
-      <span class="about-emphasis">
-        <span data-i18n="about_title_2">عني</span>
-        <svg class="about-accent-star" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M20,2 L24.7,14.9 L38,14.9 L27.2,22.4 L31.4,35.6 L20,27.6 L8.6,35.6 L12.8,22.4 L2,14.9 L15.3,14.9 Z"/>
-        </svg>
-      </span>
-    </h2>
-  </div>
+  <!-- Two balanced columns on desktop; stacks in this same source order on
+       tablet and mobile: title → main text → highlighted line → education. -->
   <div class="about-grid">
-    <p class="about-lead" data-i18n="about_lead">
-      أدرس النظم من الداخل: كيف تظهر المعلومة بأفضل صورة، وأين تكمن الصعوبات، وكيف تصبح التجربة واضحة لشخص يستخدمها.
-    </p>
-    <div class="about-body">
-      <p class="justified about-main" data-i18n="about_p1">متخصصة في نظم المعلومات أركز على تحليل الأعمال والنظم وتجربة المستخدم UX، بخلفية تجمع بين الجوانب التقنية والإدارية، تنوعت مشاريعي بين تحليل وتصميم الأنظمة، وتحسين تجربة المستخدم، وتحليل البيانات ودعم القرار، مع خبرة في قيادة فرق المشاريع والعمل عبر مراحل تطوير الأنظمة، ومهارات في التواصل والتنسيق والتكيف السريع مع الأدوات والتحديات الجديدة.</p>
 
-      <!-- Accent sentence with an editorial oversized exclamation mark -->
+    <div class="about-col about-col-primary">
+      <div class="about-title-wrap">
+        <svg class="about-star" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100,10 L123.5,74.5 L190,74.5 L136,112 L157,178 L100,138 L43,178 L64,112 L10,74.5 L76.5,74.5 Z"/>
+        </svg>
+        <p class="chapter-tag">02</p>
+        <h2 class="about-heading">
+          <span data-i18n="about_title_1">نبذة</span>
+          <span class="about-emphasis">
+            <span data-i18n="about_title_2">عني</span>
+            <svg class="about-accent-star" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M20,2 L24.7,14.9 L38,14.9 L27.2,22.4 L31.4,35.6 L20,27.6 L8.6,35.6 L12.8,22.4 L2,14.9 L15.3,14.9 Z"/>
+            </svg>
+          </span>
+        </h2>
+      </div>
+      <p class="justified about-main" data-i18n="about_p1">متخصصة في نظم المعلومات أركز على تحليل الأعمال والنظم وتجربة المستخدم UX، بخلفية تجمع بين الجوانب التقنية والإدارية، تنوعت مشاريعي بين تحليل وتصميم الأنظمة، وتحسين تجربة المستخدم، وتحليل البيانات ودعم القرار، مع خبرة في قيادة فرق المشاريع والعمل عبر مراحل تطوير الأنظمة، ومهارات في التواصل والتنسيق والتكيف السريع مع الأدوات والتحديات الجديدة.</p>
+    </div>
+
+    <div class="about-col about-col-secondary">
+      <!-- Highlighted sentence with an editorial oversized exclamation mark -->
       <div class="about-accent">
         <span class="about-bang" aria-hidden="true">!</span>
-        <p class="about-annot" data-i18n="about_p2">أحب الأفكار التي تبدأ بفضول، تكبر بسؤال، وتنتهي بحل يصنع فرقًا.</p>
+        <p class="about-annot" data-i18n="about_p2">أدرس النظم من الداخل: كيف تظهر المعلومة بأفضل صورة، وأين تكمن الصعوبات، وكيف تصبح التجربة واضحة لشخص يستخدمها.</p>
       </div>
 
       <div class="about-education">
@@ -133,6 +135,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -155,8 +158,9 @@
         </svg>
         <span class="card-code">UX</span>
         <h3 data-i18n="card_ux_title">تجربة المستخدم</h3>
-        <span class="card-arrow" aria-hidden="true">↗</span>
-      </div>
+        <span class="card-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 L19 5 M10 5 h9 v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>      </div>
     </a>
 
     <a class="interest-card card-ba" href="business-analysis.html">
@@ -169,8 +173,9 @@
         </svg>
         <span class="card-code">BA</span>
         <h3 data-i18n="card_ba_title">تحليل الأعمال</h3>
-        <span class="card-arrow" aria-hidden="true">↗</span>
-      </div>
+        <span class="card-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 L19 5 M10 5 h9 v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>      </div>
     </a>
 
     <a class="interest-card card-cdm" href="creative-design-marketing.html">
@@ -183,8 +188,9 @@
         </svg>
         <span class="card-code">CDM</span>
         <h3 data-i18n="card_cdm_title">تصميم حر و تسويق رقمي</h3>
-        <span class="card-arrow" aria-hidden="true">↗</span>
-      </div>
+        <span class="card-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 L19 5 M10 5 h9 v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>      </div>
     </a>
 
   </div>
@@ -315,10 +321,16 @@
       <span class="project-num">01</span>
       <div class="project-slider" data-slider>
         <div class="project-track">
-          <img class="project-slide" src="assets/images/projects/madar-01.jpg" alt="" loading="lazy" decoding="async">
-          <img class="project-slide" src="assets/images/projects/madar-02.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/madar-01.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/madar-01.jpg" tabindex="0" role="button" aria-label="Open image">
+          <img class="project-slide" src="assets/images/projects/madar-02.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/madar-02.jpg" tabindex="0" role="button" aria-label="Open image">
         </div>
-        <div class="project-dots" aria-hidden="true">
+        <button class="project-nav is-prev" type="button" data-slide-nav="prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="project-nav is-next" type="button" data-slide-nav="next" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="project-dots">
           <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
           <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
         </div>
@@ -333,10 +345,16 @@
       <span class="project-num">02</span>
       <div class="project-slider" data-slider>
         <div class="project-track">
-          <img class="project-slide" src="assets/images/projects/noreen-01.jpg" alt="" loading="lazy" decoding="async">
-          <img class="project-slide" src="assets/images/projects/noreen-02.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/noreen-01.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/noreen-01.jpg" tabindex="0" role="button" aria-label="Open image">
+          <img class="project-slide" src="assets/images/projects/noreen-02.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/noreen-02.jpg" tabindex="0" role="button" aria-label="Open image">
         </div>
-        <div class="project-dots" aria-hidden="true">
+        <button class="project-nav is-prev" type="button" data-slide-nav="prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="project-nav is-next" type="button" data-slide-nav="next" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="project-dots">
           <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
           <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
         </div>
@@ -351,10 +369,16 @@
       <span class="project-num">03</span>
       <div class="project-slider" data-slider>
         <div class="project-track">
-          <img class="project-slide" src="assets/images/projects/rafd-01.jpg" alt="" loading="lazy" decoding="async">
-          <img class="project-slide" src="assets/images/projects/rafd-02.jpg" alt="" loading="lazy" decoding="async">
+          <img class="project-slide" src="assets/images/projects/rafd-01.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/rafd-01.jpg" tabindex="0" role="button" aria-label="Open image">
+          <img class="project-slide" src="assets/images/projects/rafd-02.jpg" alt="" loading="lazy" decoding="async" data-photo="assets/images/projects/rafd-02.jpg" tabindex="0" role="button" aria-label="Open image">
         </div>
-        <div class="project-dots" aria-hidden="true">
+        <button class="project-nav is-prev" type="button" data-slide-nav="prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="project-nav is-next" type="button" data-slide-nav="next" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="project-dots">
           <button class="project-dot is-active" type="button" data-slide="0" aria-label="1"></button>
           <button class="project-dot" type="button" data-slide="1" aria-label="2"></button>
         </div>
@@ -434,6 +458,9 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+
+
 
 
 
