@@ -112,19 +112,19 @@
     <h2 class="chapter-title" data-i18n="cdm_projects_title">المشاريع</h2>
     <p class="cdm-section-note" data-i18n="cdm_projects_note">حملات ومشاريع تصميم كاملة — ستُضاف هنا عند توفرها.</p>
 
-    <!-- Same grid, card and type structure as the Business Analysis page —
-         only the accent colour differs. One project entry, as it stands today. -->
+    <!-- Same grid, card and type structure as the Business Analysis page.
+         The existing Creative project remains the only entry on this page. -->
     <div class="ba-projects-grid">
       <!-- id is the destination of the homepage "استكشف المشروع" link for Madar -->
       <article class="ba-project-card" id="madar">
-        <div class="ba-card-open is-pending">
+        <button class="ba-card-open is-pending" type="button" aria-disabled="true">
           <span class="ba-project-cover"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></span>
           <span class="ba-project-body">
             <span class="ba-card-title" data-i18n="cdm_project_title_placeholder">[ عنوان المشروع ]</span>
             <span class="ba-card-desc" data-i18n="cdm_project_desc_placeholder">[ وصف قصير للمشروع ]</span>
             <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="cdm_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
           </span>
-        </div>
+        </button>
       </article>
     </div>
   </section>

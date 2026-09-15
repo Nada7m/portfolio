@@ -2270,11 +2270,10 @@ html[lang="ar"] .ba-cert-meta { font-family: var(--font-ar); }
    page's own accent keeps each field page on a single colour family, without
    touching the homepage or any shared rule.
    ========================================================================== */
-   Every global accent token is re-pointed at the page's own colour, including
-   --taupe (the site ink), which is itself the CDM accent — leaving it in place
-   would put French Blue on the BA and UX pages. Neutrals stay neutral.
+  Every global accent token is re-pointed at the page's own colour, including
+  --taupe (the site ink), which is itself the CDM accent. Neutrals stay neutral.
 
-   BA  #EBA0C4 · UX #916EB4 · CDM #2947A0 — the exact homepage card colours. */
+  BA #EBA0C4, UX #916EB4, CDM #2947A0 are the exact homepage card colours. */
 body.page-ba {
   --pink: #EBA0C4;        /* the BA pink, matching its homepage card */
   --pink-ink: #9C4A73;
@@ -2398,7 +2397,7 @@ html[lang="ar"] .ux-intro { font-family: var(--font-ar); }
 .ux-alt-bg { background: var(--ux-accent-light); }
 .ux-section-note {
   font-family: var(--font-body);
-  color: rgba(41, 71, 160, 0.75);
+  color: color-mix(in srgb, var(--ux-accent-dark) 75%, transparent);
   max-width: var(--max-line);
   margin: -0.5rem 0 2.25rem;
 }
@@ -2498,9 +2497,9 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
   padding-bottom: 2px;
 }
 .ux-project-link.is-disabled {
-  color: rgba(41, 71, 160, 0.55);
+  color: color-mix(in srgb, var(--ux-accent-dark) 55%, transparent);
   border-bottom-style: dashed;
-  border-color: rgba(41, 71, 160, 0.35);
+  border-color: color-mix(in srgb, var(--ux-accent-dark) 35%, transparent);
   font-weight: 500;
   cursor: default;
 }
@@ -2530,7 +2529,7 @@ html[lang="ar"] .ux-project-body p { font-family: var(--font-ar); }
 }
 .ux-mini-item h4 { font-family: var(--font-ar); font-size: 1rem; margin: 0.9rem 1rem 0.3rem; color: var(--ux-accent-dark); }
 html[lang="en"] .ux-mini-item h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
-.ux-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.75); margin: 0 1rem 1rem; }
+.ux-mini-item p { font-family: var(--font-body); font-size: 0.85rem; color: color-mix(in srgb, var(--ux-accent-dark) 75%, transparent); margin: 0 1rem 1rem; }
 html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
@@ -2803,6 +2802,259 @@ html[lang="ar"] .cdm-cert-meta { font-family: var(--font-ar); }
 @media (max-width: 640px) {
   .cdm-hero-shape { width: 220px; height: 220px; }
   .cdm-project-body { padding: 1.25rem 1.25rem 1.5rem; }
+}
+
+/* Specialization pages keep shared component chrome inside their own accent family. */
+body.page-ba :focus-visible { outline-color: var(--ba-accent); }
+body.page-ux :focus-visible { outline-color: var(--ux-accent); }
+body.page-cdm :focus-visible { outline-color: var(--cdm-accent); }
+
+body.page-ba .site-nav,
+body.page-ba .nav-links,
+body.page-ux .site-nav,
+body.page-ux .nav-links,
+body.page-cdm .site-nav,
+body.page-cdm .nav-links {
+  border-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+body.page-ba .ba-project-card,
+body.page-ux .ba-project-card,
+body.page-cdm .ba-project-card {
+  border-color: color-mix(in srgb, var(--ba-accent) 15%, transparent);
+  box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--ba-accent) 30%, transparent);
+}
+
+body.page-ba .ba-project-link.is-disabled,
+body.page-ux .ba-project-link.is-disabled,
+body.page-cdm .ba-project-link.is-disabled {
+  color: color-mix(in srgb, var(--ba-accent-dark) 55%, transparent);
+  border-color: color-mix(in srgb, var(--ba-accent-dark) 35%, transparent);
+}
+
+body.page-ux .ux-section-note,
+body.page-ux .ux-project-year,
+body.page-ux .ux-cert-meta,
+body.page-ux .ux-mini-item p {
+  color: color-mix(in srgb, var(--ux-accent-dark) 75%, transparent);
+}
+body.page-ux .ux-tool-slot,
+body.page-ux .ux-mini-item,
+body.page-ux .ux-cert-item {
+  border-color: color-mix(in srgb, var(--ux-accent-dark) 15%, transparent);
+  box-shadow: 0 10px 20px -14px color-mix(in srgb, var(--ux-accent-dark) 28%, transparent);
+}
+
+body.page-cdm .cdm-section-note,
+body.page-cdm .cdm-project-year,
+body.page-cdm .cdm-cert-meta,
+body.page-cdm .cdm-mini-item p {
+  color: color-mix(in srgb, var(--cdm-accent-dark) 75%, transparent);
+}
+body.page-cdm .cdm-tool-slot,
+body.page-cdm .cdm-mini-item,
+body.page-cdm .cdm-cert-item {
+  border-color: color-mix(in srgb, var(--cdm-accent-dark) 15%, transparent);
+  box-shadow: 0 10px 20px -14px color-mix(in srgb, var(--cdm-accent-dark) 28%, transparent);
+}
+
+/* Strict monochrome treatment for the live BA and UX pages. */
+body.page-ba,
+body.page-ux {
+  --slate: var(--page-accent-dark);
+  --ink: var(--page-ink);
+  --taupe: var(--page-ink);
+  --pink-ink: var(--page-accent-dark);
+  --wisteria-ink: var(--page-accent-dark);
+}
+body.page-ba {
+  --page-accent: #EBA0C4;
+  --page-accent-dark: #9C4A73;
+  --page-accent-light: #F4E8EF;
+  --page-ink: #3B2430;
+  --ba-accent: var(--page-accent);
+  --ba-accent-dark: var(--page-accent-dark);
+  --ba-accent-light: var(--page-accent-light);
+  --pink: var(--page-accent);
+  --aqua: var(--page-accent);
+  --cornsilk: var(--page-accent-light);
+  --accent: var(--page-accent);
+}
+body.page-ux {
+  --page-accent: #916EB4;
+  --page-accent-dark: #5E4875;
+  --page-accent-light: #E7E1EC;
+  --page-ink: #2C2338;
+  --ba-accent: var(--page-accent);
+  --ba-accent-dark: var(--page-accent-dark);
+  --ba-accent-light: var(--page-accent-light);
+  --pink: var(--page-accent);
+  --aqua: var(--page-accent);
+  --cornsilk: var(--page-accent-light);
+  --accent: var(--page-accent);
+  --ux-accent: var(--page-accent);
+  --ux-accent-dark: var(--page-accent-dark);
+  --ux-accent-light: var(--page-accent-light);
+}
+
+body.page-ba .site-nav,
+body.page-ux .site-nav,
+body.page-ba .nav-links,
+body.page-ux .nav-links,
+body.page-ba .lang-switch,
+body.page-ux .lang-switch {
+  border-color: color-mix(in srgb, var(--page-accent-dark) 18%, transparent);
+}
+body.page-ba .nav-mark,
+body.page-ux .nav-mark,
+body.page-ba .lang-switch [data-active],
+body.page-ux .lang-switch [data-active],
+body.page-ba .chapter-tag,
+body.page-ux .chapter-tag,
+body.page-ba .back-link,
+body.page-ux .back-link {
+  color: var(--page-accent-dark);
+}
+body.page-ba .nav-links a::after,
+body.page-ux .nav-links a::after,
+body.page-ba .nav-toggle span,
+body.page-ux .nav-toggle span {
+  background-color: var(--page-accent-dark);
+}
+body.page-ba .lang-switch,
+body.page-ux .lang-switch {
+  color: var(--page-accent-dark);
+}
+body.page-ba :focus-visible,
+body.page-ux :focus-visible {
+  outline-color: var(--page-accent);
+}
+
+body.page-ba .ba-section-note,
+body.page-ba .ba-project-body p,
+body.page-ba .ba-project-link.is-disabled,
+body.page-ba .ba-modal-empty,
+body.page-ba .ba-cert-meta,
+body.page-ux .ux-section-note,
+body.page-ux .ux-project-body p,
+body.page-ux .ux-project-year,
+body.page-ux .ux-project-link.is-disabled,
+body.page-ux .ux-mini-item p,
+body.page-ux .ux-cert-meta {
+  color: color-mix(in srgb, var(--page-accent-dark) 75%, transparent);
+}
+
+body.page-ba .ba-tool-slot,
+body.page-ba .ba-project-card,
+body.page-ba .ba-mini-item,
+body.page-ba .ba-modal,
+body.page-ba .ba-modal-close,
+body.page-ba .ba-gallery-thumb,
+body.page-ba .ba-cert-item,
+body.page-ux .ux-tool-slot,
+body.page-ux .ba-project-card,
+body.page-ux .ux-mini-item,
+body.page-ux .ux-cert-item {
+  border-color: color-mix(in srgb, var(--page-accent-dark) 18%, transparent);
+  box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--page-accent-dark) 30%, transparent);
+}
+body.page-ba .ba-tool-slot:hover,
+body.page-ba .ba-project-card:hover,
+body.page-ba .ba-mini-item:hover,
+body.page-ba .ba-mini-item:focus-visible,
+body.page-ba .ba-gallery-thumb:hover,
+body.page-ba .ba-gallery-thumb:focus-visible,
+body.page-ba .ba-cert-item:hover,
+body.page-ux .ux-tool-slot:hover,
+body.page-ux .ba-project-card:hover,
+body.page-ux .ux-mini-item:hover,
+body.page-ux .ux-cert-item:hover {
+  border-color: var(--page-accent);
+}
+
+body.page-ba .ba-project-cover,
+body.page-ba .ba-mini-preview,
+body.page-ba .ba-modal-close:hover,
+body.page-ba .ba-modal-callout,
+body.page-ba .ba-gallery-thumb,
+body.page-ux .ba-project-cover,
+body.page-ux .ux-mini-preview {
+  background: var(--page-accent-light);
+  color: var(--page-accent-dark);
+}
+body.page-ba .ba-project-link,
+body.page-ba .ba-modal-title,
+body.page-ba .ba-modal-section h4,
+body.page-ba .ba-method-list dt,
+body.page-ba .ba-modal-cta,
+body.page-ba .ba-gallery-dot.is-active,
+body.page-ux .ux-project-link,
+body.page-ux .ux-project-body h3,
+body.page-ux .ux-mini-item h4,
+body.page-ux .ux-cert-info h4 {
+  color: var(--page-accent-dark);
+  border-color: var(--page-accent-dark);
+}
+body.page-ba .ba-modal-cta,
+body.page-ba .ba-gal-arrow:hover,
+body.page-ux .ux-skills-list li:hover {
+  background: var(--page-accent);
+  color: #FFFFFF;
+}
+body.page-ba .ba-skills-list li,
+body.page-ux .ux-skills-list li {
+  border-color: var(--page-accent-dark);
+  color: var(--page-accent-dark);
+}
+body.page-ba .ba-skills-list li:hover {
+  background: var(--page-accent);
+  color: #FFFFFF;
+}
+body.page-ba .ba-modal-backdrop,
+body.page-ux .ba-modal-backdrop {
+  background: color-mix(in srgb, var(--page-ink) 55%, transparent);
+}
+body.page-ba .ba-modal-cta:hover,
+body.page-ux .ba-project-link:hover {
+  background: var(--page-accent-dark);
+  color: #FFFFFF;
+}
+body.page-ba .ba-gallery-dot,
+body.page-ux .ux-project-link,
+body.page-ux .ux-skills-list li,
+body.page-ux .ux-cert-badge,
+body.page-ux .ux-tool-icon,
+body.page-ux .ux-hero-star {
+  color: var(--page-accent-dark);
+  fill: var(--page-accent-dark);
+  border-color: var(--page-accent-dark);
+}
+body.page-ba .ba-cert-badge,
+body.page-ba .ba-tool-icon,
+body.page-ba .ba-hero-star,
+body.page-ba .ba-hero-blob {
+  color: var(--page-accent-dark);
+  fill: var(--page-accent-dark);
+  background-color: var(--page-accent);
+}
+body.page-ba .ba-hero-blob { opacity: 0.14; }
+body.page-ux .ux-hero-blob { background: var(--page-accent); }
+body.page-ux .ux-underline { background: var(--page-accent-dark); }
+body.page-ba .ba-underline { background: var(--page-accent-dark); }
+body.page-ba .ba-modal-title,
+body.page-ux .ux-title,
+body.page-ba .ba-title,
+body.page-ux .ux-intro,
+body.page-ba .ba-intro {
+  color: var(--page-ink);
+}
+body.page-ba ::-webkit-scrollbar-thumb,
+body.page-ux ::-webkit-scrollbar-thumb {
+  background: var(--page-accent-dark);
+}
+body.page-ba ::-webkit-scrollbar-track,
+body.page-ux ::-webkit-scrollbar-track {
+  background: var(--page-accent-light);
 }
 
 
