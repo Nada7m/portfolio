@@ -11,6 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Love+Ya+Like+A+Sister&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<style>
+/* Project-only refinements; retain the site's existing design tokens. */
+#ba-projects .ba-projects-grid { grid-auto-rows: 1fr; }
+#ba-projects .ba-project-card { min-width: 0; }
+#ba-projects .ba-project-cover { flex: none; }
+#ba-projects .ba-project-cover img { object-fit: contain; }
+#ba-projects .ba-card-desc { display: block; overflow: visible; }
+#ba-modal-backdrop .ba-gal-track { display: block; transform: none; }
+#ba-modal-backdrop .ba-gal-slide[hidden] { display: none; }
+#ba-modal-backdrop .ba-gal-slide:not([hidden]) { animation: ba-gallery-fade .35s ease; }
+#ba-modal-backdrop .ba-gal-slide img { width: auto; height: auto; max-width: 100%; max-height: 55vh; aspect-ratio: auto; margin-inline: auto; }
+#ba-modal-backdrop .ba-gal-arrow { top: auto; bottom: 0; }
+#ba-modal-backdrop .ba-gal-dots { min-height: 34px; align-items: center; }
+#ba-modal-backdrop .ba-modal { overscroll-behavior: contain; }
+@keyframes ba-gallery-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { #ba-modal-backdrop .ba-gal-slide:not([hidden]) { animation: none; } }
+</style>
 </head>
 <body class="page-ba">
 
@@ -30,7 +47,7 @@
   <nav class="nav-links" id="navLinks" aria-label="Primary">
     <a href="#ba-tools" data-i18n="ba_tools_title">الأدوات</a>
     <a href="#ba-skills" data-i18n="ba_skills_title">المهارات</a>
-    <a href="#ba-projects" data-i18n="ba_projects_title">المشاريع والأعمال</a>  </nav>
+    <a href="#ba-projects" data-ba-ar="المشاريع والأعمال" data-ba-en="Projects &amp; Works">المشاريع والأعمال</a>  </nav>
 
   <div class="nav-controls">
     <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch language">
@@ -60,24 +77,23 @@
   <!-- ===================== TOOLS — الأدوات ===================== -->
   <section class="chapter ba-section" id="ba-tools">
     <h2 class="chapter-title" data-i18n="ba_tools_title">الأدوات</h2>
-    <p class="ba-section-note" data-i18n="ba_tools_note">الأدوات والبرامج التي أستخدمها فعليًا.</p>
 
     <div class="ba-tools-grid">
       <div class="ba-tool-slot">
         <span class="ba-tool-icon" aria-hidden="true">
-          <img src="https://cdn.simpleicons.org/microsoftexcel/9C4A73" alt="" loading="lazy">
+          <img src="assets/images/tools/microsoft-excel.png" alt="" loading="lazy">
         </span>
         <span>Microsoft Excel</span>
       </div>
       <div class="ba-tool-slot">
         <span class="ba-tool-icon" aria-hidden="true">
-          <img src="https://cdn.simpleicons.org/powerbi/9C4A73" alt="" loading="lazy">
+          <img src="assets/images/tools/power-bi.png" alt="" loading="lazy">
         </span>
         <span>Power BI</span>
       </div>
       <div class="ba-tool-slot">
         <span class="ba-tool-icon" aria-hidden="true">
-          <svg viewBox="0 0 40 40"><ellipse cx="20" cy="10" rx="12" ry="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10 v14 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4 V10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <img src="assets/images/tools/erp-systems.png" alt="" loading="lazy">
         </span>
         <span>ERP Systems</span>
       </div>
@@ -104,7 +120,7 @@
   <!-- ===================== PROJECTS & WORKS — المشاريع والأعمال =====================
        One unified section: three equal cards, no hierarchy between them. -->
   <section class="chapter ba-section" id="ba-projects">
-    <h2 class="chapter-title" data-i18n="ba_projects_title">المشاريع والأعمال</h2>
+    <h2 class="chapter-title" data-ba-ar="المشاريع والأعمال" data-ba-en="Projects &amp; Works">المشاريع والأعمال</h2>
     <p class="ba-section-note" data-i18n="ba_projects_note">دراسات حالة كاملة في تحليل الأعمال وتجربة المستخدم.</p>
 
     <div class="ba-projects-grid">
@@ -118,7 +134,7 @@
           </span>
           <span class="ba-project-body">
             <span class="ba-card-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</span>
-            <span class="ba-card-desc" data-i18n="ba_project1_desc">دراسة حالة لإعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد، بدأت بتحليل النظام وسير العمل الحالي وتحديد تحديات الاستخدام، ثم تحويل النتائج إلى حلول تصميمية تهدف إلى توضيح دورة العمل، تقليل التعقيد، وتسهيل الوصول إلى الإجراءات والمعلومات.</span>
+            <span class="ba-card-desc" data-ba-ar="إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات." data-ba-en="Redesigning the Rafed ERP Programs and Projects experience to clarify workflows and make actions and information easier to find.">إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات.</span>
             <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
           </span>
         </button>
@@ -131,8 +147,8 @@
             <img src="assets/images/projects/rafed-analysis-cover.png" alt="" loading="lazy" decoding="async">
           </span>
           <span class="ba-project-body">
-            <span class="ba-card-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</span>
-            <span class="ba-card-desc" data-i18n="ba_mini1_desc">دراسة تحليلية لعمليات إدارتي البرامج والمشاريع في نظام رافد، هدفت إلى فهم آلية تنفيذ الإجراءات وتسلسلها داخل النظام، ومقارنة دورة العمل بين الإدارتين؛ للكشف عن الفجوات وفرص التحسين وتحويل العمليات الحالية إلى تدفقات عمل أكثر وضوحًا وقابلية للتتبع.</span>
+            <span class="ba-card-title" data-ba-ar="تحليل العمليات وسير العمل – نظام رافد" data-ba-en="Process &amp; Workflow Analysis – Rafed ERP">تحليل العمليات وسير العمل – نظام رافد</span>
+            <span class="ba-card-desc" data-ba-ar="تحليل ومقارنة سير عمل البرامج والمشاريع في نظام رافد لتحديد الفجوات وفرص التحسين." data-ba-en="Analyzing and comparing program and project workflows in Rafed ERP to identify gaps and opportunities for improvement.">تحليل ومقارنة سير عمل البرامج والمشاريع في نظام رافد لتحديد الفجوات وفرص التحسين.</span>
             <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
           </span>
         </button>
@@ -145,8 +161,8 @@
             <img src="assets/images/projects/aramex-dss-cover.png" alt="" loading="lazy" decoding="async">
           </span>
           <span class="ba-project-body">
-            <span class="ba-card-title" data-i18n="ba_mini2_title">نظام دعم قرار للتنبؤ بتأخر الشحنات — دراسة حالة أرامكس</span>
-            <span class="ba-card-desc" data-i18n="ba_mini2_desc">مشروع أكاديمي لنظام دعم قرار يهدف إلى تحليل مشكلة تأخر الشحنات والتنبؤ بالحالات الأكثر عرضة للتأخير قبل وقوعها، بالاعتماد على عوامل تشغيلية مثل الموسم، حجم الشحنات والمسافة، ثم تحويل نتائج التحليل إلى مؤشرات وتوصيات تساعد في اتخاذ قرارات استباقية وتقليل أثر التأخير.</span>
+            <span class="ba-card-title" data-ba-ar="نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس" data-ba-en="Shipment Delay Decision Support System – Aramex Case Study">نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس</span>
+            <span class="ba-card-desc" data-ba-ar="دراسة حالة أكاديمية ببيانات محاكاة لتحليل تأخر الشحنات والتنبؤ به ودعم القرارات الاستباقية." data-ba-en="An academic case study using simulated data to analyze shipment delays, predict risk, and support proactive decisions.">دراسة حالة أكاديمية ببيانات محاكاة لتحليل تأخر الشحنات والتنبؤ به ودعم القرارات الاستباقية.</span>
             <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
           </span>
         </button>
@@ -206,46 +222,8 @@
         </ul>
       </section>
 
-      <!-- معرض الصور -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_gallery_label">معرض الصور</h4>
-        <div class="ba-gallery" data-gallery>
-          <div class="ba-gal-viewport">
-            <div class="ba-gal-track">
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-ux-problem-discovery.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_p1_img_1">فهم المشكلة</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-ux-user-research.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_p1_img_2">فهم المستخدم</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-ux-solution-development.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_p1_img_3">تطوير الحلول</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-ux-final-interfaces.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_p1_img_4">الواجهات النهائية</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-ux-before-after.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_p1_img_5">قبل وبعد إعادة التصميم</figcaption>
-              </figure>
-            </div>
-          </div>
-          <button class="ba-gal-arrow is-prev" type="button" data-gal="prev" aria-label="Previous">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="ba-gal-arrow is-next" type="button" data-gal="next" aria-label="Next">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="ba-gal-dots" data-gal-dots></div>
-        </div>
-      </section>
-
       <!-- رابط المشروع -->
-      <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-i18n="ba_open_project">فتح المشروع ↗</a>
+      <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض دراسة الحالة" data-ba-en="View Case Study">عرض دراسة الحالة</a>
     </div>
     <!-- ============ END MODAL 1 ============ -->
 
@@ -255,7 +233,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
-      <h3 id="ba-modal-rafed-analysis-title" class="ba-modal-title" data-i18n="ba_mini1_title">تحليل العمليات وسير العمل — نظام رافد</h3>
+      <h3 id="ba-modal-rafed-analysis-title" class="ba-modal-title" data-ba-ar="تحليل العمليات وسير العمل – نظام رافد" data-ba-en="Process &amp; Workflow Analysis – Rafed ERP">تحليل العمليات وسير العمل – نظام رافد</h3>
 
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
@@ -283,11 +261,11 @@
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_results_label">النتائج</h4>
         <ul class="ba-modal-list">
-          <li data-i18n="ba_m1_result_1">توثيق دورة حياة البرامج والمشاريع من خلال مخططات سير عمل متكاملة توضح المراحل ونقاط القرار والانتقال.</li>
-          <li data-i18n="ba_m1_result_2">تحديد اختلاف واضح في بنية سير العمل؛ إذ تتبع المشاريع مراحل أكثر تسلسلًا وتنظيمًا مقارنة بالبرامج.</li>
-          <li data-i18n="ba_m1_result_3">رصد ضعف ترابط بعض إجراءات البرامج، خصوصًا إجراءات ما بعد النشر، بالمراحل والإجراءات السابقة.</li>
-          <li data-i18n="ba_m1_result_4">تحديد الحاجة إلى مؤشرات أوضح لحالة التقدم والجاهزية والخطوة التالية المطلوبة من المستخدم.</li>
-          <li data-i18n="ba_m1_result_5">صياغة توصيات لتحسين تسلسل سير العمل، وربط الإجراءات التابعة بمراحلها السابقة، وتعزيز وضوح العمليات داخل النظام.</li>
+          <li data-ba-ar="توثيق دورة حياة البرامج والمشاريع من خلال مخططات سير عمل توضح المراحل ونقاط القرار والانتقال." data-ba-en="Documented program and project lifecycles with workflow diagrams showing stages, decision points, and transitions.">توثيق دورة حياة البرامج والمشاريع من خلال مخططات سير عمل توضح المراحل ونقاط القرار والانتقال.</li>
+          <li data-ba-ar="تحديد اختلاف واضح في بنية سير العمل بين البرامج والمشاريع." data-ba-en="Identified a clear difference in workflow structure between programs and projects.">تحديد اختلاف واضح في بنية سير العمل بين البرامج والمشاريع.</li>
+          <li data-ba-ar="رصد ضعف ترابط بعض إجراءات البرامج، خصوصًا إجراءات ما بعد النشر." data-ba-en="Identified weak connections between some program procedures, particularly after publication.">رصد ضعف ترابط بعض إجراءات البرامج، خصوصًا إجراءات ما بعد النشر.</li>
+          <li data-ba-ar="تحديد الحاجة إلى مؤشرات أوضح لحالة التقدم والجاهزية والخطوة التالية." data-ba-en="Identified the need for clearer indicators of progress, readiness, and next steps.">تحديد الحاجة إلى مؤشرات أوضح لحالة التقدم والجاهزية والخطوة التالية.</li>
+          <li data-ba-ar="صياغة توصيات لتحسين تسلسل سير العمل وربط الإجراءات التابعة بمراحلها السابقة." data-ba-en="Developed recommendations to improve workflow sequencing and connect dependent procedures to preceding stages.">صياغة توصيات لتحسين تسلسل سير العمل وربط الإجراءات التابعة بمراحلها السابقة.</li>
         </ul>
       </section>
 
@@ -298,23 +276,15 @@
             <div class="ba-gal-track">
               <figure class="ba-gal-slide">
                 <img src="assets/images/projects/rafed-analysis-program-workflow.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m1_img_1">مخطط سير عمل البرنامج</figcaption>
+                <figcaption data-ba-ar="مخطط سير عمل البرنامج" data-ba-en="Program Workflow">مخطط سير عمل البرنامج</figcaption>
               </figure>
               <figure class="ba-gal-slide">
                 <img src="assets/images/projects/rafed-analysis-project-workflow.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m1_img_2">مخطط سير عمل المشروع</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-analysis-program-process.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m1_img_3">تحليل عملية البرنامج</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/rafed-analysis-project-process.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m1_img_4">تحليل عملية المشروع</figcaption>
+                <figcaption data-ba-ar="مخطط سير عمل المشروع" data-ba-en="Project Workflow">مخطط سير عمل المشروع</figcaption>
               </figure>
               <figure class="ba-gal-slide">
                 <img src="assets/images/projects/rafed-analysis-findings.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m1_img_5">النتائج والتوصيات</figcaption>
+                <figcaption data-ba-ar="النتائج والتوصيات" data-ba-en="Findings &amp; Recommendations">النتائج والتوصيات</figcaption>
               </figure>
             </div>
           </div>
@@ -336,10 +306,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
-      <h3 id="ba-modal-aramex-title" class="ba-modal-title" data-i18n="ba_mini2_title">نظام دعم قرار للتنبؤ بتأخر الشحنات — دراسة حالة أرامكس</h3>
+      <h3 id="ba-modal-aramex-title" class="ba-modal-title" data-ba-ar="نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس" data-ba-en="Shipment Delay Decision Support System – Aramex Case Study">نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس</h3>
 
       <!-- Academic scope: simulated data, not a deployed system -->
-      <p class="ba-modal-notice" data-i18n="ba_m2_notice">مشروع أكاديمي ودراسة حالة تعتمد على بيانات مولّدة بالمحاكاة — النظام غير مطبّق فعليًا لدى شركة أرامكس.</p>
+      <p class="ba-modal-notice" data-ba-ar="دراسة حالة أكاديمية تستخدم بيانات محاكاة، وليست بيانات تشغيلية حقيقية لأرامكس. لم يُطوّر النظام لصالح أرامكس أو بتكليف منها، ولم يُطبّق لديها." data-ba-en="An academic case study using simulated data, not real Aramex operational data. The system was not developed for, commissioned by, or implemented by Aramex.">دراسة حالة أكاديمية تستخدم بيانات محاكاة، وليست بيانات تشغيلية حقيقية لأرامكس. لم يُطوّر النظام لصالح أرامكس أو بتكليف منها، ولم يُطبّق لديها.</p>
 
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
@@ -371,7 +341,7 @@
         <ul class="ba-modal-list">
           <li data-i18n="ba_m2_result_1">تقدير احتمالية تأخر الشحنات وتصنيف الحالات وفق مستوى الخطورة.</li>
           <li data-i18n="ba_m2_result_2">اكتشاف أنماط وعلاقات بين الظروف التشغيلية وحالات التأخير.</li>
-          <li data-i18n="ba_m2_result_3">تحويل نتائج التحليل إلى قرارات مقترحة مثل زيادة الموارد أو متابعة الشحنة.</li>
+          <li data-ba-ar="تحويل نتائج التحليل إلى إجراءات تشغيلية مقترحة." data-ba-en="Translated analytical results into suggested operational actions.">تحويل نتائج التحليل إلى إجراءات تشغيلية مقترحة.</li>
           <li data-i18n="ba_m2_result_4">إنشاء مؤشرات لمقارنة معدل التأخير بالمستهدف ودعم تقييم الأداء.</li>
           <li data-i18n="ba_m2_result_5">إتاحة اختبار سيناريوهات تشغيلية مختلفة قبل اتخاذ القرار.</li>
         </ul>
@@ -383,24 +353,16 @@
           <div class="ba-gal-viewport">
             <div class="ba-gal-track">
               <figure class="ba-gal-slide">
-                <img src="assets/images/projects/aramex-dss-dashboard.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m2_img_1">لوحة دعم القرار</figcaption>
+                <img src="assets/images/projects/aramex-dss-simulation.png" alt="" loading="lazy" decoding="async">
+                <figcaption><strong data-ba-ar="محاكاة البيانات" data-ba-en="Simulation &amp; Data Preparation">محاكاة البيانات</strong><p data-ba-ar="توليد بيانات تحاكي سيناريوهات تشغيلية مختلفة للشحنات باستخدام Stochastic Simulation عبر Posit Cloud، لتكوين بيانات تشمل الموسم وحجم الشحنات والمسافة واحتمالية التأخير ومستوى الخطورة." data-ba-en="Shipment data was generated using Stochastic Simulation in Posit Cloud to represent different operational scenarios, including season, shipment volume, distance, delay probability, and risk level.">توليد بيانات تحاكي سيناريوهات تشغيلية مختلفة للشحنات باستخدام Stochastic Simulation عبر Posit Cloud، لتكوين بيانات تشمل الموسم وحجم الشحنات والمسافة واحتمالية التأخير ومستوى الخطورة.</p></figcaption>
               </figure>
               <figure class="ba-gal-slide">
-                <img src="assets/images/projects/aramex-dss-descriptive.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m2_img_2">التحليلات الوصفية</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/aramex-dss-predictive.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m2_img_3">التحليلات التنبؤية</figcaption>
+                <img src="assets/images/projects/aramex-dss-analytics.png" alt="" loading="lazy" decoding="async">
+                <figcaption><strong data-ba-ar="تحليل البيانات" data-ba-en="Shipment Analytics">تحليل البيانات</strong><p data-ba-ar="تحليل بيانات الشحنات باستخدام Descriptive &amp; Predictive Analytics وAssociation Rules، مع الاستفادة من Naive Bayes وSupport &amp; Confidence لاكتشاف الأنماط وتقدير احتمالية التأخير، وعرض النتائج عبر Power BI وDAX." data-ba-en="Shipment data was analyzed using Descriptive and Predictive Analytics and Association Rules, supported by Naive Bayes and Support &amp; Confidence to identify patterns and estimate delay probability, with results presented through Power BI and DAX.">تحليل بيانات الشحنات باستخدام Descriptive &amp; Predictive Analytics وAssociation Rules، مع الاستفادة من Naive Bayes وSupport &amp; Confidence لاكتشاف الأنماط وتقدير احتمالية التأخير، وعرض النتائج عبر Power BI وDAX.</p></figcaption>
               </figure>
               <figure class="ba-gal-slide">
                 <img src="assets/images/projects/aramex-dss-decision-support.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m2_img_4">التحليلات التوجيهية ودعم القرار</figcaption>
-              </figure>
-              <figure class="ba-gal-slide">
-                <img src="assets/images/projects/aramex-dss-simulation.png" alt="" loading="lazy" decoding="async">
-                <figcaption data-i18n="ba_m2_img_5">محاكاة البيانات</figcaption>
+                <figcaption><strong data-ba-ar="دعم القرار" data-ba-en="Decision Support">دعم القرار</strong><p data-ba-ar="تحويل نتائج التحليل إلى إجراءات تشغيلية مقترحة باستخدام Prescriptive Analytics وWhat-if Analysis عبر Power BI وDAX، بما يتيح مقارنة الأداء بالمستهدف واختبار السيناريوهات المختلفة قبل اتخاذ القرار." data-ba-en="Analytical results were translated into suggested operational actions using Prescriptive Analytics and What-if Analysis in Power BI, allowing performance comparison against targets and scenario testing before decision-making.">تحويل نتائج التحليل إلى إجراءات تشغيلية مقترحة باستخدام Prescriptive Analytics وWhat-if Analysis عبر Power BI وDAX، بما يتيح مقارنة الأداء بالمستهدف واختبار السيناريوهات المختلفة قبل اتخاذ القرار.</p></figcaption>
               </figure>
             </div>
           </div>
@@ -436,6 +398,17 @@
   var backdrop = document.getElementById('ba-modal-backdrop');
   if (!backdrop) return;
 
+  function localizeProjects() {
+    var arabic = document.documentElement.lang === 'ar';
+    document.querySelectorAll('[data-ba-ar]').forEach(function (el) {
+      el.textContent = el.getAttribute(arabic ? 'data-ba-ar' : 'data-ba-en');
+    });
+    backdrop.querySelectorAll('[data-modal-close]').forEach(function (el) { el.setAttribute('aria-label', arabic ? 'إغلاق' : 'Close'); });
+    backdrop.querySelectorAll('[data-gal]').forEach(function (el) { el.setAttribute('aria-label', el.dataset.gal === 'next' ? (arabic ? 'التالي' : 'Next') : (arabic ? 'السابق' : 'Previous')); });
+    backdrop.querySelectorAll('.ba-gal-slide').forEach(function (slide) { slide.querySelector('img').alt = slide.querySelector('figcaption strong, figcaption').textContent; });
+  }
+  localizeProjects();
+  new MutationObserver(localizeProjects).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   var lastTrigger = null;
 
   /* ---------- Modals ---------- */
@@ -475,10 +448,17 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeModal();
+    if (e.key === 'Tab' && !backdrop.hidden) {
+      var modal = backdrop.querySelector('.ba-modal:not([hidden])');
+      var items = Array.from(modal.querySelectorAll('button, a[href]')).filter(function (el) { return el.getClientRects().length; });
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   /* ---------- Image gallery ----------
-     One simple carousel per modal: arrows, dots and a horizontal slide.
+     One simple carousel per modal: arrows, dots and a fading active slide.
      Images keep their own proportions — nothing is cropped. */
   document.querySelectorAll('[data-gallery]').forEach(function (gallery) {
     var track = gallery.querySelector('.ba-gal-track');
@@ -501,11 +481,11 @@
 
     function go(next) {
       index = (next + slides.length) % slides.length;
-      var rtl = document.documentElement.dir === 'rtl';
-      var offset = index * 100 * (rtl ? 1 : -1);
-      track.style.transform = 'translateX(' + offset + '%)';
-      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
+      slides.forEach(function (slide, i) { slide.hidden = i !== index; });
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); d.setAttribute('aria-current', String(i === index)); });
     }
+
+    go(0);
 
     gallery.querySelectorAll('[data-gal]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -513,7 +493,7 @@
       });
     });
 
-    // Re-apply the offset when the language (and so the direction) flips.
+    // Preserve the selected slide when the language changes.
     var langBtn = document.getElementById('langSwitch');
     if (langBtn) langBtn.addEventListener('click', function () { setTimeout(function () { go(index); }, 0); });
 
