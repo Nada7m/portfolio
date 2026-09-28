@@ -13,11 +13,48 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* Project-only refinements; retain the site's existing design tokens. */
-#ba-projects .ba-projects-grid { grid-auto-rows: 1fr; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
-#ba-projects .ba-project-card { min-width: 0; }
+#ba-projects .ba-projects-track-wrap { position: relative; max-width: 1100px; }
+#ba-projects .ba-projects-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 0.35rem 1rem;
+}
+#ba-projects .ba-projects-grid::-webkit-scrollbar { height: 6px; }
+#ba-projects .ba-projects-grid::-webkit-scrollbar-track { background: transparent; }
+#ba-projects .ba-projects-grid::-webkit-scrollbar-thumb { background: var(--ba-accent); border-radius: 999px; }
+#ba-projects .ba-project-card { flex: 0 0 auto; width: clamp(260px, 82vw, 340px); scroll-snap-align: start; min-width: 0; }
 #ba-projects .ba-project-cover { flex: none; }
 #ba-projects .ba-project-cover img { object-fit: contain; }
 #ba-projects .ba-card-desc { display: block; overflow: visible; }
+#ba-projects .ba-projects-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border: 1px solid rgba(121, 136, 156, 0.3);
+  border-radius: 50%;
+  background: var(--snow);
+  color: var(--ba-accent-dark);
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 10px 20px -14px rgba(41, 71, 160, 0.3);
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+#ba-projects .ba-projects-nav svg { width: 100%; height: 100%; }
+#ba-projects .ba-projects-nav:hover { background: var(--ba-accent); color: var(--snow); }
+#ba-projects .ba-projects-nav.is-prev { inset-inline-start: -8px; }
+#ba-projects .ba-projects-nav.is-next { inset-inline-end: -8px; }
+#ba-projects .ba-projects-nav.is-disabled { opacity: 0.35; pointer-events: none; }
+html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
+@media (prefers-reduced-motion: reduce) { #ba-projects .ba-projects-grid { scroll-behavior: auto; } }
 #ba-modal-backdrop .ba-gal-track { display: block; transform: none; }
 #ba-modal-backdrop .ba-gal-slide[hidden] { display: none; }
 #ba-modal-backdrop .ba-gal-slide:not([hidden]) { animation: ba-gallery-fade .35s ease; }
@@ -129,7 +166,11 @@
     <h2 class="chapter-title" data-ba-ar="المشاريع والأعمال" data-ba-en="Projects &amp; Works">المشاريع والأعمال</h2>
     <p class="ba-section-note" data-i18n="ba_projects_note">دراسات حالة كاملة في تحليل الأعمال وتجربة المستخدم.</p>
 
-    <div class="ba-projects-grid">
+    <div class="ba-projects-track-wrap">
+    <button class="ba-projects-nav is-prev" type="button" data-projects-nav="prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="ba-projects-grid" id="ba-projects-track">
 
       <!-- ============ 1: RAFED ERP UX REDESIGN ============ -->
       <!-- id is the destination of the homepage "استكشف المشروع" link -->
@@ -188,6 +229,10 @@
         </button>
       </article>
 
+    </div>
+    <button class="ba-projects-nav is-next" type="button" data-projects-nav="next" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     </div>
   </section>
 
@@ -403,7 +448,7 @@
 
       <section class="ba-modal-section">
         <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
-        <p data-ba-ar="مشروع تخرج لتطوير منصة ويب تعليمية تمويلية تربط المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة ضمن بيئة رقمية موحدة، بهدف تسهيل الوصول إلى فرص التمويل والإرشاد الأكاديمي وتحسين التواصل بين الأطراف." data-ba-en="NOREEN is an academic graduation project focused on developing a web-based educational funding platform that connects beneficiaries, investors, consulting offices, and administrators within a unified digital environment. The platform aims to improve access to funding opportunities and academic guidance while facilitating communication between stakeholders.">مشروع تخرج لتطوير منصة ويب تعليمية تمويلية تربط المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة ضمن بيئة رقمية موحدة، بهدف تسهيل الوصول إلى فرص التمويل والإرشاد الأكاديمي وتحسين التواصل بين الأطراف.</p>
+        <p data-ba-ar="مشروع تخرج لتطوير نظام ويب متكامل للتمويل التعليمي والإرشاد الأكاديمي، يربط المستفيدين بالمستثمرين والمكاتب الاستشارية ضمن بيئة رقمية موحدة. انطلق المشروع من تحليل المشكلة وجمع البيانات باستخدام الاستبيانات والمقابلات لفهم احتياجات الأطراف المعنية والتحديات التي تواجههم، ثم تحويل هذه الاحتياجات إلى نظام يهدف إلى تسهيل الوصول إلى فرص التمويل والدعم الأكاديمي وتنظيم التواصل بين الأطراف. شمل تطوير النظام تحليل المتطلبات وتصميم العلاقات وتدفق البيانات وحالات الاستخدام، وصولًا إلى تصميم النظام وتنفيذه واختباره." data-ba-en="NOREEN is an academic graduation project focused on developing an integrated web-based educational funding and academic guidance system that connects beneficiaries, investors, and consulting offices within a unified digital environment. The project began with problem analysis and data collection through surveys and interviews to understand stakeholder needs and challenges, then translated those needs into a system designed to improve access to educational funding and academic support while organizing communication between the involved parties. The development process included requirements analysis, modeling system relationships, data flows and use cases, followed by system design, implementation, and testing.">مشروع تخرج لتطوير نظام ويب متكامل للتمويل التعليمي والإرشاد الأكاديمي، يربط المستفيدين بالمستثمرين والمكاتب الاستشارية ضمن بيئة رقمية موحدة. انطلق المشروع من تحليل المشكلة وجمع البيانات باستخدام الاستبيانات والمقابلات لفهم احتياجات الأطراف المعنية والتحديات التي تواجههم، ثم تحويل هذه الاحتياجات إلى نظام يهدف إلى تسهيل الوصول إلى فرص التمويل والدعم الأكاديمي وتنظيم التواصل بين الأطراف. شمل تطوير النظام تحليل المتطلبات وتصميم العلاقات وتدفق البيانات وحالات الاستخدام، وصولًا إلى تصميم النظام وتنفيذه واختباره.</p>
       </section>
 
       <section class="ba-modal-section">
@@ -429,26 +474,6 @@
           <div><dt>Phases</dt><dd>Requirements Analysis → System Design → Implementation → Testing</dd></div>
           <div><dt>Technologies</dt><dd>PHP, MySQL, HTML, CSS, JavaScript, XAMPP</dd></div>
         </dl>
-      </section>
-
-      <section class="ba-modal-section">
-        <h4 data-ba-ar="تحليل وتصميم النظام" data-ba-en="System Analysis &amp; Design">تحليل وتصميم النظام</h4>
-        <ul class="ba-modal-list">
-          <li data-ba-ar="Requirements Analysis" data-ba-en="Requirements Analysis">Requirements Analysis</li>
-          <li data-ba-ar="Use Case Diagrams" data-ba-en="Use Case Diagrams">Use Case Diagrams</li>
-          <li data-ba-ar="Data Flow Diagrams (DFD)" data-ba-en="Data Flow Diagrams (DFD)">Data Flow Diagrams (DFD)</li>
-          <li data-ba-ar="Entity Relationship Diagrams (ERD)" data-ba-en="Entity Relationship Diagrams (ERD)">Entity Relationship Diagrams (ERD)</li>
-        </ul>
-      </section>
-
-      <section class="ba-modal-section">
-        <h4 data-ba-ar="الوحدات الرئيسية" data-ba-en="Main Modules">الوحدات الرئيسية</h4>
-        <ul class="ba-modal-list">
-          <li data-ba-ar="Beneficiary" data-ba-en="Beneficiary">Beneficiary</li>
-          <li data-ba-ar="Investor" data-ba-en="Investor">Investor</li>
-          <li data-ba-ar="Consulting Office" data-ba-en="Consulting Office">Consulting Office</li>
-          <li data-ba-ar="Administration" data-ba-en="Administration">Administration</li>
-        </ul>
       </section>
 
       <a class="ba-modal-cta" href="https://drive.google.com/file/d/1Jo1zqBLo9easiNAVSVMMkTvNyWwr_tIS/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض التوثيق الكامل" data-ba-en="View Full Documentation">عرض التوثيق الكامل</a>
@@ -481,6 +506,7 @@
     });
     backdrop.querySelectorAll('[data-modal-close]').forEach(function (el) { el.setAttribute('aria-label', arabic ? 'إغلاق' : 'Close'); });
     backdrop.querySelectorAll('[data-gal]').forEach(function (el) { el.setAttribute('aria-label', el.dataset.gal === 'next' ? (arabic ? 'التالي' : 'Next') : (arabic ? 'السابق' : 'Previous')); });
+    document.querySelectorAll('[data-projects-nav]').forEach(function (el) { el.setAttribute('aria-label', el.dataset.projectsNav === 'next' ? (arabic ? 'التالي' : 'Next') : (arabic ? 'السابق' : 'Previous')); });
   }
   localizeProjects();
   new MutationObserver(localizeProjects).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
@@ -584,6 +610,51 @@
       go(index + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
     }, { passive: true });
   });
+
+  /* ---------- Projects: horizontal track prev/next ----------
+     Native scroll + touch handle the browsing; the buttons just nudge it
+     by one card width, RTL-aware. No autoplay, no forced carousel. */
+  var projectsTrack = document.getElementById('ba-projects-track');
+  if (projectsTrack) {
+    var prevBtn = document.querySelector('[data-projects-nav="prev"]');
+    var nextBtn = document.querySelector('[data-projects-nav="next"]');
+
+    function cardStep() {
+      var card = projectsTrack.querySelector('.ba-project-card');
+      var gap = parseFloat(getComputedStyle(projectsTrack).columnGap) || 28;
+      return (card ? card.getBoundingClientRect().width : 320) + gap;
+    }
+
+    function updateNavState() {
+      var maxScroll = projectsTrack.scrollWidth - projectsTrack.clientWidth;
+      var rtl = getComputedStyle(projectsTrack).direction === 'rtl';
+      var atStart, atEnd;
+      if (rtl) {
+        atStart = projectsTrack.scrollLeft >= -1;
+        atEnd = projectsTrack.scrollLeft <= -maxScroll + 1;
+      } else {
+        atStart = projectsTrack.scrollLeft <= 1;
+        atEnd = projectsTrack.scrollLeft >= maxScroll - 1;
+      }
+      if (maxScroll <= 1) { atStart = true; atEnd = true; }
+      if (prevBtn) prevBtn.classList.toggle('is-disabled', atStart);
+      if (nextBtn) nextBtn.classList.toggle('is-disabled', atEnd);
+    }
+
+    function moveTrack(dir) {
+      var rtl = getComputedStyle(projectsTrack).direction === 'rtl';
+      var amount = cardStep();
+      var delta = dir === 'next' ? amount : -amount;
+      if (rtl) delta = -delta;
+      projectsTrack.scrollBy({ left: delta, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { moveTrack('prev'); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { moveTrack('next'); });
+    projectsTrack.addEventListener('scroll', updateNavState, { passive: true });
+    window.addEventListener('resize', updateNavState);
+    updateNavState();
+  }
 })();
 </script>
 </body>
