@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* Project-only refinements; retain the site's existing design tokens. */
-#ba-projects .ba-projects-grid { grid-auto-rows: 1fr; }
+#ba-projects .ba-projects-grid { grid-auto-rows: 1fr; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
 #ba-projects .ba-project-card { min-width: 0; }
 #ba-projects .ba-project-cover { flex: none; }
 #ba-projects .ba-project-cover img { object-fit: contain; }
@@ -169,6 +169,20 @@
           <span class="ba-project-body">
             <span class="ba-card-title" data-ba-ar="نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس" data-ba-en="Shipment Delay Decision Support System – Aramex Case Study">نظام دعم قرار للتنبؤ بتأخر الشحنات – دراسة حالة أرامكس</span>
             <span class="ba-card-desc" data-ba-ar="دراسة حالة أكاديمية ببيانات محاكاة لتحليل تأخر الشحنات والتنبؤ به ودعم القرارات الاستباقية." data-ba-en="An academic case study using simulated data to analyze shipment delays, predict risk, and support proactive decisions.">دراسة حالة أكاديمية ببيانات محاكاة لتحليل تأخر الشحنات والتنبؤ به ودعم القرارات الاستباقية.</span>
+            <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
+          </span>
+        </button>
+      </article>
+
+      <!-- ============ 4: NOREEN EDUCATIONAL FUNDING PLATFORM ============ -->
+      <article class="ba-project-card">
+        <button class="ba-card-open" type="button" data-modal-target="ba-modal-noreen" aria-haspopup="dialog">
+          <span class="ba-project-cover">
+            <img src="assets/images/projects/noreen-cover.png" alt="" loading="lazy" decoding="async">
+          </span>
+          <span class="ba-project-body">
+            <span class="ba-card-title" data-ba-ar="منصة نورين للتمويل التعليمي" data-ba-en="NOREEN Educational Funding Platform">منصة نورين للتمويل التعليمي</span>
+            <span class="ba-card-desc" data-ba-ar="مشروع تخرج لتطوير منصة تعليمية تمويلية توحّد المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة." data-ba-en="A graduation project building a unified educational funding platform connecting beneficiaries, investors, consulting offices, and administrators.">مشروع تخرج لتطوير منصة تعليمية تمويلية توحّد المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة.</span>
             <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
           </span>
         </button>
@@ -378,6 +392,68 @@
       <!-- Power BI link intentionally omitted until a public link is ready -->
     </div>
     <!-- ============ END MODAL 3 ============ -->
+
+    <!-- ============ MODAL 4: NOREEN EDUCATIONAL FUNDING PLATFORM ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-noreen-title" id="ba-modal-noreen" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <h3 id="ba-modal-noreen-title" class="ba-modal-title" data-ba-ar="منصة نورين للتمويل التعليمي" data-ba-en="NOREEN Educational Funding Platform">منصة نورين للتمويل التعليمي</h3>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-ba-ar="مشروع تخرج لتطوير منصة ويب تعليمية تمويلية تربط المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة ضمن بيئة رقمية موحدة، بهدف تسهيل الوصول إلى فرص التمويل والإرشاد الأكاديمي وتحسين التواصل بين الأطراف." data-ba-en="NOREEN is an academic graduation project focused on developing a web-based educational funding platform that connects beneficiaries, investors, consulting offices, and administrators within a unified digital environment. The platform aims to improve access to funding opportunities and academic guidance while facilitating communication between stakeholders.">مشروع تخرج لتطوير منصة ويب تعليمية تمويلية تربط المستفيدين والمستثمرين والمكاتب الاستشارية والإدارة ضمن بيئة رقمية موحدة، بهدف تسهيل الوصول إلى فرص التمويل والإرشاد الأكاديمي وتحسين التواصل بين الأطراف.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="المشكلة" data-ba-en="Problem">المشكلة</h4>
+        <p data-ba-ar="يواجه المستفيدون تحديات في الوصول إلى فرص التمويل المناسبة والحصول على إرشاد تعليمي موثوق، مع تشتت الخدمات وضعف التنسيق بين الأطراف ذات العلاقة." data-ba-en="Beneficiaries face challenges in finding suitable educational funding opportunities and reliable academic guidance, while existing services are fragmented and coordination between stakeholders is limited.">يواجه المستفيدون تحديات في الوصول إلى فرص التمويل المناسبة والحصول على إرشاد تعليمي موثوق، مع تشتت الخدمات وضعف التنسيق بين الأطراف ذات العلاقة.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الحل" data-ba-en="Solution">الحل</h4>
+        <p data-ba-ar="منصة موحدة تربط المستفيدين بفرص التمويل، وتتيح للمستثمرين إدارة ومتابعة الطلبات، وتمكّن المكاتب الاستشارية من تقديم الدعم الأكاديمي، مع إدارة مركزية للمستخدمين والنظام." data-ba-en="A unified platform that connects beneficiaries with funding opportunities, enables investors to manage and monitor funding requests, allows consulting offices to provide academic support, and provides centralized administration and system management.">منصة موحدة تربط المستفيدين بفرص التمويل، وتتيح للمستثمرين إدارة ومتابعة الطلبات، وتمكّن المكاتب الاستشارية من تقديم الدعم الأكاديمي، مع إدارة مركزية للمستخدمين والنظام.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="دوري" data-ba-en="My Role">دوري</h4>
+        <p data-ba-ar="قائدة فريق المشروع، مع قيادة العمل خلال مراحل تحليل المتطلبات، تصميم النظام، التوثيق والتنفيذ، والمشاركة في إعداد مخرجات تحليل وتصميم النظام مثل Use Case Diagrams وDFDs وERDs." data-ba-en="Project Team Leader, leading the team through requirements analysis, system design, documentation, and implementation, while contributing to system analysis and design deliverables including Use Case Diagrams, DFDs, and ERDs.">قائدة فريق المشروع، مع قيادة العمل خلال مراحل تحليل المتطلبات، تصميم النظام، التوثيق والتنفيذ، والمشاركة في إعداد مخرجات تحليل وتصميم النظام مثل Use Case Diagrams وDFDs وERDs.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_method_label">المنهجية والأدوات</h4>
+        <dl class="ba-method-list">
+          <div><dt>Type</dt><dd>Graduation Project</dd></div>
+          <div><dt>Methodology</dt><dd>Waterfall SDLC</dd></div>
+          <div><dt>Phases</dt><dd>Requirements Analysis → System Design → Implementation → Testing</dd></div>
+          <div><dt>Technologies</dt><dd>PHP, MySQL, HTML, CSS, JavaScript, XAMPP</dd></div>
+        </dl>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="تحليل وتصميم النظام" data-ba-en="System Analysis &amp; Design">تحليل وتصميم النظام</h4>
+        <ul class="ba-modal-list">
+          <li data-ba-ar="Requirements Analysis" data-ba-en="Requirements Analysis">Requirements Analysis</li>
+          <li data-ba-ar="Use Case Diagrams" data-ba-en="Use Case Diagrams">Use Case Diagrams</li>
+          <li data-ba-ar="Data Flow Diagrams (DFD)" data-ba-en="Data Flow Diagrams (DFD)">Data Flow Diagrams (DFD)</li>
+          <li data-ba-ar="Entity Relationship Diagrams (ERD)" data-ba-en="Entity Relationship Diagrams (ERD)">Entity Relationship Diagrams (ERD)</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الوحدات الرئيسية" data-ba-en="Main Modules">الوحدات الرئيسية</h4>
+        <ul class="ba-modal-list">
+          <li data-ba-ar="Beneficiary" data-ba-en="Beneficiary">Beneficiary</li>
+          <li data-ba-ar="Investor" data-ba-en="Investor">Investor</li>
+          <li data-ba-ar="Consulting Office" data-ba-en="Consulting Office">Consulting Office</li>
+          <li data-ba-ar="Administration" data-ba-en="Administration">Administration</li>
+        </ul>
+      </section>
+
+      <a class="ba-modal-cta" href="https://drive.google.com/file/d/1Jo1zqBLo9easiNAVSVMMkTvNyWwr_tIS/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض التوثيق الكامل" data-ba-en="View Full Documentation">عرض التوثيق الكامل</a>
+    </div>
+    <!-- ============ END MODAL 4 ============ -->
 
   </div>
 
