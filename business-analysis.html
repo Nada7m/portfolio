@@ -405,7 +405,6 @@
     });
     backdrop.querySelectorAll('[data-modal-close]').forEach(function (el) { el.setAttribute('aria-label', arabic ? 'إغلاق' : 'Close'); });
     backdrop.querySelectorAll('[data-gal]').forEach(function (el) { el.setAttribute('aria-label', el.dataset.gal === 'next' ? (arabic ? 'التالي' : 'Next') : (arabic ? 'السابق' : 'Previous')); });
-    backdrop.querySelectorAll('.ba-gal-slide').forEach(function (slide) { slide.querySelector('img').alt = slide.querySelector('figcaption strong, figcaption').textContent; });
   }
   localizeProjects();
   new MutationObserver(localizeProjects).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
