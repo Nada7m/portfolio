@@ -2401,9 +2401,9 @@ html[lang="ar"] .ux-section-note { font-family: var(--font-ar); }
 /* ---- Tools ---- */
 .ux-tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.25rem;
-  max-width: 720px;
+  max-width: 760px;
 }
 .ux-tool-slot {
   display: flex;
@@ -2423,7 +2423,7 @@ html[lang="ar"] .ux-section-note { font-family: var(--font-ar); }
 }
 .ux-tool-slot:hover { border-color: var(--ux-accent-dark); box-shadow: 0 14px 24px -12px rgba(94, 72, 117, 0.3); transform: translateY(-3px); }
 html[lang="ar"] .ux-tool-slot { font-family: var(--font-ar); }
-.ux-tool-icon { width: 36px; height: 36px; color: var(--ux-accent-dark); }
+.ux-tool-icon { width: 64px; height: 64px; color: var(--ux-accent-dark); background: transparent; }
 .ux-tool-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .ux-tool-icon svg { width: 100%; height: 100%; }
 
