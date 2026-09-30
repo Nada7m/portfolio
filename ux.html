@@ -31,9 +31,23 @@
 #ux-projects .ba-projects-grid::-webkit-scrollbar-track { background: transparent; }
 #ux-projects .ba-projects-grid::-webkit-scrollbar-thumb { background: var(--ux-accent); border-radius: 999px; }
 #ux-projects .ba-project-card { flex: 0 0 auto; width: clamp(260px, 82vw, 340px); scroll-snap-align: start; min-width: 0; }
-#ux-projects .ba-project-cover { flex: none; }
-#ux-projects .ba-project-cover img { object-fit: contain; }
-#ux-projects .ba-card-desc { display: block; overflow: visible; }
+/* Force the 16/9 cover box to hold regardless of each image's own intrinsic
+   ratio: an in-flow img with height:100% would otherwise let a differently
+   proportioned photo (e.g. a taller MovieNight cover) override the box's
+   own aspect-ratio and break the equal-card-height layout. */
+#ux-projects .ba-project-cover { flex: none; position: relative; overflow: hidden; }
+#ux-projects .ba-project-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+/* Equal-height cards: reserve a fixed title area (up to 2 lines) and cap the
+   description at its existing 3-line clamp with a matching min-height, so
+   every card reaches the same content height regardless of text length. */
+#ux-projects .ba-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+#ux-projects .ba-card-desc { min-height: 5.4em; }
 #ux-projects .ba-projects-nav {
   position: absolute;
   top: 50%;
@@ -218,30 +232,6 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
     <button class="ba-projects-nav is-next" type="button" data-projects-nav="next" aria-label="Next">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    </div>
-  </section>
-
-  <!-- ===================== MINI WORK — أعمال مصغرة ===================== -->
-  <section class="chapter ux-section ux-alt-bg" id="ux-miniwork">
-    <h2 class="chapter-title" data-i18n="ux_mini_title">أعمال مصغرة</h2>
-    <p class="ux-section-note" data-i18n="ux_mini_note">نماذج أولية، تدفقات مستخدم، ومخرجات بحث لا تحتاج دراسة حالة كاملة.</p>
-
-    <div class="ux-mini-grid">
-      <div class="ux-mini-item">
-        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
-        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
-        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
-      </div>
-      <div class="ux-mini-item">
-        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
-        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
-        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
-      </div>
-      <div class="ux-mini-item">
-        <div class="ux-mini-preview" aria-hidden="true"><span data-i18n="placeholder_image">[ معاينة ]</span></div>
-        <h4 data-i18n="ux_mini_title_placeholder">[ عنوان العمل ]</h4>
-        <p data-i18n="ux_mini_note_placeholder">[ ملاحظة قصيرة ]</p>
-      </div>
     </div>
   </section>
 
