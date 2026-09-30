@@ -172,21 +172,6 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
     </button>
     <div class="ba-projects-grid" id="ba-projects-track">
 
-      <!-- ============ 1: RAFED ERP UX REDESIGN ============ -->
-      <!-- id is the destination of the homepage "استكشف المشروع" link -->
-      <article class="ba-project-card" id="rafd">
-        <button class="ba-card-open" type="button" data-modal-target="ba-modal-rafed-ux" aria-haspopup="dialog">
-          <span class="ba-project-cover">
-            <img src="assets/images/projects/rafed-ux-cover.png" alt="" loading="lazy" decoding="async">
-          </span>
-          <span class="ba-project-body">
-            <span class="ba-card-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</span>
-            <span class="ba-card-desc" data-ba-ar="إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات." data-ba-en="Redesigning the Rafed ERP Programs and Projects experience to clarify workflows and make actions and information easier to find.">إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات.</span>
-            <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
-          </span>
-        </button>
-      </article>
-
       <!-- ============ 2: PROCESS & WORKFLOW ANALYSIS — RAFED ERP ============ -->
       <article class="ba-project-card">
         <button class="ba-card-open" type="button" data-modal-target="ba-modal-rafed-analysis" aria-haspopup="dialog">
@@ -238,59 +223,6 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
 
   <!-- ===================== MODALS ===================== -->
   <div class="ba-modal-backdrop" id="ba-modal-backdrop" hidden>
-
-    <!-- ============ MODAL 1: RAFED ERP UX REDESIGN ============ -->
-    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafed-ux-title" id="ba-modal-rafed-ux" hidden>
-      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
-
-      <h3 id="ba-modal-rafed-ux-title" class="ba-modal-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</h3>
-
-      <!-- نبذة -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
-        <p data-i18n="ba_project1_desc">دراسة حالة لإعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد، بدأت بتحليل النظام وسير العمل الحالي وتحديد تحديات الاستخدام، ثم تحويل النتائج إلى حلول تصميمية تهدف إلى توضيح دورة العمل، تقليل التعقيد، وتسهيل الوصول إلى الإجراءات والمعلومات.</p>
-      </section>
-
-      <!-- محاور العمل -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_axes_label">محاور العمل</h4>
-        <ul class="ba-modal-list">
-          <li data-i18n="ba_p1_axis_1">مراجعة النظام الحالي وتحليل تجربة الاستخدام وسير العمليات.</li>
-          <li data-i18n="ba_p1_axis_2">تحديد مشكلات وضوح التسلسل، دورة العمل، الإرشاد وسهولة الاستخدام.</li>
-          <li data-i18n="ba_p1_axis_3">فهم احتياجات المستخدم من خلال Persona وUser Journey وتجميع المشكلات باستخدام Affinity Mapping.</li>
-          <li data-i18n="ba_p1_axis_4">تحويل المشكلات إلى فرص تصميمية وإعادة تصميم الواجهات وتدفقات الاستخدام.</li>
-        </ul>
-      </section>
-
-      <!-- المنهجية والأدوات -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_method_label">المنهجية والأدوات</h4>
-        <dl class="ba-method-list">
-          <div><dt>Double Diamond</dt><dd>Discover → Define → Develop → Deliver</dd></div>
-          <div><dt>UX Methods</dt><dd>UX Evaluation, Competitive Analysis, Affinity Mapping, Persona, User Journey, How Might We, Before &amp; After</dd></div>
-          <div><dt>Design</dt><dd>Wireframes &amp; UI Redesign</dd></div>
-          <div><dt>Tools</dt><dd>Figma, Canva</dd></div>
-        </dl>
-      </section>
-
-      <!-- النتائج -->
-      <section class="ba-modal-section">
-        <h4 data-i18n="ba_modal_results_label">النتائج</h4>
-        <ul class="ba-modal-list">
-          <li data-i18n="ba_p1_result_1">تصميم مسارات أكثر وضوحًا لدورة حياة البرامج والمشاريع والخطوات التالية.</li>
-          <li data-i18n="ba_p1_result_2">إضافة مؤشرات للحالة والتقدم والمراحل والمتطلبات الإلزامية.</li>
-          <li data-i18n="ba_p1_result_3">تنظيم العمليات المرتبطة بكل مرحلة وتقليل تشتتها داخل النظام.</li>
-          <li data-i18n="ba_p1_result_4">تقسيم العمليات والنماذج الطويلة إلى خطوات متتابعة لتقليل العبء المعرفي.</li>
-          <li data-i18n="ba_p1_result_5">تحسين الإرشاد أثناء الاستخدام والاتساق وسهولة الوصول إلى الوظائف.</li>
-        </ul>
-      </section>
-
-      <!-- رابط المشروع -->
-      <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض دراسة الحالة" data-ba-en="View Case Study">عرض دراسة الحالة</a>
-    </div>
-    <!-- ============ END MODAL 1 ============ -->
 
     <!-- ============ MODAL 2: RAFED PROCESS & WORKFLOW ANALYSIS ============ -->
     <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafed-analysis-title" id="ba-modal-rafed-analysis" hidden>

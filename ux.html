@@ -11,6 +11,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Love+Ya+Like+A+Sister&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<style>
+/* Project-only refinements; retain the site's existing design tokens. */
+#ux-projects .ba-projects-track-wrap { position: relative; max-width: 1100px; }
+#ux-projects .ba-projects-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 0.35rem 1rem;
+}
+#ux-projects .ba-projects-grid::-webkit-scrollbar { height: 6px; }
+#ux-projects .ba-projects-grid::-webkit-scrollbar-track { background: transparent; }
+#ux-projects .ba-projects-grid::-webkit-scrollbar-thumb { background: var(--ux-accent); border-radius: 999px; }
+#ux-projects .ba-project-card { flex: 0 0 auto; width: clamp(260px, 82vw, 340px); scroll-snap-align: start; min-width: 0; }
+#ux-projects .ba-project-cover { flex: none; }
+#ux-projects .ba-project-cover img { object-fit: contain; }
+#ux-projects .ba-card-desc { display: block; overflow: visible; }
+#ux-projects .ba-projects-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border: 1px solid rgba(121, 136, 156, 0.3);
+  border-radius: 50%;
+  background: var(--snow);
+  color: var(--ux-accent-dark);
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 10px 20px -14px rgba(94, 72, 117, 0.3);
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+#ux-projects .ba-projects-nav svg { width: 100%; height: 100%; }
+#ux-projects .ba-projects-nav:hover { background: var(--ux-accent); color: var(--snow); }
+#ux-projects .ba-projects-nav.is-prev { inset-inline-start: -8px; }
+#ux-projects .ba-projects-nav.is-next { inset-inline-end: -8px; }
+#ux-projects .ba-projects-nav.is-disabled { opacity: 0.35; pointer-events: none; }
+html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
+@media (prefers-reduced-motion: reduce) { #ux-projects .ba-projects-grid { scroll-behavior: auto; } }
+#ba-modal-backdrop .ba-modal { overscroll-behavior: contain; }
+</style>
 </head>
 <body class="page-ux">
 
@@ -31,7 +77,6 @@
     <a href="#ux-tools" data-i18n="ux_tools_title">الأدوات</a>
     <a href="#ux-skills" data-i18n="ux_skills_title">المهارات</a>
     <a href="#ux-projects" data-i18n="ux_projects_title">المشاريع</a>
-    <a href="#ux-miniwork" data-i18n="ux_mini_title">أعمال مصغرة</a>
     <a href="#ux-certs" data-i18n="ux_certs_title">الشهادات</a>  </nav>
 
   <div class="nav-controls">
@@ -115,9 +160,30 @@
     <h2 class="chapter-title" data-i18n="ux_projects_title">المشاريع</h2>
     <p class="ux-section-note" data-i18n="ux_projects_note">دراسات حالة كاملة في تجربة المستخدم — ستُضاف هنا عند توفرها.</p>
 
-    <!-- Same grid, card and type structure as the Business Analysis page.
-         The existing UX project remains the only entry on this page. -->
-    <div class="ba-projects-grid">
+    <!-- Same grid, card and type structure as the Business Analysis page,
+         now as a horizontal responsive track (see the page-scoped <style>
+         block above) so it can hold multiple projects without wrapping. -->
+    <div class="ba-projects-track-wrap">
+    <button class="ba-projects-nav is-prev" type="button" data-projects-nav="prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="ba-projects-grid" id="ux-projects-track">
+
+      <!-- ============ 1: RAFED ERP UX REDESIGN (moved from Business Analysis) ============ -->
+      <!-- id is the destination of the homepage "استكشف المشروع" link -->
+      <article class="ba-project-card" id="rafd">
+        <button class="ba-card-open" type="button" data-modal-target="ba-modal-rafed-ux" aria-haspopup="dialog">
+          <span class="ba-project-cover">
+            <img src="assets/images/projects/rafed-ux-cover.png" alt="" loading="lazy" decoding="async">
+          </span>
+          <span class="ba-project-body">
+            <span class="ba-card-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</span>
+            <span class="ba-card-desc" data-ba-ar="إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات." data-ba-en="Redesigning the Rafed ERP Programs and Projects experience to clarify workflows and make actions and information easier to find.">إعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد لتوضيح دورة العمل وتسهيل الوصول إلى الإجراءات والمعلومات.</span>
+            <span class="ba-project-link" data-i18n="ba_view_details">عرض التفاصيل</span>
+          </span>
+        </button>
+      </article>
+
       <!-- id is the destination of the homepage "استكشف المشروع" link for Noreen -->
       <article class="ba-project-card" id="noreen">
         <button class="ba-card-open is-pending" type="button" aria-disabled="true">
@@ -129,6 +195,11 @@
           </span>
         </button>
       </article>
+
+    </div>
+    <button class="ba-projects-nav is-next" type="button" data-projects-nav="next" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     </div>
   </section>
 
@@ -159,22 +230,104 @@
   <!-- ===================== CERTIFICATIONS — الشهادات ===================== -->
   <section class="chapter ux-section" id="ux-certs">
     <h2 class="chapter-title" data-i18n="ux_certs_title">الشهادات</h2>
-    <p class="ux-section-note" data-i18n="ux_certs_note">شهادات ودورات متعلقة بتجربة المستخدم — ستُضاف عند توفرها.</p>
+    <p class="ux-section-note" data-ba-ar="شهادات مسارات فردية ضمن برنامج Google UX Design Professional Certificate." data-ba-en="Individual course certificates from the Google UX Design Professional Certificate program.">شهادات مسارات فردية ضمن برنامج Google UX Design Professional Certificate.</p>
 
-    <div class="ux-cert-item">
-      <span class="ux-cert-badge" aria-hidden="true">
-        <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
-      </span>
-      <div class="ux-cert-info">
-        <h4 data-i18n="ux_cert_name_placeholder">[ اسم الشهادة ]</h4>
-        <p class="ux-cert-meta">
-          <span data-i18n="ux_cert_issuer_placeholder">[ الجهة المانحة ]</span>
-          <span aria-hidden="true"> · </span>
-          <span data-i18n="ux_cert_date_placeholder">[ السنة ]</span>
-        </p>
+    <div class="ux-certs-grid">
+      <div class="ux-cert-item">
+        <span class="ux-cert-badge" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+        </span>
+        <div class="ux-cert-info">
+          <h4 data-ba-ar="أساسيات تصميم تجربة المستخدم (UX)" data-ba-en="Foundations of User Experience (UX) Design">أساسيات تصميم تجربة المستخدم (UX)</h4>
+          <p class="ux-cert-meta">
+            <span>Google · Coursera</span>
+            <span aria-hidden="true"> · </span>
+            <span data-ba-ar="18 يناير 2026" data-ba-en="January 18, 2026">18 يناير 2026</span>
+          </p>
+          <div class="ux-cert-actions">
+            <a class="ux-cert-action is-primary" href="assets/documents/certificates/google-ux-foundations.pdf" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض الشهادة" data-ba-en="View Certificate">عرض الشهادة</a>
+            <a class="ux-cert-action" href="https://coursera.org/share/3644aad85c55a3d6de01002e28ff1833" target="_blank" rel="noopener noreferrer" data-ba-ar="التحقق عبر Coursera" data-ba-en="Verify on Coursera">التحقق عبر Coursera</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ux-cert-item">
+        <span class="ux-cert-badge" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><use href="#icon-star"/></svg>
+        </span>
+        <div class="ux-cert-info">
+          <h4 data-ba-ar="بدء عملية تصميم تجربة المستخدم: التعاطف، التحديد، وتوليد الأفكار" data-ba-en="Start the UX Design Process: Empathize, Define, and Ideate">بدء عملية تصميم تجربة المستخدم: التعاطف، التحديد، وتوليد الأفكار</h4>
+          <p class="ux-cert-meta">
+            <span>Google · Coursera</span>
+            <span aria-hidden="true"> · </span>
+            <span data-ba-ar="5 فبراير 2026" data-ba-en="February 5, 2026">5 فبراير 2026</span>
+          </p>
+          <div class="ux-cert-actions">
+            <a class="ux-cert-action is-primary" href="assets/documents/certificates/google-ux-empathize-define-ideate.pdf" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض الشهادة" data-ba-en="View Certificate">عرض الشهادة</a>
+            <a class="ux-cert-action" href="https://coursera.org/share/1bd441aa701671b439c567a0b6d8a8ba" target="_blank" rel="noopener noreferrer" data-ba-ar="التحقق عبر Coursera" data-ba-en="Verify on Coursera">التحقق عبر Coursera</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ===================== MODALS ===================== -->
+  <div class="ba-modal-backdrop" id="ba-modal-backdrop" hidden>
+
+    <!-- ============ MODAL: RAFED ERP UX REDESIGN (moved from Business Analysis) ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-rafed-ux-title" id="ba-modal-rafed-ux" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <h3 id="ba-modal-rafed-ux-title" class="ba-modal-title" data-i18n="ba_project1_title">إعادة تصميم تجربة المستخدم لنظام رافد</h3>
+
+      <!-- نبذة -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-i18n="ba_project1_desc">دراسة حالة لإعادة تصميم تجربة المستخدم في إدارتي البرامج والمشاريع بنظام رافد، بدأت بتحليل النظام وسير العمل الحالي وتحديد تحديات الاستخدام، ثم تحويل النتائج إلى حلول تصميمية تهدف إلى توضيح دورة العمل، تقليل التعقيد، وتسهيل الوصول إلى الإجراءات والمعلومات.</p>
+      </section>
+
+      <!-- محاور العمل -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_axes_label">محاور العمل</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_p1_axis_1">مراجعة النظام الحالي وتحليل تجربة الاستخدام وسير العمليات.</li>
+          <li data-i18n="ba_p1_axis_2">تحديد مشكلات وضوح التسلسل، دورة العمل، الإرشاد وسهولة الاستخدام.</li>
+          <li data-i18n="ba_p1_axis_3">فهم احتياجات المستخدم من خلال Persona وUser Journey وتجميع المشكلات باستخدام Affinity Mapping.</li>
+          <li data-i18n="ba_p1_axis_4">تحويل المشكلات إلى فرص تصميمية وإعادة تصميم الواجهات وتدفقات الاستخدام.</li>
+        </ul>
+      </section>
+
+      <!-- المنهجية والأدوات -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_method_label">المنهجية والأدوات</h4>
+        <dl class="ba-method-list">
+          <div><dt>Double Diamond</dt><dd>Discover → Define → Develop → Deliver</dd></div>
+          <div><dt>UX Methods</dt><dd>UX Evaluation, Competitive Analysis, Affinity Mapping, Persona, User Journey, How Might We, Before &amp; After</dd></div>
+          <div><dt>Design</dt><dd>Wireframes &amp; UI Redesign</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Canva</dd></div>
+        </dl>
+      </section>
+
+      <!-- النتائج -->
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_results_label">النتائج</h4>
+        <ul class="ba-modal-list">
+          <li data-i18n="ba_p1_result_1">تصميم مسارات أكثر وضوحًا لدورة حياة البرامج والمشاريع والخطوات التالية.</li>
+          <li data-i18n="ba_p1_result_2">إضافة مؤشرات للحالة والتقدم والمراحل والمتطلبات الإلزامية.</li>
+          <li data-i18n="ba_p1_result_3">تنظيم العمليات المرتبطة بكل مرحلة وتقليل تشتتها داخل النظام.</li>
+          <li data-i18n="ba_p1_result_4">تقسيم العمليات والنماذج الطويلة إلى خطوات متتابعة لتقليل العبء المعرفي.</li>
+          <li data-i18n="ba_p1_result_5">تحسين الإرشاد أثناء الاستخدام والاتساق وسهولة الوصول إلى الوظائف.</li>
+        </ul>
+      </section>
+
+      <!-- رابط المشروع -->
+      <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض دراسة الحالة" data-ba-en="View Case Study">عرض دراسة الحالة</a>
+    </div>
+    <!-- ============ END MODAL ============ -->
+
+  </div>
 
 </main>
 
@@ -183,6 +336,120 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+/* ==========================================================================
+   USER EXPERIENCE — PROJECT MODAL + HORIZONTAL PROJECTS TRACK
+   Page-scoped only, mirroring the same pattern used on the Business
+   Analysis page (kept separate since each page owns its own modal set).
+   ========================================================================== */
+(function () {
+  var backdrop = document.getElementById('ba-modal-backdrop');
+  if (!backdrop) return;
+
+  function localizeUx() {
+    var arabic = document.documentElement.lang === 'ar';
+    document.querySelectorAll('[data-ba-ar]').forEach(function (el) {
+      el.textContent = el.getAttribute(arabic ? 'data-ba-ar' : 'data-ba-en');
+    });
+    backdrop.querySelectorAll('[data-modal-close]').forEach(function (el) { el.setAttribute('aria-label', arabic ? 'إغلاق' : 'Close'); });
+    document.querySelectorAll('[data-projects-nav]').forEach(function (el) { el.setAttribute('aria-label', el.dataset.projectsNav === 'next' ? (arabic ? 'التالي' : 'Next') : (arabic ? 'السابق' : 'Previous')); });
+  }
+  localizeUx();
+  new MutationObserver(localizeUx).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  var lastTrigger = null;
+
+  /* ---------- Modal ---------- */
+  function openModal(id) {
+    var modal = document.getElementById(id);
+    if (!modal) return;
+    document.querySelectorAll('.ba-modal').forEach(function (m) { m.hidden = m.id !== id; });
+    backdrop.hidden = false;
+    document.body.classList.add('ba-modal-open');
+    modal.scrollTop = 0;
+    var closeBtn = modal.querySelector('[data-modal-close]');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal() {
+    if (backdrop.hidden) return;
+    backdrop.hidden = true;
+    document.body.classList.remove('ba-modal-open');
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      lastTrigger = trigger;
+      openModal(trigger.getAttribute('data-modal-target'));
+    });
+  });
+
+  document.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+    btn.addEventListener('click', closeModal);
+  });
+
+  // Click outside the modal card closes it.
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Tab' && !backdrop.hidden) {
+      var modal = backdrop.querySelector('.ba-modal:not([hidden])');
+      var items = Array.from(modal.querySelectorAll('button, a[href]')).filter(function (el) { return el.getClientRects().length; });
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ---------- Projects: horizontal track prev/next ----------
+     Native scroll + touch handle the browsing; the buttons just nudge it
+     by one card width, RTL-aware. No autoplay, no forced carousel. */
+  var projectsTrack = document.getElementById('ux-projects-track');
+  if (projectsTrack) {
+    var prevBtn = document.querySelector('[data-projects-nav="prev"]');
+    var nextBtn = document.querySelector('[data-projects-nav="next"]');
+
+    function cardStep() {
+      var card = projectsTrack.querySelector('.ba-project-card');
+      var gap = parseFloat(getComputedStyle(projectsTrack).columnGap) || 28;
+      return (card ? card.getBoundingClientRect().width : 320) + gap;
+    }
+
+    function updateNavState() {
+      var maxScroll = projectsTrack.scrollWidth - projectsTrack.clientWidth;
+      var rtl = getComputedStyle(projectsTrack).direction === 'rtl';
+      var atStart, atEnd;
+      if (rtl) {
+        atStart = projectsTrack.scrollLeft >= -1;
+        atEnd = projectsTrack.scrollLeft <= -maxScroll + 1;
+      } else {
+        atStart = projectsTrack.scrollLeft <= 1;
+        atEnd = projectsTrack.scrollLeft >= maxScroll - 1;
+      }
+      if (maxScroll <= 1) { atStart = true; atEnd = true; }
+      if (prevBtn) prevBtn.classList.toggle('is-disabled', atStart);
+      if (nextBtn) nextBtn.classList.toggle('is-disabled', atEnd);
+    }
+
+    function moveTrack(dir) {
+      var rtl = getComputedStyle(projectsTrack).direction === 'rtl';
+      var amount = cardStep();
+      var delta = dir === 'next' ? amount : -amount;
+      if (rtl) delta = -delta;
+      projectsTrack.scrollBy({ left: delta, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { moveTrack('prev'); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { moveTrack('next'); });
+    projectsTrack.addEventListener('scroll', updateNavState, { passive: true });
+    window.addEventListener('resize', updateNavState);
+    updateNavState();
+  }
+})();
+</script>
 </body>
 </html>
 

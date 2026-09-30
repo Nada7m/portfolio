@@ -2525,9 +2525,10 @@ html[lang="en"] .ux-mini-item h4 { font-family: var(--font-display); font-weight
 html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
 
 /* ---- Certifications ---- */
+.ux-certs-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 640px; }
 .ux-cert-item {
-  display: flex; align-items: center; gap: 1.1rem;
-  max-width: 560px;
+  display: flex; align-items: flex-start; gap: 1.1rem;
+  max-width: 640px;
   padding: 1.1rem 1.3rem;
   border: 1px solid rgba(121, 136, 156, 0.15);
   border-radius: 14px;
@@ -2535,12 +2536,27 @@ html[lang="ar"] .ux-mini-item p { font-family: var(--font-ar); }
   transition: border-color 0.25s ease;
 }
 .ux-cert-item:hover { border-color: var(--ux-accent-dark); }
-.ux-cert-badge { width: 34px; height: 34px; flex-shrink: 0; fill: var(--ux-accent-dark); color: var(--ux-accent-dark); }
+.ux-cert-badge { width: 34px; height: 34px; flex-shrink: 0; fill: var(--ux-accent-dark); color: var(--ux-accent-dark); margin-top: 0.2rem; }
 .ux-cert-badge svg { width: 100%; height: 100%; }
 .ux-cert-info h4 { font-family: var(--font-ar); margin: 0 0 0.3rem; font-size: 1rem; color: var(--ux-accent-dark); }
 html[lang="en"] .ux-cert-info h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
 .ux-cert-meta { font-family: var(--font-body); font-size: 0.85rem; color: rgba(41, 71, 160, 0.7); margin: 0; }
 html[lang="ar"] .ux-cert-meta { font-family: var(--font-ar); }
+.ux-cert-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
+.ux-cert-action {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--ux-accent-dark);
+  color: var(--ux-accent-dark);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+html[lang="ar"] .ux-cert-action { font-family: var(--font-ar); }
+.ux-cert-action:hover { background: var(--ux-accent-dark); color: var(--snow); }
+.ux-cert-action.is-primary { background: var(--ux-accent); border-color: var(--ux-accent); color: var(--snow); }
+.ux-cert-action.is-primary:hover { background: var(--ux-accent-dark); border-color: var(--ux-accent-dark); }
 
 @media (max-width: 640px) {
   .ux-hero-blob.b1 { width: 220px; height: 220px; }
@@ -2970,8 +2986,12 @@ body.page-ba .ba-modal-close:hover,
 body.page-ba .ba-modal-callout,
 body.page-ba .ba-gallery-thumb,
 body.page-ux .ba-project-cover,
-body.page-ux .ux-mini-preview {
+body.page-ux .ux-mini-preview,
+body.page-ux .ba-modal-close:hover {
   background: var(--page-accent-light);
+  color: var(--page-accent-dark);
+}
+body.page-ux .ba-modal-close {
   color: var(--page-accent-dark);
 }
 body.page-ba .ba-project-link,
@@ -2983,16 +3003,20 @@ body.page-ba .ba-gallery-dot.is-active,
 body.page-ux .ux-project-link,
 body.page-ux .ux-project-body h3,
 body.page-ux .ux-mini-item h4,
-body.page-ux .ux-cert-info h4 {
+body.page-ux .ux-cert-info h4,
+body.page-ux .ba-modal-section h4,
+body.page-ux .ba-method-list dt {
   color: var(--page-accent-dark);
   border-color: var(--page-accent-dark);
 }
 body.page-ba .ba-modal-cta,
 body.page-ba .ba-gal-arrow:hover,
-body.page-ux .ux-skills-list li:hover {
+body.page-ux .ux-skills-list li:hover,
+body.page-ux .ba-modal-cta {
   background: var(--page-accent);
   color: #FFFFFF;
 }
+body.page-ux .ba-modal-list li::before { background: var(--page-accent); }
 body.page-ba .ba-skills-list li,
 body.page-ux .ux-skills-list li {
   border-color: var(--page-accent-dark);
@@ -3007,7 +3031,8 @@ body.page-ux .ba-modal-backdrop {
   background: color-mix(in srgb, var(--page-ink) 55%, transparent);
 }
 body.page-ba .ba-modal-cta:hover,
-body.page-ux .ba-project-link:hover {
+body.page-ux .ba-project-link:hover,
+body.page-ux .ba-modal-cta:hover {
   background: var(--page-accent-dark);
   color: #FFFFFF;
 }
