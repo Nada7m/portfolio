@@ -14,6 +14,8 @@
 <style>
 /* Project-only refinements; retain the site's existing design tokens. */
 #ux-projects .ba-projects-track-wrap { position: relative; max-width: 1100px; }
+#ba-modal-backdrop .ba-modal-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+#ba-modal-backdrop .ba-modal-links .ba-modal-cta { margin-top: 0; }
 #ux-projects .ba-projects-grid {
   display: flex;
   flex-wrap: nowrap;
@@ -184,14 +186,30 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
         </button>
       </article>
 
-      <!-- id is the destination of the homepage "استكشف المشروع" link for Noreen -->
-      <article class="ba-project-card" id="noreen">
-        <button class="ba-card-open is-pending" type="button" aria-disabled="true">
-          <span class="ba-project-cover"><span data-i18n="placeholder_image">[ صورة المشروع ]</span></span>
+      <!-- ============ 2: MADAR — MADINAH VISITOR EXPERIENCE PLATFORM ============ -->
+      <article class="ba-project-card" id="madar">
+        <button class="ba-card-open" type="button" data-modal-target="ba-modal-madar" aria-haspopup="dialog">
+          <span class="ba-project-cover">
+            <img src="assets/images/projects/madar-01.jpg" alt="" loading="lazy" decoding="async">
+          </span>
           <span class="ba-project-body">
-            <span class="ba-card-title" data-i18n="ux_project_title_placeholder">[ عنوان المشروع ]</span>
-            <span class="ba-card-desc" data-i18n="ux_project_desc_placeholder">[ وصف قصير للمشروع ]</span>
-            <span class="ba-project-link is-disabled" aria-disabled="true" data-i18n="ux_project_link_pending">قريبًا — لا يوجد رابط بعد</span>
+            <span class="ba-card-title" data-ba-ar="مدار — منصة رقمية لتجربة زائر المدينة المنورة" data-ba-en="MADAR — Madinah Visitor Experience Platform">مدار — منصة رقمية لتجربة زائر المدينة المنورة</span>
+            <span class="ba-card-desc" data-ba-ar="منصة رقمية تجمع الوجهات والمشاريع التطويرية واستكشاف المدينة المنورة في تجربة رقمية متكاملة عبر خريطة تفاعلية ومسارات مقترحة." data-ba-en="A digital platform bringing Madinah's destinations, development projects, and city exploration into one integrated experience through an interactive map and suggested routes.">منصة رقمية تجمع الوجهات والمشاريع التطويرية واستكشاف المدينة المنورة في تجربة رقمية متكاملة عبر خريطة تفاعلية ومسارات مقترحة.</span>
+            <span class="ba-project-link" data-ba-ar="عرض التفاصيل" data-ba-en="View Details">عرض التفاصيل</span>
+          </span>
+        </button>
+      </article>
+
+      <!-- ============ 3: MOVIENIGHT — CINEMA BOOKING UX CASE STUDY ============ -->
+      <article class="ba-project-card" id="movienight">
+        <button class="ba-card-open" type="button" data-modal-target="ba-modal-movienight" aria-haspopup="dialog">
+          <span class="ba-project-cover">
+            <img src="assets/images/projects/movienight-cover.jpg" alt="" loading="lazy" decoding="async">
+          </span>
+          <span class="ba-project-body">
+            <span class="ba-card-title" data-ba-ar="MovieNight — دراسة حالة UX لتجربة حجز السينما" data-ba-en="MovieNight — Cinema Booking UX Case Study">MovieNight — دراسة حالة UX لتجربة حجز السينما</span>
+            <span class="ba-card-desc" data-ba-ar="دراسة حالة UX تحسّن تجربة حجز السينما عبر اختيار مقاعد أوضح مع معاينة منظور الشاشة وجمع معلومات الفيلم في تجربة واحدة." data-ba-en="A UX case study improving cinema booking through clearer seat selection with a screen-perspective preview and movie information in one experience.">دراسة حالة UX تحسّن تجربة حجز السينما عبر اختيار مقاعد أوضح مع معاينة منظور الشاشة وجمع معلومات الفيلم في تجربة واحدة.</span>
+            <span class="ba-project-link" data-ba-ar="عرض التفاصيل" data-ba-en="View Details">عرض التفاصيل</span>
           </span>
         </button>
       </article>
@@ -324,6 +342,137 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
 
       <!-- رابط المشروع -->
       <a class="ba-modal-cta" href="https://canva.link/2ev80thwqhj76iu" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض دراسة الحالة" data-ba-en="View Case Study">عرض دراسة الحالة</a>
+    </div>
+    <!-- ============ END MODAL ============ -->
+
+    <!-- ============ MODAL: MADAR — MADINAH VISITOR EXPERIENCE PLATFORM ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-madar-title" id="ba-modal-madar" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <h3 id="ba-modal-madar-title" class="ba-modal-title" data-ba-ar="مدار — منصة رقمية لتجربة زائر المدينة المنورة" data-ba-en="MADAR — Madinah Visitor Experience Platform">مدار — منصة رقمية لتجربة زائر المدينة المنورة</h3>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="معلومات المشروع" data-ba-en="Project Info">معلومات المشروع</h4>
+        <dl class="ba-method-list">
+          <div><dt>Context</dt><dd>Barmajan Al-Madinah 2026</dd></div>
+          <div><dt>Role</dt><dd>Business Analyst &amp; UX Designer</dd></div>
+        </dl>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-ba-ar="مدار منصة رقمية صُممت لتعزيز تجربة زائر المدينة المنورة من خلال جمع الوجهات، والمشاريع التطويرية، واستكشاف المدينة في تجربة رقمية متكاملة. تجمع المنصة بين خريطة تفاعلية، ومعلومات عن الوجهات، ومسارات مقترحة تساعد الزائر على استكشاف المدينة بسهولة وكفاءة أكبر. تم تطوير المشروع بشكل تعاوني ضمن برمجان المدينة المنورة 2026، بدءًا من تطوير الفكرة وتحليل الاحتياجات وتصميم تجربة المستخدم، وصولًا إلى نموذج أولي وظيفي." data-ba-en="MADAR is a digital platform designed to enhance the visitor experience in Madinah by bringing destinations, development projects, and city exploration into one integrated experience. The platform combines an interactive map, destination information, and suggested routes to help visitors explore Madinah more easily and efficiently. Developed collaboratively as part of Barmajan Al-Madinah 2026, the project progressed from concept development, requirements analysis, and user experience design to a functional prototype.">مدار منصة رقمية صُممت لتعزيز تجربة زائر المدينة المنورة من خلال جمع الوجهات، والمشاريع التطويرية، واستكشاف المدينة في تجربة رقمية متكاملة. تجمع المنصة بين خريطة تفاعلية، ومعلومات عن الوجهات، ومسارات مقترحة تساعد الزائر على استكشاف المدينة بسهولة وكفاءة أكبر. تم تطوير المشروع بشكل تعاوني ضمن برمجان المدينة المنورة 2026، بدءًا من تطوير الفكرة وتحليل الاحتياجات وتصميم تجربة المستخدم، وصولًا إلى نموذج أولي وظيفي.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="المشكلة" data-ba-en="Problem">المشكلة</h4>
+        <p data-ba-ar="يحتاج زائر المدينة إلى طريقة أكثر سهولة وتنظيمًا لاكتشاف الوجهات والتجارب والمشاريع داخل المدينة، بدلًا من الاعتماد على معلومات متفرقة أثناء التخطيط للزيارة والتنقل بين الأماكن." data-ba-en="Visitors need a simpler and more organized way to discover destinations, experiences, and development projects across Madinah instead of relying on fragmented information while planning and navigating their visit.">يحتاج زائر المدينة إلى طريقة أكثر سهولة وتنظيمًا لاكتشاف الوجهات والتجارب والمشاريع داخل المدينة، بدلًا من الاعتماد على معلومات متفرقة أثناء التخطيط للزيارة والتنقل بين الأماكن.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الحل" data-ba-en="Solution">الحل</h4>
+        <p data-ba-ar="تجربة رقمية موحدة تجمع استكشاف المدينة في مكان واحد من خلال خريطة تفاعلية، ومعلومات عن الوجهات، ومسارات مقترحة تساعد الزائر على التخطيط لرحلته واكتشاف الأماكن بصورة أوضح وأسهل." data-ba-en="An integrated digital experience that brings city exploration into one place through an interactive map, destination information, and suggested routes that help visitors plan their journey and discover places more easily.">تجربة رقمية موحدة تجمع استكشاف المدينة في مكان واحد من خلال خريطة تفاعلية، ومعلومات عن الوجهات، ومسارات مقترحة تساعد الزائر على التخطيط لرحلته واكتشاف الأماكن بصورة أوضح وأسهل.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="دوري" data-ba-en="My Role">دوري</h4>
+        <p data-ba-ar="عملت ضمن الفريق بدور محللة أعمال ومصممة تجربة مستخدم، وشاركت في تحليل احتياجات المشروع وتجربة المستخدم، وتصميم عدة صفحات من المنصة، بالإضافة إلى المساهمة في تطوير بعض صفحات الموقع وتحويل التصميم إلى نموذج وظيفي." data-ba-en="I worked within the team as a Business Analyst and UX Designer, contributing to project requirements and user experience analysis, designing several platform pages, and participating in the development of some website pages to help turn the design into a functional prototype.">عملت ضمن الفريق بدور محللة أعمال ومصممة تجربة مستخدم، وشاركت في تحليل احتياجات المشروع وتجربة المستخدم، وتصميم عدة صفحات من المنصة، بالإضافة إلى المساهمة في تطوير بعض صفحات الموقع وتحويل التصميم إلى نموذج وظيفي.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="عملية تجربة المستخدم" data-ba-en="UX Process">عملية تجربة المستخدم</h4>
+        <ul class="ba-modal-list">
+          <li data-ba-ar="بحث المستخدم والمقابلات" data-ba-en="User Research / Interviews">بحث المستخدم والمقابلات</li>
+          <li data-ba-ar="رحلة المستخدم" data-ba-en="User Journey">رحلة المستخدم</li>
+          <li data-ba-ar="تحليل المنافسين" data-ba-en="Competitive Analysis">تحليل المنافسين</li>
+          <li data-ba-ar="تحليل المتطلبات" data-ba-en="Requirements Analysis">تحليل المتطلبات</li>
+          <li data-ba-ar="الرسومات الأولية" data-ba-en="Sketches">الرسومات الأولية</li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الأدوات" data-ba-en="Tools">الأدوات</h4>
+        <ul class="ba-modal-list">
+          <li data-ba-ar="Figma" data-ba-en="Figma">Figma</li>
+          <li data-ba-ar="Visual Studio Code (VS Code)" data-ba-en="Visual Studio Code (VS Code)">Visual Studio Code (VS Code)</li>
+          <li data-ba-ar="Claude" data-ba-en="Claude">Claude</li>
+          <li data-ba-ar="Gemini" data-ba-en="Gemini">Gemini</li>
+        </ul>
+      </section>
+
+      <a class="ba-modal-cta" href="https://madar-one-umber.vercel.app/about" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض الموقع" data-ba-en="View Live Project">عرض الموقع</a>
+    </div>
+    <!-- ============ END MODAL ============ -->
+
+    <!-- ============ MODAL: MOVIENIGHT — CINEMA BOOKING UX CASE STUDY ============ -->
+    <div class="ba-modal" role="dialog" aria-modal="true" aria-labelledby="ba-modal-movienight-title" id="ba-modal-movienight" hidden>
+      <button class="ba-modal-close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <h3 id="ba-modal-movienight-title" class="ba-modal-title" data-ba-ar="MovieNight — دراسة حالة UX لتجربة حجز السينما" data-ba-en="MovieNight — Cinema Booking UX Case Study">MovieNight — دراسة حالة UX لتجربة حجز السينما</h3>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="معلومات المشروع" data-ba-en="Project Info">معلومات المشروع</h4>
+        <dl class="ba-method-list">
+          <div><dt>Type</dt><dd>UX Case Study</dd></div>
+          <div><dt>Duration</dt><dd>December 10–16, 2025</dd></div>
+        </dl>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-i18n="ba_modal_overview_label">نبذة</h4>
+        <p data-ba-ar="MovieNight هي دراسة حالة في تجربة المستخدم تهدف إلى تحسين تجربة حجز تذاكر السينما من خلال جعل اختيار المقاعد أكثر وضوحًا وتفاعلية. تتيح الفكرة للمستخدم معاينة منظور الشاشة من صفوف مختلفة قبل الحجز، مع جمع معلومات الفيلم الأساسية ضمن تجربة واحدة." data-ba-en="MovieNight is a UX case study focused on improving the cinema booking experience through a clearer and more immersive seat-selection experience. The concept allows users to preview the screen perspective from different seating rows before booking, while also bringing essential movie information into one experience.">MovieNight هي دراسة حالة في تجربة المستخدم تهدف إلى تحسين تجربة حجز تذاكر السينما من خلال جعل اختيار المقاعد أكثر وضوحًا وتفاعلية. تتيح الفكرة للمستخدم معاينة منظور الشاشة من صفوف مختلفة قبل الحجز، مع جمع معلومات الفيلم الأساسية ضمن تجربة واحدة.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="المشكلة" data-ba-en="Problem">المشكلة</h4>
+        <p data-ba-ar="أظهر بحث المستخدم مشكلتين رئيسيتين: خرائط المقاعد ثنائية الأبعاد لا توضح للمستخدم كيف تختلف تجربة المشاهدة باختلاف موقع المقعد، كما يضطر المستخدم غالبًا إلى مغادرة تطبيق الحجز والبحث عن معلومات إضافية عن الفيلم في منصات أخرى." data-ba-en="User research revealed two key pain points: traditional 2D seat maps make it difficult for users to understand how the viewing experience changes depending on seat location, and users often leave booking apps to search for additional movie information across other platforms.">أظهر بحث المستخدم مشكلتين رئيسيتين: خرائط المقاعد ثنائية الأبعاد لا توضح للمستخدم كيف تختلف تجربة المشاهدة باختلاف موقع المقعد، كما يضطر المستخدم غالبًا إلى مغادرة تطبيق الحجز والبحث عن معلومات إضافية عن الفيلم في منصات أخرى.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="أبرز نقاط الألم" data-ba-en="Key Pain Points">أبرز نقاط الألم</h4>
+        <ul class="ba-modal-list">
+          <li><strong data-ba-ar="عدم وضوح اختيار المقاعد" data-ba-en="Unclear Seat Selection">عدم وضوح اختيار المقاعد</strong> — <span data-ba-ar="لا توضح خرائط المقاعد التقليدية بشكل كافٍ اختلاف المسافة عن الشاشة وزاوية ومنظور المشاهدة بين الصفوف." data-ba-en="Traditional 2D seat maps make it difficult to understand differences in screen distance, viewing angle, and perspective across seating rows.">لا توضح خرائط المقاعد التقليدية بشكل كافٍ اختلاف المسافة عن الشاشة وزاوية ومنظور المشاهدة بين الصفوف.</span></li>
+          <li><strong data-ba-ar="تشتت معلومات الفيلم" data-ba-en="Fragmented Movie Information">تشتت معلومات الفيلم</strong> — <span data-ba-ar="قد يضطر المستخدم إلى مغادرة تجربة الحجز للبحث عن تفاصيل الفيلم في مصادر أخرى، مما يقطع تسلسل عملية الحجز." data-ba-en="Users may leave the booking experience to search elsewhere for movie details, interrupting the booking flow.">قد يضطر المستخدم إلى مغادرة تجربة الحجز للبحث عن تفاصيل الفيلم في مصادر أخرى، مما يقطع تسلسل عملية الحجز.</span></li>
+        </ul>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الحل" data-ba-en="Solution">الحل</h4>
+        <p data-ba-ar="تجمع MovieNight استكشاف الأفلام، ومعلومات الفيلم، واختيار موعد العرض، والمقاعد، وإتمام الحجز ضمن تدفق واحد. وتتمثل الفكرة الأساسية في معاينة منظور الشاشة ثلاثية الأبعاد لمساعدة المستخدم على تصور اختلاف تجربة المشاهدة بين الصفوف قبل اختيار المقعد." data-ba-en="MovieNight combines movie discovery, detailed movie information, showtime selection, seat selection, and checkout within one booking flow. The key UX concept is a 3D screen-perspective preview that helps users visualize how the viewing experience changes across seating rows before choosing a seat.">تجمع MovieNight استكشاف الأفلام، ومعلومات الفيلم، واختيار موعد العرض، والمقاعد، وإتمام الحجز ضمن تدفق واحد. وتتمثل الفكرة الأساسية في معاينة منظور الشاشة ثلاثية الأبعاد لمساعدة المستخدم على تصور اختلاف تجربة المشاهدة بين الصفوف قبل اختيار المقعد.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="دوري" data-ba-en="My Role">دوري</h4>
+        <p data-ba-ar="صممت تجربة المستخدم للمشروع من البداية إلى النهاية، بدءًا من بحث المستخدم وتحديد المشكلة، مرورًا بتدفقات المستخدم والإطارات الأولية والنماذج التفاعلية، وصولًا إلى تصميم الواجهات عالية الدقة." data-ba-en="I designed the end-to-end user experience, from user research and problem definition to user flows, wireframes, prototyping, and the final high-fidelity interface.">صممت تجربة المستخدم للمشروع من البداية إلى النهاية، بدءًا من بحث المستخدم وتحديد المشكلة، مرورًا بتدفقات المستخدم والإطارات الأولية والنماذج التفاعلية، وصولًا إلى تصميم الواجهات عالية الدقة.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="الهدف" data-ba-en="Goal">الهدف</h4>
+        <p data-ba-ar="تبسيط رحلة حجز الفيلم من خلال تقديم تصور أوضح للمقاعد ومعلومات الفيلم ضمن تجربة واحدة، بما يساعد المستخدم على اتخاذ قرار الحجز بثقة أكبر." data-ba-en="Simplify the movie-booking journey by providing clearer seat visualization and complete movie information within one experience, helping users make more confident booking decisions.">تبسيط رحلة حجز الفيلم من خلال تقديم تصور أوضح للمقاعد ومعلومات الفيلم ضمن تجربة واحدة، بما يساعد المستخدم على اتخاذ قرار الحجز بثقة أكبر.</p>
+      </section>
+
+      <section class="ba-modal-section">
+        <h4 data-ba-ar="عملية تجربة المستخدم" data-ba-en="UX Process">عملية تجربة المستخدم</h4>
+        <ul class="ba-modal-list">
+          <li data-ba-ar="بحث المستخدم" data-ba-en="User Research">بحث المستخدم</li>
+          <li data-ba-ar="الشخصيات الافتراضية (Personas)" data-ba-en="Personas">الشخصيات الافتراضية (Personas)</li>
+          <li data-ba-ar="تحديد المشكلة" data-ba-en="Problem Statements">تحديد المشكلة</li>
+          <li data-ba-ar="رحلة المستخدم" data-ba-en="User Journey">رحلة المستخدم</li>
+          <li data-ba-ar="تدفقات المستخدم" data-ba-en="User Flows">تدفقات المستخدم</li>
+          <li data-ba-ar="الإطارات الأولية الرقمية" data-ba-en="Digital Wireframes">الإطارات الأولية الرقمية</li>
+          <li data-ba-ar="النماذج التفاعلية" data-ba-en="Prototyping">النماذج التفاعلية</li>
+          <li data-ba-ar="تصميم الواجهات عالية الدقة" data-ba-en="High-Fidelity UI Design">تصميم الواجهات عالية الدقة</li>
+        </ul>
+      </section>
+
+      <div class="ba-modal-links">
+        <a class="ba-modal-cta" href="assets/documents/projects/MovieNight%20Prpject.pdf" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض دراسة الحالة كاملة" data-ba-en="View Full Case Study">عرض دراسة الحالة كاملة</a>
+        <a class="ba-modal-cta" href="https://www.figma.com/design/1xggo4IIctuSBCjZmBW59E/MovieNight-UI-Design?node-id=0-1&amp;p=f" target="_blank" rel="noopener noreferrer" data-ba-ar="عرض التصميم في Figma" data-ba-en="View in Figma">عرض التصميم في Figma</a>
+      </div>
     </div>
     <!-- ============ END MODAL ============ -->
 
