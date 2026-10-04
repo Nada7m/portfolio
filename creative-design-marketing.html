@@ -14,7 +14,9 @@
 <style>
 /* Tools: two logos, shown directly (no colored square behind them). */
 .cdm-tools-grid { max-width: 480px; }
-.cdm-tool-icon { width: 64px; height: 64px; }
+.cdm-tool-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+.cdm-tool-icon.is-wide { width: auto; height: 56px; }
+.cdm-tool-icon.is-wide img { width: auto; height: 100%; }
 
 /* ---------- Design Gallery: an open, full-bleed horizontal exhibition ---------- */
 #cdm-gallery { padding-inline: 0; overflow: hidden; }
@@ -166,8 +168,8 @@ body.cdm-lightbox-open { overflow: hidden; }
 
     <div class="cdm-tools-grid">
       <div class="cdm-tool-slot">
-        <span class="cdm-tool-icon" aria-hidden="true">
-          <img src="assets/images/tools/canva.png" alt="" loading="lazy" onerror="this.parentNode.hidden=true">
+        <span class="cdm-tool-icon is-wide" aria-hidden="true">
+          <img src="assets/images/tools/canva.png" alt="" width="150" height="56">
         </span>
         <span>Canva</span>
       </div>
@@ -181,13 +183,12 @@ body.cdm-lightbox-open { overflow: hidden; }
   </section>
 
   <!-- ===================== DESIGN GALLERY — معرض التصاميم =====================
-       Images are discovered at load from assets/images/design-gallery/
-       (design-01.jpg, design-02.png, ...). Nothing is shown for files that
-       don't exist. -->
+       Driven by the DESIGNS list in the page script (real files in
+       assets/images/design-gallery/). -->
   <section class="chapter cdm-section" id="cdm-gallery">
     <h2 class="chapter-title" data-ba-ar="معرض التصاميم" data-ba-en="Design Gallery">معرض التصاميم</h2>
 
-    <div class="cdm-gallery" id="cdm-gallery-scroller" dir="ltr" role="region" tabindex="0" hidden>
+    <div class="cdm-gallery" id="cdm-gallery-scroller" dir="ltr" role="region" tabindex="0">
       <div class="cdm-gallery-track" id="cdm-gallery-track"></div>
     </div>
   </section>
@@ -237,8 +238,7 @@ body.cdm-lightbox-open { overflow: hidden; }
    ========================================================================== */
 (function () {
   var DIR = 'assets/images/design-gallery/';
-  var EXTS = ['jpg', 'png', 'jpeg', 'webp'];
-  var MAX = 80, SPEED = 34;                      // px per second
+  var SPEED = 34;                                // px per second
   var scroller = document.getElementById('cdm-gallery-scroller');
   var track = document.getElementById('cdm-gallery-track');
   var lb = document.getElementById('cdm-lightbox');
@@ -268,31 +268,18 @@ body.cdm-lightbox-open { overflow: hidden; }
   localize();
   new MutationObserver(localize).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
-  /* ---------- Discover the files that actually exist ---------- */
-  function loadImg(src) {
-    return new Promise(function (resolve) {
-      var im = new Image();
-      im.onload = function () { resolve({ src: src, w: im.naturalWidth, h: im.naturalHeight }); };
-      im.onerror = function () { resolve(null); };
-      im.src = src;
-    });
-  }
-  function probe(n) {
-    var nn = (n < 10 ? '0' : '') + n;
-    return Promise.all(EXTS.map(function (e) { return loadImg(DIR + 'design-' + nn + '.' + e); }))
-      .then(function (r) { return r.filter(Boolean)[0] || null; });
-  }
-  function discover() {
-    var found = [], misses = 0;
-    function next(n) {
-      if (n > MAX || misses >= 2) return Promise.resolve(found);
-      return probe(n).then(function (hit) {
-        if (hit) { found.push(hit); misses = 0; } else { misses++; }
-        return next(n + 1);
-      });
-    }
-    return next(1);
-  }
+  /* ---------- The designs (real files in assets/images/design-gallery/) ----------
+     w / h are each file's true pixel size, so the layout keeps every
+     proportion before the (large) images have downloaded. Add new designs
+     by appending a line here. */
+  var DESIGNS = [
+    { src: DIR + 'design-01.jpg', w: 9449, h: 21260 },
+    { src: DIR + 'design-02.jpg', w: 3200, h: 2400 },
+    { src: DIR + 'design-03.jpg', w: 3875, h: 5462 },
+    { src: DIR + 'design-04.jpg', w: 4419, h: 6250 },
+    { src: DIR + 'design-05.jpg', w: 3375, h: 3438 },
+    { src: DIR + 'design-06.jpg', w: 4405, h: 6250 }
+  ];
 
   /* ---------- Build the looping track ---------- */
   var designs = [];
@@ -307,6 +294,7 @@ body.cdm-lightbox-open { overflow: hidden; }
     if (clone) { b.setAttribute('aria-hidden', 'true'); b.tabIndex = -1; }
     var im = document.createElement('img');
     im.src = d.src; im.alt = ''; im.draggable = false; im.decoding = 'async';
+    if (clone) im.loading = 'lazy';
     im.style.aspectRatio = d.w + ' / ' + d.h;
     b.appendChild(im);
     return b;
@@ -467,13 +455,10 @@ body.cdm-lightbox-open { overflow: hidden; }
   });
 
   /* ---------- Go ---------- */
-  discover().then(function (found) {
-    if (!found.length) return;                   // no files yet: nothing is shown
-    designs = found;
-    scroller.hidden = false;
-    build();
-    requestAnimationFrame(frame);
-  });
+  designs = DESIGNS;
+  scroller.hidden = false;
+  build();
+  requestAnimationFrame(frame);
 })();
 </script>
 </body>
