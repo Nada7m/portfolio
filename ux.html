@@ -124,7 +124,7 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
     <p class="ux-eyebrow" data-i18n="ux_eyebrow">مجال العمل</p>
     <h1 class="ux-title" data-i18n="card_ux_title">تجربة المستخدم</h1>
     <span class="ux-underline" aria-hidden="true"></span>
-    <p class="ux-intro" data-i18n="ux_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتجربة المستخدم — نص قابل للتعديل لاحقًا ]</p>
+    <p class="ux-intro" data-i18n="ux_intro">أدرس رحلة المستخدم ومشكلات الاستخدام، أبني تدفقات وواجهات أولية، وأحوّل نتائج التحليل إلى تجربة أوضح وأسهل.</p>
   </section>
 
   <!-- ===================== TOOLS — الأدوات ===================== -->
@@ -193,7 +193,7 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
 
       <!-- ============ 1: RAFED ERP UX REDESIGN (moved from Business Analysis) ============ -->
       <!-- id is the destination of the homepage "استكشف المشروع" link -->
-      <article class="ba-project-card" id="rafd">
+      <article class="ba-project-card" id="rafed-project">
         <button class="ba-card-open" type="button" data-modal-target="ba-modal-rafed-ux" aria-haspopup="dialog">
           <span class="ba-project-cover">
             <img src="assets/images/projects/rafed-ux-cover.png" alt="" loading="lazy" decoding="async">
@@ -207,7 +207,7 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
       </article>
 
       <!-- ============ 2: MADAR — MADINAH VISITOR EXPERIENCE PLATFORM ============ -->
-      <article class="ba-project-card" id="madar">
+      <article class="ba-project-card" id="madar-project">
         <button class="ba-card-open" type="button" data-modal-target="ba-modal-madar" aria-haspopup="dialog">
           <span class="ba-project-cover">
             <img src="assets/images/projects/madar-01.jpg" alt="" loading="lazy" decoding="async">
@@ -655,6 +655,29 @@ html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
     window.addEventListener('resize', updateNavState);
     updateNavState();
   }
+})();
+</script>
+<script>
+/* Deep links (e.g. ux.html#madar-project): bring the matching project card into
+   view, including scrolling the horizontal track to it. No modal is opened. */
+(function () {
+  function reveal() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var card = id && document.getElementById(id);
+    if (!card || !card.classList.contains('ba-project-card')) return;
+    var track = card.closest('.ba-projects-grid');
+    if (track) {
+      var prev = track.style.scrollBehavior;
+      track.style.scrollBehavior = 'auto';
+      var t = track.getBoundingClientRect(), c = card.getBoundingClientRect();
+      track.scrollLeft += (c.left + c.width / 2) - (t.left + t.width / 2);
+      track.style.scrollBehavior = prev;
+      track.dispatchEvent(new Event('scroll'));
+    }
+    card.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
+  }
+  window.addEventListener('load', function () { reveal(); setTimeout(reveal, 400); });
+  window.addEventListener('hashchange', reveal);
 })();
 </script>
 </body>

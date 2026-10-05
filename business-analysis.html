@@ -115,7 +115,7 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
     <p class="ba-eyebrow" data-i18n="ba_eyebrow">مجال العمل</p>
     <h1 class="ba-title" data-i18n="card_ba_title">تحليل الأعمال</h1>
     <span class="ba-underline" aria-hidden="true"></span>
-    <p class="ba-intro" data-i18n="ba_intro">[ مساحة لمقدمة شخصية قصيرة عن اهتمامي بتحليل الأعمال — نص قابل للتعديل لاحقًا ]</p>
+    <p class="ba-intro" data-i18n="ba_intro">أحلّل المتطلبات وسير العمل، أوثّق العمليات، وأحوّل احتياج العمل إلى متطلبات ونماذج واضحة للنظام.</p>
   </section>
 
   <!-- ===================== TOOLS — الأدوات ===================== -->
@@ -208,7 +208,7 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
       </article>
 
       <!-- ============ 4: NOREEN EDUCATIONAL FUNDING PLATFORM ============ -->
-      <article class="ba-project-card" id="noreen">
+      <article class="ba-project-card" id="noreen-project">
         <button class="ba-card-open" type="button" data-modal-target="ba-modal-noreen" aria-haspopup="dialog">
           <span class="ba-project-cover">
             <img src="assets/images/projects/noreen-cover.png" alt="" loading="lazy" decoding="async">
@@ -594,6 +594,30 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
     window.addEventListener('resize', updateNavState);
     updateNavState();
   }
+})();
+</script>
+<script>
+/* Deep links (e.g. business-analysis.html#noreen-project): bring the matching
+   project card into view, including scrolling the horizontal track to it.
+   No modal is opened. */
+(function () {
+  function reveal() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var card = id && document.getElementById(id);
+    if (!card || !card.classList.contains('ba-project-card')) return;
+    var track = card.closest('.ba-projects-grid');
+    if (track) {
+      var prev = track.style.scrollBehavior;
+      track.style.scrollBehavior = 'auto';
+      var t = track.getBoundingClientRect(), c = card.getBoundingClientRect();
+      track.scrollLeft += (c.left + c.width / 2) - (t.left + t.width / 2);
+      track.style.scrollBehavior = prev;
+      track.dispatchEvent(new Event('scroll'));
+    }
+    card.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
+  }
+  window.addEventListener('load', function () { reveal(); setTimeout(reveal, 400); });
+  window.addEventListener('hashchange', reveal);
 })();
 </script>
 </body>

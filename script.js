@@ -83,7 +83,7 @@ const translations = {
     field_placeholder: "سيتم إضافة أبرز المشاريع في هذا المجال هنا.",
 
     ba_eyebrow: "مجال العمل",
-    ba_intro: "أفهم ما يحدث وأحلّل ما يمكن تحسينه، أستمع لمتطلبات العميل وأحوّل احتياجاته إلى متطلبات واضحة وحلول أكثر ملاءمة.",
+    ba_intro: "أحلّل المتطلبات وسير العمل، أوثّق العمليات، وأحوّل احتياج العمل إلى متطلبات ونماذج واضحة للنظام.",
     ba_tools_tag: "الأدوات",
     ba_tools_title: "الأدوات",
     ba_tools_note: "الأدوات والبرامج التي أستخدمها فعليًا.",
@@ -171,7 +171,7 @@ const translations = {
     ba_m2_img_5: "محاكاة البيانات",
 
     ux_eyebrow: "مجال العمل",
-    ux_intro: "أبدأ بالمستخدم، أفهم احتياجه، وأحوّل الملاحظات والمشكلات إلى تجارب أبسط وأكثر وضوحًا.",
+    ux_intro: "أدرس رحلة المستخدم ومشكلات الاستخدام، أبني تدفقات وواجهات أولية، وأحوّل نتائج التحليل إلى تجربة أوضح وأسهل.",
     ux_tools_tag: "الأدوات",
     ux_tools_title: "الأدوات",
     ux_tools_note: "أدوات التصميم والبحث التي أستخدمها فعليًا.",
@@ -207,7 +207,7 @@ const translations = {
     ux_cert_date_placeholder: "[ السنة ]",
 
     cdm_eyebrow: "مجال العمل",
-    cdm_intro: "أحوّل الأفكار إلى محتوى بصري له هوية؛ يجذب الانتباه، يوصل الرسالة، ويترك أثرًا.",
+    cdm_intro: "جانب إبداعي أمارس فيه التصميم كهواية، وأطوّر معرفتي بالتسويق الرقمي.",
     cdm_tools_tag: "الأدوات",
     cdm_tools_title: "الأدوات",
     cdm_tools_note: "أدوات التصميم والتسويق التي أستخدمها فعليًا.",
@@ -322,7 +322,7 @@ const translations = {
     field_placeholder: "Selected projects in this field will be added here.",
 
     ba_eyebrow: "Field of Work",
-    ba_intro: "I understand what's happening and identify what can be improved, listen to the client's needs, and translate them into clear requirements and more suitable solutions.",
+    ba_intro: "I analyze requirements and workflows, document processes, and translate business needs into clear system requirements and models.",
     ba_tools_tag: "Tools",
     ba_tools_title: "Tools",
     ba_tools_note: "The tools and software I actually use.",
@@ -410,7 +410,7 @@ const translations = {
     ba_m2_img_5: "Data simulation",
 
     ux_eyebrow: "Field of Work",
-    ux_intro: "I start with the user, understand their needs, and turn insights and problems into simpler, clearer experiences.",
+    ux_intro: "I study user journeys and usability issues, build flows and wireframes, and translate findings into clearer, easier user experiences.",
     ux_tools_tag: "Tools",
     ux_tools_title: "Tools",
     ux_tools_note: "The design and research tools I actually use.",
@@ -446,7 +446,7 @@ const translations = {
     ux_cert_date_placeholder: "[ Year ]",
 
     cdm_eyebrow: "Field of Work",
-    cdm_intro: "I turn ideas into visual content with identity—designed to capture attention, communicate clearly, and leave an impression.",
+    cdm_intro: "A creative side where I practice design as a hobby while developing my knowledge of digital marketing.",
     cdm_tools_tag: "Tools",
     cdm_tools_title: "Tools",
     cdm_tools_note: "The design and marketing tools I actually use.",
