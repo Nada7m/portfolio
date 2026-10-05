@@ -14,7 +14,7 @@ const translations = {
     nav_work: "الأعمال",
     nav_contact: "التواصل",
 
-    hero_eyebrow: "نــدى محــــمد",
+    hero_eyebrow: "ندى محمد حسن الفيفي",
     hero_title: "ملــــــف أعمـــــــــــالـــي",
 
     about_title_1: "نبذة",
@@ -79,8 +79,6 @@ const translations = {
     contact_linkedin: "LinkedIn",
     contact_cv: "السيرة الذاتية",
     cv_modal_title: "اختر نسخة السيرة الذاتية",
-    wip_line_1: "الملف قيد التطوير...",
-    wip_line_2: "من فضلك تحلّى بالصبر! 🙂",
     back_link: "→ العودة",
     field_placeholder: "سيتم إضافة أبرز المشاريع في هذا المجال هنا.",
 
@@ -320,8 +318,6 @@ const translations = {
     contact_linkedin: "LinkedIn",
     contact_cv: "CV",
     cv_modal_title: "Choose CV Language",
-    wip_line_1: "Portfolio under construction...",
-    wip_line_2: "Please bear with me! 🙂",
     back_link: "← Back",
     field_placeholder: "Selected projects in this field will be added here.",
 
@@ -619,35 +615,6 @@ document.querySelectorAll('[data-slider]').forEach(slider => {
   // Clicking the backdrop — or the photo itself — closes it.
   box.addEventListener('click', (e) => { if (e.target !== closeBtn) closePhoto(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePhoto(); });
-})();
-
-/* ==========================================================================
-   WORK-IN-PROGRESS INTRO NOTE
-   Temporary: appears on every fresh homepage load, deliberately NOT
-   remembered between visits (no localStorage/sessionStorage).
-   ========================================================================== */
-(function () {
-  const modal = document.getElementById('wipModal');
-  if (!modal) return;
-
-  const closeBtn = document.getElementById('wipClose');
-
-  function closeWip() {
-    if (modal.hidden) return;
-    modal.hidden = true;
-    document.body.classList.remove('wip-open');
-  }
-  function openWip() {
-    modal.hidden = false;
-    document.body.classList.add('wip-open');
-    if (closeBtn) closeBtn.focus();
-  }
-
-  window.addEventListener('load', openWip);
-
-  if (closeBtn) closeBtn.addEventListener('click', closeWip);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeWip(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeWip(); });
 })();
 
 /* ==========================================================================

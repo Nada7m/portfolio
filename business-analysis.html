@@ -13,7 +13,11 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* Project-only refinements; retain the site's existing design tokens. */
-#ba-projects .ba-projects-track-wrap { position: relative; max-width: 1100px; }
+/* The track spans the full viewport width (past the text column) so the next
+   project peeks in; its own padding keeps the first card on the page margin. */
+#ba-projects .ba-projects-track-wrap { position: relative; margin-inline: calc(-1 * var(--gutter)); }
+#ba-projects .ba-projects-grid { padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); max-width: none; }
+#ba-projects .ba-project-card { scroll-margin-top: 7rem; }
 #ba-projects .ba-projects-grid {
   display: flex;
   flex-wrap: nowrap;
@@ -29,9 +33,12 @@
 #ba-projects .ba-projects-grid::-webkit-scrollbar-track { background: transparent; }
 #ba-projects .ba-projects-grid::-webkit-scrollbar-thumb { background: var(--ba-accent); border-radius: 999px; }
 #ba-projects .ba-project-card { flex: 0 0 auto; width: clamp(260px, 82vw, 340px); scroll-snap-align: start; min-width: 0; }
-#ba-projects .ba-project-cover { flex: none; }
-#ba-projects .ba-project-cover img { object-fit: contain; }
-#ba-projects .ba-card-desc { display: block; overflow: visible; }
+/* Equal-height cards: fixed 16/9 cover box, reserved 2-line title area and a
+   3-line description area, so text length never changes a card's height. */
+#ba-projects .ba-project-cover { flex: none; position: relative; overflow: hidden; }
+#ba-projects .ba-project-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+#ba-projects .ba-card-title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8em; }
+#ba-projects .ba-card-desc { min-height: 5.4em; }
 #ba-projects .ba-projects-nav {
   position: absolute;
   top: 50%;
@@ -50,8 +57,8 @@
 }
 #ba-projects .ba-projects-nav svg { width: 100%; height: 100%; }
 #ba-projects .ba-projects-nav:hover { background: var(--ba-accent); color: var(--snow); }
-#ba-projects .ba-projects-nav.is-prev { inset-inline-start: -8px; }
-#ba-projects .ba-projects-nav.is-next { inset-inline-end: -8px; }
+#ba-projects .ba-projects-nav.is-prev { inset-inline-start: 0.5rem; }
+#ba-projects .ba-projects-nav.is-next { inset-inline-end: 0.5rem; }
 #ba-projects .ba-projects-nav.is-disabled { opacity: 0.35; pointer-events: none; }
 html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
 @media (prefers-reduced-motion: reduce) { #ba-projects .ba-projects-grid { scroll-behavior: auto; } }
@@ -201,7 +208,7 @@ html[dir="rtl"] #ba-projects .ba-projects-nav svg { transform: scaleX(-1); }
       </article>
 
       <!-- ============ 4: NOREEN EDUCATIONAL FUNDING PLATFORM ============ -->
-      <article class="ba-project-card">
+      <article class="ba-project-card" id="noreen">
         <button class="ba-card-open" type="button" data-modal-target="ba-modal-noreen" aria-haspopup="dialog">
           <span class="ba-project-cover">
             <img src="assets/images/projects/noreen-cover.png" alt="" loading="lazy" decoding="async">

@@ -13,7 +13,10 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* Project-only refinements; retain the site's existing design tokens. */
-#ux-projects .ba-projects-track-wrap { position: relative; max-width: 1100px; }
+/* The track spans the full viewport width (past the text column) so the next
+   project peeks in; its own padding keeps the first card on the page margin. */
+#ux-projects .ba-projects-track-wrap { position: relative; margin-inline: calc(-1 * var(--gutter)); }
+#ux-projects .ba-project-card { scroll-margin-top: 7rem; }
 #ba-modal-backdrop .ba-modal-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
 #ba-modal-backdrop .ba-modal-links .ba-modal-cta { margin-top: 0; }
 #ux-projects .ba-projects-grid {
@@ -26,6 +29,9 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding-block: 0.35rem 1rem;
+  padding-inline: var(--gutter);
+  scroll-padding-inline: var(--gutter);
+  max-width: none;
 }
 #ux-projects .ba-projects-grid::-webkit-scrollbar { height: 6px; }
 #ux-projects .ba-projects-grid::-webkit-scrollbar-track { background: transparent; }
@@ -66,8 +72,8 @@
 }
 #ux-projects .ba-projects-nav svg { width: 100%; height: 100%; }
 #ux-projects .ba-projects-nav:hover { background: var(--ux-accent); color: var(--snow); }
-#ux-projects .ba-projects-nav.is-prev { inset-inline-start: -8px; }
-#ux-projects .ba-projects-nav.is-next { inset-inline-end: -8px; }
+#ux-projects .ba-projects-nav.is-prev { inset-inline-start: 0.5rem; }
+#ux-projects .ba-projects-nav.is-next { inset-inline-end: 0.5rem; }
 #ux-projects .ba-projects-nav.is-disabled { opacity: 0.35; pointer-events: none; }
 html[dir="rtl"] #ux-projects .ba-projects-nav svg { transform: scaleX(-1); }
 @media (prefers-reduced-motion: reduce) { #ux-projects .ba-projects-grid { scroll-behavior: auto; } }
